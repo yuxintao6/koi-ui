@@ -1,0 +1,98 @@
+// 引入清除默认样式
+@import "./reset.scss";
+
+// 工具图标颜色
+.koi-icon {
+  // 翻转色字体颜色
+  color: var(--el-header-text-color);
+  outline: none; // 去除伪元素
+  &:hover {
+    color: var(--el-color-primary);
+    cursor: pointer;
+  }
+}
+
+/* 当前页面最大化CSS，选项卡也行要去掉可以加上.el-tabs, */
+.main-maximize {
+  .aside-split,
+  .el-aside,
+  .el-header,
+  .el-footer,
+  .tabs-box {
+    display: none !important;
+  }
+}
+
+/* ElementPlus 横向布局内置样式修改 */
+:root {
+  --el-menu-horizontal-sub-item-height: 40px !important; // 横向菜单高度覆盖
+}
+
+/* 为webkit浏览器设置纵向和横向滚动条宽度和高度 */
+::-webkit-scrollbar {
+  width: $webkit-scrollbar-width; // 纵向滚动条宽度
+  height: $webkit-scrollbar-height; // 纵向滚动条高度
+}
+/* 为滚动条轨道设置背景颜色 */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* 为滚动条设置滑块颜色 */
+::-webkit-scrollbar-thumb {
+  border-radius: $webkit-scrollbar-border-radius;
+  background: $webkit-scrollbar-color;
+}
+/* 悬浮在滑块上时为滑块设置背景颜色 */
+::-webkit-scrollbar-thumb:hover {
+  background: $webkit-scrollbar-hover-color;
+}
+/* nprogress进度条颜色配置 */
+#nprogress .bar {
+  background: var(--el-color-primary) !important;
+}
+/* el-table表头颜色配置 */
+.el-table .el-table__header-wrapper th {
+  color: #303133;
+  font-weight: bold;
+  @apply dark:c-#ffffff;
+}
+/* 管理平台全局字体 */
+body {
+  font-family:
+    v-sans,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+/* ElementPlus级联框单选选中文字也可以（三级会出现选中问题）  */
+.el-cascader-panel {
+  .el-radio {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -8px;
+  }
+}
+
+/* ElementPlus级联框单选选中文字隐藏单选按钮  */
+// .el-cascader-panel {
+// 	.el-radio {
+// 		width: 100%;
+// 		height: 100%;
+// 		z-index: 10;
+// 		position: absolute;
+// 		top: 10px;
+// 		right: 10px;
+//     }
+// 	.el-radio__input {
+// 		visibility: hidden;
+//     }
+// 	.el-cascader-node__postfix {
+// 		top: 10px;
+//     }
+// }

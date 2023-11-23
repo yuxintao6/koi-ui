@@ -1,0 +1,14 @@
+html, body , #app{
+    padding: 0px;
+    margin: 0px;
+    height : 100%;
+}
+/* 去除a链接下划线 #409EFF */
+a {
+    color: var(--el-color-primary);
+    outline: 0;
+    text-decoration: none;
+}
+a:hover {
+    color: #0a16f1;
+}
