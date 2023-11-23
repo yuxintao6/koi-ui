@@ -3,15 +3,15 @@
 </p>
 
 
-<h1 align="center">Fantastic-admin</h1>
+<h1 align="center">YU-ADMIN</h1>
 
 <p align="center">一款<b>开箱即用</b>的 Vue3 中后台管理系统框架</p>
 
 <p align="center">
-  <span>&nbsp;|&nbsp;</span>
+  <span>&nbsp;[&nbsp;</span>
   演示
   <a href="http://39.107.143.109/login" target="_blank">点击这里</a>
-  <span>&nbsp;|&nbsp;</span>
+  <span>&nbsp;]&nbsp;</span>
 <p>
 
 ## 简介
