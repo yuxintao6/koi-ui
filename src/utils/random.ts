@@ -1,8 +1,3 @@
-const hexList: string[] = [];
-for (let i = 0; i <= 15; i++) {
-  hexList[i] = i.toString(16);
-}
-
 /**
  * 获取随机整数
  */
@@ -29,6 +24,11 @@ export function randomNum(min: number, max: number) {
       return 0;
       break;
   }
+}
+
+const hexList: string[] = [];
+for (let i = 0; i <= 15; i++) {
+  hexList[i] = i.toString(16);
 }
 
 /**

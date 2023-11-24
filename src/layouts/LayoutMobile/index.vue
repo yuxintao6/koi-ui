@@ -77,7 +77,7 @@ const mobileDrawer = ref(false);
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    overflow-y: hidden;
+    overflow-x: hidden;
     background-color: var(--el-bg-color);
   }
 }

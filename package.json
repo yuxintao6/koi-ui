@@ -30,6 +30,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.6.1",
     "default-passive-events": "^2.0.0",
+    "echarts": "^5.4.3",
     "element-plus": "^2.4.2",
     "js-cookie": "^3.0.5",
     "mitt": "^3.0.1",

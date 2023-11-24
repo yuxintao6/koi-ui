@@ -171,6 +171,7 @@ const handleTabsMenuParent = (path?: any, value?: any) => {
   // 背景变模糊
   backdrop-filter: blur(5px);
   background-color: var(--el-bg-color);
+  z-index: 10;
 }
 :deep(.el-tabs__item:first-child) {
   margin-left: 16px;
