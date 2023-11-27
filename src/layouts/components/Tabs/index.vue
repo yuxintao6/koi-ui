@@ -170,7 +170,7 @@ const handleTabsMenuParent = (path?: any, value?: any) => {
   top: 0px;
   // 背景变模糊
   backdrop-filter: blur(5px);
-  background-color: var(--el-bg-color);
+  // background-color: var(--el-bg-color);
   z-index: 10;
 }
 :deep(.el-tabs__item:first-child) {

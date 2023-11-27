@@ -1,6 +1,7 @@
 // 导入二次封装axios
 import koi from "@/utils/axios.ts";
 // import { ITableParams } from "./type.ts";
+
 // 统一管理接口
 enum API {
   LIST_DICT_TYPE = "/koi/sysDictType/listDictType",
@@ -11,7 +12,7 @@ enum API {
   DELETE = "/koi/sysDictData/deleteById",
   BATCH_DELETE = "/koi/sysDictData/batchDelete",
   UPDATE_STATE = "/koi/sysDictData/updateStatus",
-  LIST_DATA_BY_TYPE = "/koi/sysDictData/listDataByType",
+  LIST_DATA_BY_TYPE = "/koi/sysDictData/listDataByType"
 }
 // 暴露请求函数
 // 条件下拉框

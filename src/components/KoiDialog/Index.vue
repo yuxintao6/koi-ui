@@ -2,7 +2,7 @@
   <!-- append-to-body 点击空白处不关闭弹窗 -->
   <el-dialog
     :model-value="visible"
-    :header="title"
+    :title="title"
     :width="width"
     :close-on-click-modal="false"
     append-to-body

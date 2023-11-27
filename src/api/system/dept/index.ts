@@ -1,5 +1,6 @@
 // 导入二次封装axios
 import koi from "@/utils/axios.ts";
+
 // 统一管理接口
 enum API {
   LIST = "/koi/sysDept/list",
@@ -10,7 +11,7 @@ enum API {
   DELETE = "/koi/sysDept/deleteById",
   BATCH_DELETE = "/koi/sysDept/batchDelete",
   UPDATE_STATE = "/koi/sysDept/updateStatus",
-  UPDATE_SPREAD = "/koi/sysDept/updateSpread",
+  UPDATE_SPREAD = "/koi/sysDept/updateSpread"
 }
 
 // 多条件进行查询

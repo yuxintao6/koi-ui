@@ -1,5 +1,6 @@
 // 导入二次封装axios
 import koi from "@/utils/axios.ts";
+
 // 统一管理接口
 enum API {
   LIST_PAGE = "/koi/sysLoginLog/listPage",
@@ -8,7 +9,7 @@ enum API {
   ADD = "/koi/sysLoginLog/add",
   DELETE = "/koi/sysLoginLog/deleteById",
   BATCH_DELETE = "/koi/sysLoginLog/batchDelete",
-  UPDATE_STATE = "/koi/sysLoginLog/updateStatus",
+  UPDATE_STATE = "/koi/sysLoginLog/updateStatus"
 }
 
 // 多条件分页查询数据

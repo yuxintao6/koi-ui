@@ -1,6 +1,7 @@
 // 导入二次封装axios
 import koi from "@/utils/axios.ts";
 import { ITableParams } from "./type.ts";
+
 // 统一管理接口
 enum API {
   TEST_LIST_PAGE = "/koi/mp",
@@ -12,7 +13,7 @@ enum API {
   BATCH_DELETE = "/koi/sysRole/batchDelete",
   UPDATE_STATE = "/koi/sysRole/updateStatus",
   LIST_NORMAL_ROLE = "/koi/sysRole/listNormalRole",
-  ASSIGN_USER_ROLE = "/koi/sysRole/assignUserRole",
+  ASSIGN_USER_ROLE = "/koi/sysRole/assignUserRole"
 }
 // 暴露请求函数
 // 分页查询角色数据

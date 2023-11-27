@@ -1,6 +1,7 @@
 // 导入二次封装axios
 import koi from "@/utils/axios.ts";
 import { ITableParams } from "./type.ts";
+
 // 统一管理接口
 enum API {
   LIST_PAGE = "/koi/sysDictType/listPage",
@@ -9,7 +10,7 @@ enum API {
   ADD = "/koi/sysDictType/add",
   DELETE = "/koi/sysDictType/deleteById",
   BATCH_DELETE = "/koi/sysDictType/batchDelete",
-  UPDATE_STATE = "/koi/sysDictType/updateStatus",
+  UPDATE_STATE = "/koi/sysDictType/updateStatus"
 }
 // 暴露请求函数
 // 多条件分页查询数据

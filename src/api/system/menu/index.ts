@@ -1,5 +1,6 @@
 // 导入二次封装axios
 import koi from "@/utils/axios.ts";
+
 // 统一管理接口
 enum API {
   LIST = "/koi/sysMenu/list",
@@ -14,7 +15,7 @@ enum API {
   LIST_ROUTERS = "/koi/sysMenu/listRouters",
   LIST_MENU_NORMAL = "/koi/sysMenu/listMenuNormal",
   LIST_MENUIDS_BY_ROLEID = "/koi/sysMenu/listMenuIdsByRoleId",
-  SAVE_ROLE_MENU = "/koi/sysMenu/saveRoleMenu",
+  SAVE_ROLE_MENU = "/koi/sysMenu/saveRoleMenu"
 }
 
 // 多条件进行查询

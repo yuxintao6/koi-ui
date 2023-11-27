@@ -1,5 +1,4 @@
 // 工具类提示信息
-// @ts-nocheck
 import { ElNotification, ElMessageBox, ElMessage } from "element-plus";
 
 /** 封装任意提示类型通知，默认info */
@@ -136,7 +135,7 @@ export function koiMsgBox(
   confirmButtonText?: string = "确定",
   cancelButtonText?: string = "取消",
   type?: string = "warning"
-): Promise {
+): Promise<boolean> {
   return new Promise((resolve, reject) => {
     ElMessageBox.confirm(message, title, {
       confirmButtonText,

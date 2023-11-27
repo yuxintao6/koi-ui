@@ -15,32 +15,6 @@ export function hiddenNprogress() {
   nprogress.done();
 }
 
-/**
- * 参数处理
- * @param {*} params  参数
- */
-export function tansParams(params: any) {
-  let result = "";
-  for (const propName of Object.keys(params)) {
-    const value = params[propName];
-    var part = encodeURIComponent(propName) + "=";
-    if (value !== null && value !== "" && typeof value !== "undefined") {
-      if (typeof value === "object") {
-        for (const key of Object.keys(value)) {
-          if (value[key] !== null && value[key] !== "" && typeof value[key] !== "undefined") {
-            let params = propName + "[" + key + "]";
-            var subPart = encodeURIComponent(params) + "=";
-            result += subPart + encodeURIComponent(value[key]) + "&";
-          }
-        }
-      } else {
-        result += part + encodeURIComponent(value) + "&";
-      }
-    }
-  }
-  return result;
-}
-
 // DES 加密 key与后端一样的秘钥(8的倍数)   message(值)
 // export function encryptByDES(message, key = "7396101173961011") {
 //   var keyHex = CryptoJS.enc.Utf8.parse(key);
@@ -130,7 +104,7 @@ export function handleTree(data: any, id?: any, parentId?: any, children?: any) 
 }
 
 /**
- * 把日期范围构造成beginTime AND endTime
+ * 把日期范围构造成 beginTime AND endTime
  * @param params 传递对象参数
  * @param dateRange 日期数组
  * @param propName1 自定义名称1
@@ -192,7 +166,7 @@ export function getShowMenuList(menuList: any) {
 }
 
 /**
- * @description 使用递归找出所有面包屑存储到 pinia/vuex 中
+ * @description 使用递归找出所有面包屑存储到 pinia 中
  * @param {Array} menuList 菜单列表
  * @param {Array} parent 父级菜单
  * @param {Object} result 处理后的结果
