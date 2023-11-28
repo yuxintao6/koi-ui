@@ -5,13 +5,9 @@ export function useTableHeight() {
   // 数据表格高度
   const tableHeight = ref();
   // 屏幕高度
-  const screenHeight = ref(
-    window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-  );
+  const screenHeight = ref(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);
   // 屏幕宽度
-  const screenWidth = ref(
-    window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-  );
+  const screenWidth = ref(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
   /** 工具栏 */
   const showSearch = ref<boolean>(true); // 默认显示搜索条件
   const subheight = 248;
@@ -20,10 +16,8 @@ export function useTableHeight() {
   // 搜索表单高度
   const searchFormHeight = ref();
   const handleSearchFormHeight = () => {
-    screenHeight.value =
-      window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    screenWidth.value =
-      window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    screenHeight.value = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    screenWidth.value = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     const searchFormElement: any = document.getElementById("searchFormId");
     searchFormHeight.value = searchFormElement?.offsetHeight; // 搜索条件表单的高度
     showSearchHeight.value = screenHeight.value - (subheight + searchFormHeight.value);
@@ -82,13 +76,9 @@ export function useTreeHeight() {
   // 数据表格高度
   const tableHeight = ref();
   // 屏幕高度
-  const screenHeight = ref(
-    window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-  );
+  const screenHeight = ref(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);
   // 屏幕宽度
-  const screenWidth = ref(
-    window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-  );
+  const screenWidth = ref(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
   /** 工具栏 */
   const showSearch = ref<boolean>(true); // 默认显示搜索条件
   const subheight = 202;
@@ -97,10 +87,8 @@ export function useTreeHeight() {
   // 搜索表单高度
   const searchFormHeight = ref();
   const handleSearchFormHeight = () => {
-    screenHeight.value =
-      window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    screenWidth.value =
-      window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    screenHeight.value = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    screenWidth.value = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     const searchFormElement: any = document.getElementById("searchFormId");
     searchFormHeight.value = searchFormElement?.offsetHeight; // 搜索条件表单的高度
     showSearchHeight.value = screenHeight.value - (subheight + searchFormHeight.value);
@@ -152,20 +140,14 @@ export function useTreeHeight() {
 /** 高度自适应[带分页器高度] */
 export function usePrimaryHeight() {
   // 屏幕高度
-  const screenHeight = ref(
-    window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-  );
+  const screenHeight = ref(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);
   // 屏幕宽度
-  const screenWidth = ref(
-    window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-  );
+  const screenWidth = ref(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
   const subheight = 160;
   const primaryHeight = ref();
   const handlePrimaryHeight = () => {
-    screenHeight.value =
-      window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    screenWidth.value =
-      window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    screenHeight.value = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    screenWidth.value = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     // console.log("搜索条件表单的高度",searchFormHeight.value);
     // console.log("浏览器高度",screenHeight.value);
     if (screenWidth.value <= 666) {
@@ -193,20 +175,14 @@ export function usePrimaryHeight() {
 /** 初始高度自适应[不带分页器高度，也就是页面内嵌iframe高度] -*/
 export function usePageHeight() {
   // 屏幕高度
-  const screenHeight = ref(
-    window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-  );
+  const screenHeight = ref(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);
   // 屏幕宽度
-  const screenWidth = ref(
-    window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-  );
+  const screenWidth = ref(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
   const subheight = 112;
   const pageHeight = ref();
   const handlePageHeight = () => {
-    screenHeight.value =
-      window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    screenWidth.value =
-      window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    screenHeight.value = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    screenWidth.value = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     // console.log("搜索条件表单的高度",searchFormHeight.value);
     // console.log("浏览器高度",screenHeight.value);
     if (screenWidth.value <= 666) {

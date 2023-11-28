@@ -2,9 +2,7 @@
   <div class="p-10px">
     <span>
       Gitee仓库：
-      <a href="https://gitee.com/BigCatHome/koi-ui" target="_blank"
-        >https://gitee.com/BigCatHome/koi-ui</a
-      >
+      <a href="https://gitee.com/BigCatHome/koi-ui" target="_blank">https://gitee.com/BigCatHome/koi-ui</a>
     </span>
   </div>
 </template>

@@ -16,16 +16,10 @@
           <slot name="content"></slot>
         </div>
         <div class="footer" v-if="!footerHidden">
-          <el-button
-            type="primary"
-            loading-icon="Eleme"
-            :loading="confirmLoading"
-            v-throttle="koiConfirm"
-            >{{ confirmText }}</el-button
-          >
-          <el-button type="danger" @click="koiCancel">{{
-            cancelText
+          <el-button type="primary" loading-icon="Eleme" :loading="confirmLoading" v-throttle="koiConfirm">{{
+            confirmText
           }}</el-button>
+          <el-button type="danger" @click="koiCancel">{{ cancelText }}</el-button>
         </div>
       </div>
     </el-drawer>
@@ -62,7 +56,7 @@ const props = withDefaults(defineProps<IDrawerProps>(), {
   cancelText: "取消",
   direction: "rtl",
   loading: false,
-  footerHidden: false,
+  footerHidden: false
 });
 
 // 开关变量
@@ -115,7 +109,7 @@ const emits = defineEmits(["koiConfirm", "koiCancel"]);
 defineExpose({
   koiOpen,
   koiClose,
-  koiQuickClose,
+  koiQuickClose
 });
 </script>
 

@@ -2,7 +2,6 @@
   <img src="https://pic4.zhimg.com/v2-702a23ebb518199355099df77a3cfe07_b.webp" width="200" height="200" />
 </p>
 
-
 <h1 align="center">YU-ADMIN🌻</h1>
 
 <p align="center">一款<b>开箱即用</b>的 Vue3 中后台管理系统框架[纯前端]</p>
@@ -13,7 +12,6 @@
   <a href="http://39.107.143.109/login" target="_blank">点击这里</a>
   <span>&nbsp;]&nbsp;</span>
 <p>
-
 
 ## 1、简介
 
@@ -60,7 +58,6 @@ YU-ADMIN🌻 是一款开源企业级别的中后台管理平台模板，基于 
   </tr>
 </table>
 
-
 ## 4、支持
 
 如果觉得 YU-ADMIN🌻这个框架不错，或者已经在使用了，希望你可以在 **Github** 或者 **Gitee(码云)** 帮我点个 ⭐ ，这将对我是极大的鼓励。
@@ -96,10 +93,10 @@ pnpm build:prod
   <span>&nbsp;]&nbsp;</span>
 <p>
 
-
-
 ## 8、入群交流
+
 > 注意：加微信方式时记得添加备注：KOI-UI
+
 <table>
     <tr>
         <td><img src="https://i.miji.bid/2023/11/26/db0ea158bd0e90586b3a6636e71417ae.jpeg"/></td>

@@ -24,9 +24,9 @@ const throttle: Directive = {
           lastExecTime = now;
         }
       },
-      { passive: false },
+      { passive: false }
     );
-  },
+  }
 };
 
 export default throttle;

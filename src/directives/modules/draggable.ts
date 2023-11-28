@@ -44,6 +44,6 @@ const draggable: Directive = {
         document.onmousemove = document.onmouseup = null;
       };
     };
-  },
+  }
 };
 export default draggable;

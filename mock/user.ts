@@ -14,6 +14,6 @@ export default [
       } else {
         return { code: 500, msg: "登录失败" };
       }
-    },
-  },
+    }
+  }
 ];

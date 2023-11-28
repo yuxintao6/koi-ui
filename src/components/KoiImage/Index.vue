@@ -33,15 +33,8 @@
                 @click="handleSelectedIndex(index)"
               >
                 <span class="truncate">{{ item.categoryName }}</span>
-                <el-button
-                  plain
-                  type="primary"
-                  class="ml-auto px-4px"
-                  size="small"
-                >
-                  <el-icon :size="14" @click.stop="handleUpdateCategory"
-                    ><Edit
-                  /></el-icon>
+                <el-button plain type="primary" class="ml-auto px-4px" size="small">
+                  <el-icon :size="14" @click.stop="handleUpdateCategory"><Edit /></el-icon>
                 </el-button>
                 <el-popconfirm
                   title="是否删除？"
@@ -83,11 +76,7 @@
               <el-row>
                 <el-col :span="4" v-for="item in imageList" :key="item.id">
                   <!-- 图片卡片 -->
-                  <el-card
-                    shadow="hover"
-                    class="relative mb-4px"
-                    :body-style="{ padding: '4px 4px 0px 4px' }"
-                  >
+                  <el-card shadow="hover" class="relative mb-4px" :body-style="{ padding: '4px 4px 0px 4px' }">
                     <el-image
                       style="width: 100%"
                       class="h-140px"
@@ -107,11 +96,7 @@
                       </template>
                     </el-image>
                     <div class="flex items-center justify-center p-4px">
-                      <el-checkbox
-                        size="small"
-                        v-model="item.checked"
-                        border
-                        @change="handleChecked(item)"
+                      <el-checkbox size="small" v-model="item.checked" border @change="handleChecked(item)"
                         >选择此图片</el-checkbox
                       >
                     </div>
@@ -160,12 +145,7 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
-import {
-  koiNoticeSuccess,
-  koiMsgSuccess,
-  koiMsgError,
-  koiMsgWarning,
-} from "@/utils/koi.ts";
+import { koiNoticeSuccess, koiMsgSuccess, koiMsgError, koiMsgWarning } from "@/utils/koi.ts";
 
 const title = ref();
 const koiDialogRef = ref();
@@ -203,76 +183,66 @@ const handleCancel = () => {
 const categoryList = ref([
   { id: 1, categoryName: "轮播图" },
   { id: 2, categoryName: "动漫分类" },
-  { id: 3, categoryName: "明星分类" },
+  { id: 3, categoryName: "明星分类" }
 ]);
 
 const imageList = ref<any>([
   {
     id: 1,
     imageName: "1.png",
-    imageUrl:
-      "https://i.mji.rip/2023/10/09/ddb8b342347328e4647bdc6769251edc.jpeg",
+    imageUrl: "https://i.mji.rip/2023/10/09/ddb8b342347328e4647bdc6769251edc.jpeg"
   },
   {
     id: 2,
     imageName: "2.png",
-    imageUrl:
-      "https://i.mji.rip/2023/10/09/d11d86e2a4bb118fdf60df06ec43fd71.jpeg",
+    imageUrl: "https://i.mji.rip/2023/10/09/d11d86e2a4bb118fdf60df06ec43fd71.jpeg"
   },
   {
     id: 3,
     imageName: "3.png",
-    imageUrl:
-      "https://pic4.zhimg.com/v2-702a23ebb518199355099df77a3cfe07_b.webp",
+    imageUrl: "https://pic4.zhimg.com/v2-702a23ebb518199355099df77a3cfe07_b.webp"
   },
   {
     id: 4,
     imageName: "4.png",
-    imageUrl:
-      "https://pic2.zhimg.com/v2-44ce1b82f7e68de4078bf513221619e1_b.webp",
+    imageUrl: "https://pic2.zhimg.com/v2-44ce1b82f7e68de4078bf513221619e1_b.webp"
   },
   {
     id: 5,
     imageName: "5.png",
-    imageUrl:
-      "https://pic2.zhimg.com/v2-430e1a7dd0508a0b4b01dca9b94b22f5_b.webp",
+    imageUrl: "https://pic2.zhimg.com/v2-430e1a7dd0508a0b4b01dca9b94b22f5_b.webp"
   },
   {
     id: 6,
     imageName: "6.png",
-    imageUrl:
-      "https://pic3.zhimg.com/v2-b6c350529f3c06c8a90d886c311f3866_b.webp",
+    imageUrl: "https://pic3.zhimg.com/v2-b6c350529f3c06c8a90d886c311f3866_b.webp"
   },
   {
     id: 7,
     imageName: "7.png",
-    imageUrl:
-      "https://img1.baidu.com/it/u=1804190208,1891571568&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=721",
+    imageUrl: "https://img1.baidu.com/it/u=1804190208,1891571568&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=721"
   },
   {
     id: 8,
     imageName: "8.png",
-    imageUrl:
-      "https://img0.baidu.com/it/u=1084576395,3892192542&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=553",
+    imageUrl: "https://img0.baidu.com/it/u=1084576395,3892192542&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=553"
   },
   {
     id: 9,
     imageName: "9.png",
-    imageUrl:
-      "https://img2.baidu.com/it/u=3411611412,2734862961&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=745",
+    imageUrl: "https://img2.baidu.com/it/u=3411611412,2734862961&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=745"
   },
   {
     id: 10,
     imageName: "10.png",
-    imageUrl:
-      "https://img0.baidu.com/it/u=3945773513,267927344&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800",
-  },
+    imageUrl: "https://img0.baidu.com/it/u=3945773513,267927344&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+  }
 ]);
 /** 查询分类开始 */
 // 查询参数
 const searchCategoryParams = ref({
   pageNo: 1, // 第几页
-  pageSize: 10, // 每页显示多少条
+  pageSize: 10 // 每页显示多少条
 });
 const categoryTotal = ref<number>(0);
 /** 数据表格 */
@@ -319,7 +289,7 @@ onMounted(() => {
 // 查询参数
 const searchImageParams = ref({
   pageNo: 1, // 第几页
-  pageSize: 10, // 每页显示多少条
+  pageSize: 10 // 每页显示多少条
 });
 const imageTotal = ref<number>(0);
 /** 数据表格 */
@@ -387,9 +357,7 @@ const loading = ref(false);
 // }
 
 // 选中的图片
-const checkImage = computed(() =>
-  imageList.value.filter((item: any) => item.checked),
-);
+const checkImage = computed(() => imageList.value.filter((item: any) => item.checked));
 // 选中图片checked
 const handleChecked = (item?: any) => {
   // koiMsgSuccess("选择图片🌻" + item.imageUrl);

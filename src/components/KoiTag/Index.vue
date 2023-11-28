@@ -14,7 +14,7 @@
           :size="size"
           :style="{
             'border-color': item.dictColor,
-            background: item.dictColor,
+            background: item.dictColor
           }"
         >
           {{ item.dictLabel }}
@@ -31,7 +31,7 @@
           :size="size"
           :style="{
             'border-color': item.dictColor,
-            background: item.dictColor,
+            background: item.dictColor
           }"
         >
           {{ item.dictLabel }}
@@ -56,7 +56,7 @@ const props = withDefaults(defineProps<ITagProps>(), {
   tagOptions: [],
   value: "",
   size: "default",
-  effect: "light",
+  effect: "light"
 });
 </script>
 

@@ -27,9 +27,9 @@ const debounce: Directive = {
           handler();
         }, delay);
       },
-      { passive: false },
+      { passive: false }
     );
-  },
+  }
 };
 
 export default debounce;

@@ -26,18 +26,12 @@
         </span>
         <!-- 默认不显示下载 -->
         <span v-if="isDownLoad" style="padding-left: 5px">
-          <el-icon size="16" @click="handleDownLoad(item.url)"
-            ><Download
-          /></el-icon>
+          <el-icon size="16" @click="handleDownLoad(item.url)"><Download /></el-icon>
         </span>
       </div>
     </div>
     <span class="file-tips">
-      <slot name="tip">
-        支持{{ acceptTypes }}；文件大小不能超过{{ props.fileSize }}M；最多上传{{
-          props.limit
-        }}个；
-      </slot>
+      <slot name="tip"> 支持{{ acceptTypes }}；文件大小不能超过{{ props.fileSize }}M；最多上传{{ props.limit }}个； </slot>
     </span>
   </div>
 </template>
@@ -45,12 +39,7 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
 import { ElLoading } from "element-plus";
-import {
-  koiNoticeSuccess,
-  koiNoticeError,
-  koiMsgWarning,
-  koiMsgBoxAlert,
-} from "@/utils/koi.ts";
+import { koiNoticeSuccess, koiNoticeError, koiMsgWarning, koiMsgBoxAlert } from "@/utils/koi.ts";
 import koi from "@/utils/axios.ts";
 const emits = defineEmits(["fileSuccess", "fileRemove", "update:koiFileList"]);
 interface Props {
@@ -74,7 +63,7 @@ const props = withDefaults(defineProps<Props>(), {
   fileSize: 20,
   action: "/koi/file/uploadFile",
   fileList: [],
-  isDownLoad: false,
+  isDownLoad: false
 });
 let koiFileList = ref<any>([]);
 // 父组件传递回显数据
@@ -86,7 +75,7 @@ watch(
   () => {
     // 父组件传递回显数据
     koiFileList.value = props.fileList;
-  },
+  }
 );
 // const handleExceed = () => {
 //   koiMsgWarning(`当前最多只能上传 ${props.limit} 个，请移除后上传！`)
@@ -123,7 +112,7 @@ const handleChange = async (file: any) => {
     formData.append("fileType", "2");
     const loadingInstance = ElLoading.service({
       text: "正在上传",
-      background: "rgba(0,0,0,.2)",
+      background: "rgba(0,0,0,.2)"
     });
     // 上传到服务器上面
     const requestURL: string = props.action;
@@ -134,13 +123,13 @@ const handleChange = async (file: any) => {
         let fileMap = res.data;
         koiFileList.value.push({
           name: fileMap.fileName,
-          url: fileMap.filePath,
+          url: fileMap.filePath
         });
         emits("update:koiFileList", koiFileList.value);
         emits("fileSuccess", fileMap);
         koiNoticeSuccess(`文件上传成功🌻`);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log("文件上传", error);
         loadingInstance.close();
         koiNoticeError(`文件上传失败🌻`);

@@ -3,11 +3,7 @@
     <el-upload
       :id="uuid"
       action="#"
-      :class="[
-        'upload',
-        imageDisabled ? 'disabled' : '',
-        drag ? 'no-border' : '',
-      ]"
+      :class="['upload', imageDisabled ? 'disabled' : '', drag ? 'no-border' : '']"
       :multiple="false"
       :disabled="imageDisabled"
       :show-file-list="false"
@@ -47,11 +43,7 @@
     <div class="upload-tip">
       <slot name="tip"></slot>
     </div>
-    <el-image-viewer
-      v-if="imageViewShow"
-      :url-list="[imageUrl]"
-      @close="imageViewShow = false"
-    />
+    <el-image-viewer v-if="imageViewShow" :url-list="[imageUrl]" @close="imageViewShow = false" />
   </div>
 </template>
 
@@ -60,11 +52,7 @@ import { ref, computed, inject } from "vue";
 import { ElLoading } from "element-plus";
 import { generateUUID } from "@/utils";
 import koi from "@/utils/axios.ts";
-import {
-  ElNotification,
-  formContextKey,
-  formItemContextKey,
-} from "element-plus";
+import { ElNotification, formContextKey, formItemContextKey } from "element-plus";
 import type { UploadProps, UploadRequestOptions } from "element-plus";
 
 interface UploadFileProps {
@@ -86,16 +74,10 @@ const props = withDefaults(defineProps<UploadFileProps>(), {
   drag: true,
   disabled: false,
   fileSize: 3,
-  fileType: () => [
-    "image/webp",
-    "image/jpg",
-    "image/jpeg",
-    "image/png",
-    "image/gif",
-  ],
+  fileType: () => ["image/webp", "image/jpg", "image/jpeg", "image/png", "image/gif"],
   height: "120px",
   width: "120px",
-  borderRadius: "6px",
+  borderRadius: "6px"
 });
 
 // 生成组件唯一id
@@ -124,18 +106,14 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
   formData.append("file", options.file);
   const loadingInstance = ElLoading.service({
     text: "正在上传",
-    background: "rgba(0,0,0,.2)",
+    background: "rgba(0,0,0,.2)"
   });
   try {
-    const res: any = await koi.post(
-      props.action + "/" + props.fileSize,
-      formData,
-    );
+    const res: any = await koi.post(props.action + "/" + props.fileSize, formData);
     emit("update:imageUrl", res.data.filePath);
     loadingInstance.close();
     // 调用 el-form 内部的校验方法（可自动校验）
-    formItemContext?.prop &&
-      formContext?.validateField([formItemContext.prop as string]);
+    formItemContext?.prop && formContext?.validateField([formItemContext.prop as string]);
   } catch (error) {
     loadingInstance.close();
     options.onError(error as any);
@@ -161,21 +139,21 @@ const editImg = () => {
  * @description 文件上传之前判断
  * @param rawFile 选择的文件
  * */
-const beforeUpload: UploadProps["beforeUpload"] = (rawFile) => {
+const beforeUpload: UploadProps["beforeUpload"] = rawFile => {
   const imgSize = rawFile.size / 1024 / 1024 < props.fileSize;
   const imgType = props.fileType.includes(rawFile.type);
   if (!imgType)
     ElNotification({
       title: "温馨提示",
       message: "上传图片不符合所需的格式！",
-      type: "warning",
+      type: "warning"
     });
   if (!imgSize)
     setTimeout(() => {
       ElNotification({
         title: "温馨提示",
         message: `上传图片大小不能超过 ${props.fileSize}M！`,
-        type: "warning",
+        type: "warning"
       });
     }, 0);
   return imgType && imgSize;
@@ -188,7 +166,7 @@ const uploadSuccess = () => {
   ElNotification({
     title: "温馨提示",
     message: "图片上传成功！",
-    type: "success",
+    type: "success"
   });
 };
 
@@ -199,7 +177,7 @@ const uploadError = () => {
   ElNotification({
     title: "温馨提示",
     message: "图片上传失败，请您重新上传！",
-    type: "error",
+    type: "error"
   });
 };
 </script>

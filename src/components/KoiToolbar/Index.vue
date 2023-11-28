@@ -2,10 +2,7 @@
   <!-- 使用方式：<KoiToolbar v-model:showSearch="showSearch" @refreshTable="handleTableData"></KoiToolbar> -->
   <div class="koi-toolbar">
     <el-row>
-      <el-tooltip
-        :content="showSearch ? '隐藏搜索' : '显示搜索'"
-        placement="top"
-      >
+      <el-tooltip :content="showSearch ? '隐藏搜索' : '显示搜索'" placement="top">
         <el-button circle icon="search" @click="toggleSearch()" />
       </el-tooltip>
       <el-tooltip content="刷新" placement="top">

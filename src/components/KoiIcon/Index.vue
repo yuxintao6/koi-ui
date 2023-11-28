@@ -5,7 +5,7 @@
       clearable
       style="width: 500px"
       placeholder="请输入图标名称"
-      @click="haneleOpenDialog"
+      @click="handleOpenDialog"
       @clear="filterIcons"
       @input="filterIcons"
     >
@@ -115,7 +115,7 @@ const iconName = ref("Aim");
 const emit = defineEmits(["update:selected"]);
 
 // 模糊搜索过滤数据
-function filterIcons() {
+const filterIcons = () => {
   if (iconType.value == "1") {
     if (iconName.value) {
       elementPlusIconList.value = elementPlusIconList.value.filter((item: any) => item.indexOf(iconName.value) !== -1);
@@ -130,21 +130,21 @@ function filterIcons() {
       resetDefaultIcon();
     }
   }
-}
+};
 
 // 选中颜色
 const selectedIndex = ref<string | number>(1);
 
 // 被选中图标数据
-function handleSelectIcon(name?: any, index?: any) {
+const handleSelectIcon = (name?: any, index?: any) => {
   emit("update:selected", name);
   selectedIndex.value = index;
   iconName.value = name;
   document.body.click();
-}
+};
 
 const koiDrawerRef = ref();
-const haneleOpenDialog = () => {
+const handleOpenDialog = () => {
   koiDrawerRef.value.koiOpen();
 };
 

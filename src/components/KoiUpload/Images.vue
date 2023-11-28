@@ -4,11 +4,7 @@
       v-model:file-list="filesList"
       action="#"
       list-type="picture-card"
-      :class="[
-        'upload',
-        imageDisabled ? 'disabled' : '',
-        drag ? 'no-border' : '',
-      ]"
+      :class="['upload', imageDisabled ? 'disabled' : '', drag ? 'no-border' : '']"
       :multiple="true"
       :disabled="imageDisabled"
       :limit="limit"
@@ -33,11 +29,7 @@
             <el-icon><ZoomIn /></el-icon>
             <span>查看</span>
           </div>
-          <div
-            v-if="!imageDisabled"
-            class="upload-icon"
-            @click="handleRemove(file)"
-          >
+          <div v-if="!imageDisabled" class="upload-icon" @click="handleRemove(file)">
             <el-icon><Delete /></el-icon>
             <span>删除</span>
           </div>
@@ -47,11 +39,7 @@
     <div class="el-upload-tip">
       <slot name="tip"></slot>
     </div>
-    <el-image-viewer
-      v-if="imgViewVisible"
-      :url-list="[viewImageUrl]"
-      @close="imgViewVisible = false"
-    />
+    <el-image-viewer v-if="imgViewVisible" :url-list="[viewImageUrl]" @close="imgViewVisible = false" />
   </div>
 </template>
 
@@ -59,17 +47,8 @@
 import { ref, computed, inject, watch } from "vue";
 import { ElLoading } from "element-plus";
 import koi from "@/utils/axios.ts";
-import {
-  koiNoticeSuccess,
-  koiNoticeWarning,
-  koiNoticeError,
-} from "@/utils/koi.ts";
-import type {
-  UploadProps,
-  UploadFile,
-  UploadUserFile,
-  UploadRequestOptions,
-} from "element-plus";
+import { koiNoticeSuccess, koiNoticeWarning, koiNoticeError } from "@/utils/koi.ts";
+import type { UploadProps, UploadFile, UploadUserFile, UploadRequestOptions } from "element-plus";
 import { formContextKey, formItemContextKey } from "element-plus";
 
 interface UploadFileProps {
@@ -95,7 +74,7 @@ const props = withDefaults(defineProps<UploadFileProps>(), {
   fileType: ["image/webp", "image/jpg", "image/jpeg", "image/png", "image/gif"],
   height: "120px",
   width: "120px",
-  borderRadius: "6px",
+  borderRadius: "6px"
 });
 
 // 获取 el-form 组件上下文
@@ -114,14 +93,14 @@ watch(
   () => props.imageList,
   (n: UploadUserFile[]) => {
     filesList.value = n;
-  },
+  }
 );
 
 /**
  * @description 文件上传之前判断
  * @param rawFile 选择的文件
  * */
-const beforeUpload: UploadProps["beforeUpload"] = (rawFile) => {
+const beforeUpload: UploadProps["beforeUpload"] = rawFile => {
   const imgSize = rawFile.size / 1024 / 1024 < props.fileSize;
   const imgType = props.fileType.includes(rawFile.type);
   if (!imgType) koiNoticeWarning("上传图片不符合所需的格式🌻");
@@ -141,13 +120,10 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
   formData.append("file", options.file);
   const loadingInstance = ElLoading.service({
     text: "正在上传",
-    background: "rgba(0,0,0,.2)",
+    background: "rgba(0,0,0,.2)"
   });
   try {
-    const res: any = await koi.post(
-      props.action + "/" + props.fileSize,
-      formData,
-    );
+    const res: any = await koi.post(props.action + "/" + props.fileSize, formData);
     options.onSuccess(res.data);
     loadingInstance.close();
   } catch (error) {
@@ -164,16 +140,12 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
 const emit = defineEmits<{
   "update:imageList": [value: UploadUserFile[]];
 }>();
-const uploadSuccess = (
-  response: { fileUrl: string } | undefined,
-  uploadFile: UploadFile,
-) => {
+const uploadSuccess = (response: { fileUrl: string } | undefined, uploadFile: UploadFile) => {
   if (!response) return;
   uploadFile.url = response.fileUrl;
   emit("update:imageList", filesList.value);
   // 调用 el-form 内部的校验方法（可自动校验）
-  formItemContext?.prop &&
-    formContext?.validateField([formItemContext.prop as string]);
+  formItemContext?.prop && formContext?.validateField([formItemContext.prop as string]);
   koiNoticeSuccess("图片上传成功🌻");
 };
 
@@ -182,9 +154,7 @@ const uploadSuccess = (
  * @param file 删除的文件
  * */
 const handleRemove = (file: UploadFile) => {
-  filesList.value = filesList.value.filter(
-    (item) => item.url !== file.url || item.name !== file.name,
-  );
+  filesList.value = filesList.value.filter(item => item.url !== file.url || item.name !== file.name);
   emit("update:imageList", filesList.value);
 };
 
@@ -208,7 +178,7 @@ const handleExceed = () => {
  * */
 const viewImageUrl = ref("");
 const imgViewVisible = ref(false);
-const handlePictureCardPreview: UploadProps["onPreview"] = (file) => {
+const handlePictureCardPreview: UploadProps["onPreview"] = file => {
   viewImageUrl.value = file.url!;
   imgViewVisible.value = true;
 };
