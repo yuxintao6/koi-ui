@@ -1,6 +1,6 @@
 <template>
   <div class="p-6px">
-    <SvgIcon name="koi-mobmenu" width="50px" height="50px"></SvgIcon>
+    <SvgIcon name="koi-mobile-menu" width="50px" height="50px"></SvgIcon>
   </div>
 </template>
 

@@ -403,6 +403,22 @@
       "redirect": ""
     },
     {
+      "menuId": 86,
+      "menuName": "防抖节流",
+      "parentId": 8,
+      "menuType": "2",
+      "path": "/module/controls",
+      "name": "controlsPage",
+      "component": "module/controls/index",
+      "icon": "TurnOff",
+      "isHide": "1",
+      "isLink": "",
+      "isKeepAlive": "0",
+      "isFull": "1",
+      "isAffix": "1",
+      "redirect": ""
+    },
+    {
       "menuId": 9,
       "menuName": "异常页面",
       "parentId": 0,
