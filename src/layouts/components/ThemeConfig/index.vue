@@ -5,15 +5,15 @@
       <el-row>
         <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
           <div
-            class="shadow-sm border-#93b5cf dark:border-#1887F9 sm:hover:border-#1887F9 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
-            @click="changeThemeColor('#1887F9')"
-            :class="{ selected: globalStore.themeColor === '#1887F9' }"
-            :style="{ 'border-color': globalStore.themeColor === '#1887F9' ? '#1887F9' : '' }"
+            class="shadow-sm border-#93b5cf dark:border-#2992FF sm:hover:border-#2992FF transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
+            @click="changeThemeColor('#2992FF')"
+            :class="{ selected: globalStore.themeColor === '#2992FF' }"
+            :style="{ 'border-color': globalStore.themeColor === '#2992FF' ? '#2992FF' : '' }"
           >
-            <div class="m-l-4px w-8px h-50px bg-#1887F9 rounded-md"></div>
+            <div class="m-l-4px w-8px h-50px bg-#2992FF rounded-md"></div>
             <div class="p-l-10px m-t-9px w-100% h-50px text-sm">
-              <div class="p-b-4px c-#1887F9">兔子坦克形态</div>
-              <div class="c-#1887F9">#077EF8<span> | </span>rgb(24, 135, 249)</div>
+              <div class="p-b-4px c-#2992FF">兔子坦克形态</div>
+              <div class="c-#2992FF">#077EF8<span> | </span>rgb(24, 135, 249)</div>
             </div>
           </div>
         </el-col>
