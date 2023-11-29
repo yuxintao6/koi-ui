@@ -31,7 +31,7 @@ YU-ADMIN🌻 是一款开源企业级别的中后台管理平台模板，基于 
 - 🌈 集成 `unocss`，antfu 开源的原子 css 解决方案，非常轻量。
 - 🐟 集成多环境配置，dev、测试、生产环境。
 - 🌼 集成 `eslint + prettier`，代码约束和格式化统一。
-- 🌻 集成 `husky + commitlint`，代码提交规范化。
+- 🌻 集成 `stylelint`，代码约束scss、less、css规范化。
 - 👻 集成 `mock` 接口服务。
 - 🏡 集成 `iconify` 图标，支持自定义 svg 图标, 优雅使用icon。
 

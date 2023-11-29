@@ -293,7 +293,7 @@ const uploadError = () => {
           align-items: center;
           justify-content: center;
           padding: 0 6%;
-          color: var(--el-color-primary);
+          color: var(--el-color-primary-light-2);
           .el-icon {
             margin-bottom: 40%;
             font-size: 130%;

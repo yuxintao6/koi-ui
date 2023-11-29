@@ -419,6 +419,38 @@
       "redirect": ""
     },
     {
+      "menuId": 87,
+      "menuName": "引导页",
+      "parentId": 8,
+      "menuType": "2",
+      "path": "/module/driver",
+      "name": "driverPage",
+      "component": "module/driver/index",
+      "icon": "Position",
+      "isHide": "1",
+      "isLink": "",
+      "isKeepAlive": "0",
+      "isFull": "1",
+      "isAffix": "1",
+      "redirect": ""
+    },
+    {
+      "menuId": 88,
+      "menuName": "图片上传",
+      "parentId": 8,
+      "menuType": "2",
+      "path": "/module/upload",
+      "name": "uploadPage",
+      "component": "module/upload/index",
+      "icon": "Picture",
+      "isHide": "1",
+      "isLink": "",
+      "isKeepAlive": "0",
+      "isFull": "1",
+      "isAffix": "1",
+      "redirect": ""
+    },
+    {
       "menuId": 9,
       "menuName": "异常页面",
       "parentId": 0,

@@ -8,6 +8,8 @@ import throttle from "./modules/throttle";
 import throttleInput from "./modules/throttleInput";
 import adaptive from "./modules/adaptive";
 import adaptiveTree from "./modules/adaptiveTree";
+import copy from "./modules/copy";
+
 const directivesList: any = {
   // Custom directives
   auth,
@@ -18,7 +20,8 @@ const directivesList: any = {
   throttle,
   throttleInput,
   adaptive,
-  adaptiveTree
+  adaptiveTree,
+  copy
 };
 
 const directives = {
