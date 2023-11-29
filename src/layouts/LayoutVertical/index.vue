@@ -57,28 +57,26 @@ const menuHoverCollapse = ref(settings.asideMenuHoverCollapse);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-
   .layout-aside {
-    border-right: none;
-    padding-left: $aside-menu-padding-left; // 左侧布局左边距（用于悬浮和选中更明显）
-    padding-right: $aside-menu-padding-right; // 左侧布局右边距（用于悬浮和选中更明显）
-    box-shadow: $aside-menu-box-shadow; // 左侧布局右边框阴影
     z-index: $layout-aside-z-index; // 左侧菜单层级
+    padding-right: $aside-menu-padding-right; // 左侧布局右边距（用于悬浮和选中更明显）
+    padding-left: $aside-menu-padding-left; // 左侧布局左边距（用于悬浮和选中更明显）
     background-color: var(--el-menu-bg-color);
+    border-right: none;
+    box-shadow: $aside-menu-box-shadow; // 左侧布局右边框阴影
   }
-
   .layout-header {
     height: $aside-header-height;
     background-color: var(--el-header-bg-color);
   }
-
   .layout-main {
-    padding: 0px;
     box-sizing: border-box;
+    padding: 0;
     overflow-x: hidden;
     background-color: var(--el-bg-color);
   }
 }
+
 // 去除菜单右侧边框
 .el-menu {
   border-right: none;

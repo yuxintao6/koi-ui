@@ -200,6 +200,7 @@ const handlePictureCardPreview: UploadProps["onPreview"] = file => {
   .el-upload--picture-card,
   .el-upload-dragger {
     cursor: not-allowed;
+
     // background: var(--el-disabled-bg-color) !important;
     background: var(--el-color-primary-light-9) !important;
     border: 2px dashed var(--el-color-primary);
@@ -227,8 +228,8 @@ const handlePictureCardPreview: UploadProps["onPreview"] = file => {
       border: 2px dashed var(--el-color-primary);
       border-radius: v-bind(borderRadius);
       &:hover {
-        border: 2px dashed var(--el-color-primary);
         background: var(--el-color-primary-light-9);
+        border: 2px dashed var(--el-color-primary);
       }
     }
     .el-upload-dragger.is-dragover {
@@ -240,8 +241,8 @@ const handlePictureCardPreview: UploadProps["onPreview"] = file => {
       width: v-bind(width);
       height: v-bind(height);
       background-color: transparent;
-      border-radius: v-bind(borderRadius);
       border: 2px dashed var(--el-color-primary);
+      border-radius: v-bind(borderRadius);
       &:hover {
         background-color: var(--el-color-primary-light-9);
       }
@@ -271,6 +272,7 @@ const handlePictureCardPreview: UploadProps["onPreview"] = file => {
         align-items: center;
         justify-content: center;
         padding: 0 6%;
+
         // color: aliceblue;
         color: var(--el-color-primary);
         .el-icon {
@@ -304,10 +306,10 @@ const handlePictureCardPreview: UploadProps["onPreview"] = file => {
     }
   }
   .el-upload-tip {
-    line-height: 26px;
-    text-align: left;
     font-size: 12px;
+    line-height: 26px;
     color: var(--el-color-primary);
+    text-align: left;
   }
 }
 </style>

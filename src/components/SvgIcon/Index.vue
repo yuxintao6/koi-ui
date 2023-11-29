@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 // 组件使用，图标需要放置@/assets/icons文件夹下，图标名字需要跟name="图标名称"保持一致。
-// <SvgIcon name="koi-mobmenu" width="30px" height="30px"></SvgIcon>
+// <SvgIcon name="koi-mobile-menu" width="30px" height="30px"></SvgIcon>
 defineProps({
   // xlink:href属性值的前缀
   prefix: {

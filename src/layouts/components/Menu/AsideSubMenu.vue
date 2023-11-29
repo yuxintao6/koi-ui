@@ -64,36 +64,39 @@ const handleMenuIsLink = (value: any) => {
 
 <style lang="scss" scoped>
 /** el-menu鼠标悬停和点击代码 */
+
 /** 第一级父节点下拉框里面悬停和点击 */
+
 /* .el-menu-item::before {
   border-left: $aside-menu-border-left solid v-bind(menuBLSColor);
 } */
-
 .el-menu-item {
+  height: $aside-menu-height !important;
+  margin-bottom: $aside-menu-margin-bottom;
+  font-weight: $aside-menu-font-weight;
   color: #000000;
-  @apply dark:c-#E5E3FA;
+
   /* 设置用户禁止选中 */
   user-select: none;
-  height: $aside-menu-height !important;
-  font-weight: $aside-menu-font-weight;
-  border-radius: $aside-menu-border-left;
-  margin-bottom: $aside-menu-margin-bottom;
   border-left: $aside-menu-border-left solid v-bind(menuBLSColor);
+  border-radius: $aside-menu-border-left;
+
+  @apply dark:c-#E5E3FA;
   i {
     transform: translate($aside-menu-font-icon-translate); // 图标偏移
   }
-
   span {
     transform: translate($aside-menu-font-icon-translate); // 文字偏移
   }
 
   // 设置鼠标悬停时el-menu-item的样式
   &:hover {
+    color: var(--el-color-primary);
+    background: var(--el-color-primary-light-8);
+    border-left: $aside-menu-border-left solid var(--el-color-primary);
+
     // & 含义 .el-menu-item
     border-radius: $aside-menu-border-left;
-    background: var(--el-color-primary-light-8);
-    color: var(--el-color-primary);
-    border-left: $aside-menu-border-left solid var(--el-color-primary);
 
     // 实现鼠标悬停时icon变色
     i {
@@ -103,39 +106,37 @@ const handleMenuIsLink = (value: any) => {
 
   // 设置选中el-menu-item时的样式
   &.is-active {
-    background: var(--el-color-primary-light-8);
     color: var(--el-color-primary);
+    background: var(--el-color-primary-light-8);
     border-left: $aside-menu-border-left solid var(--el-color-primary);
   }
 }
 
 // 子节点
 :deep(.el-sub-menu__title) {
+  height: $aside-menu-height;
+  padding-right: 0; // 去除collapse缩小多余的边框
+  margin-bottom: $aside-menu-margin-bottom;
+  font-weight: $aside-menu-font-weight;
   color: #000000;
-  @apply dark:c-#E5E3FA;
+
   /* 设置用户禁止选中 */
   user-select: none;
-  height: $aside-menu-height;
-  font-weight: $aside-menu-font-weight;
-  border-radius: $aside-menu-border-left;
-  margin-bottom: $aside-menu-margin-bottom;
   border-left: $aside-menu-border-left solid v-bind(menuBLSColor);
-  padding-right: 0px; // 去除collapse缩小多余的边框
+  border-radius: $aside-menu-border-left;
 
+  @apply dark:c-#E5E3FA;
   i {
     transform: translate($aside-menu-font-icon-translate); // 图标偏移
   }
-
   span {
     transform: translate($aside-menu-font-icon-translate); // 文字偏移
   }
-
   &:hover {
     color: var(--el-color-primary);
     background: var(--el-color-primary-light-8);
     border-left: $aside-menu-border-left solid var(--el-color-primary);
   }
-
   &:active {
     color: var(--el-color-primary);
     background: var(--el-color-primary-light-8);

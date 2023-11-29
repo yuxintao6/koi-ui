@@ -115,26 +115,27 @@ defineExpose({
 
 <style lang="scss" scoped>
 .formDrawer {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
   .body {
-    flex: 1;
     bottom: 50px;
+    flex: 1;
     overflow-y: auto; // 超出部分则滚动
   }
   .footer {
-    height: 50px;
-    margin-top: auto;
     display: flex;
     align-items: center;
+    height: 50px;
+    margin-top: auto;
+
     // justify-content: center;
   }
 }
-
 :deep(.el-drawer__title) {
   font-weight: 600;
+
   @apply dark:c-#CFD3DC;
 }
 </style>

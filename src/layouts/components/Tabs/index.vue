@@ -167,58 +167,56 @@ const handleTabsMenuParent = (path?: any, value?: any) => {
 .koi-tabs {
   // 吸顶
   position: sticky;
-  top: 0px;
-  // 背景变模糊
-  backdrop-filter: blur(5px);
+  top: 0;
+
   // background-color: var(--el-bg-color);
   z-index: 10;
+
+  // 背景变模糊
+  backdrop-filter: blur(5px);
 }
 :deep(.el-tabs__item:first-child) {
   margin-left: 16px;
 }
-
 :deep(.el-tabs__item:nth-child(n)) {
   // 选中/未选中边框
   border: 1px solid #e0e0e6 !important;
 }
-
 :deep(.el-tabs__item:not(:active)) {
   // 设置未选中的边框
   border: 1px solid #e0e0e6;
 }
-
 :deep(.el-tabs__item) {
+  height: 28px;
+  margin-top: 1px;
+  margin-left: 6px;
   font-size: 14px;
   font-weight: 600;
   text-align: center;
-  height: 28px;
   border: 1px solid #e0e0e6;
   border-radius: 4px;
-  margin-top: 1px;
-  margin-left: 6px;
-
   .is-top {
     border-bottom: none !important;
   }
 
   // 设置鼠标悬停时的样式
   &:hover {
-    border: none;
     // color: $main-tabs-hover-color;
     // tab字体悬浮明亮模式（黑色），暗黑模式（蓝色）
     // color: v-bind(tabsHoverFontColor);
     background: var(--el-color-primary-light-9);
+    border: none;
   }
 
   // 设置鼠标选中的样式（可用来定制不同配色的主题）
   &.is-active {
     color: var(--el-color-primary);
     background: var(--el-color-primary-light-8);
+
     // 边框选中颜色
     border: 1px solid var(--el-color-primary) !important;
   }
 }
-
 :deep(.el-tabs__header) {
   display: flex;
   align-items: center;
@@ -226,7 +224,6 @@ const handleTabsMenuParent = (path?: any, value?: any) => {
   border-top: 1px solid var(--el-color-info-light-7); // 选项卡边框实线
   border-bottom: 1px solid var(--el-color-info-light-7); // 选项卡边框实线
 }
-
 :deep(.el-tabs__nav.is-top) {
   height: 32px; // 高度越高，可以调整tab卡距离底部的高度
   border: none; //  去除左侧tabs边框
@@ -237,17 +234,14 @@ const handleTabsMenuParent = (path?: any, value?: any) => {
 :deep(.el-tabs__nav) {
   border: none !important;
 }
-
 :deep(.el-tabs__nav-prev) {
   // 标签页多了左侧图标
   line-height: 35px;
 }
-
 :deep(.el-tabs__nav-next) {
   // 标签页多了右侧图标
   line-height: 35px;
 }
-
 .el-tabs--card {
   height: 40px !important;
 }

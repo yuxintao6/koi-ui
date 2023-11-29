@@ -287,15 +287,16 @@ mittBus.on("handleThemeConfig", () => {
     cursor: pointer;
   }
 }
+
 /* 选中打钩效果 */
 .selected::before {
-  content: "🌻";
   position: absolute;
-  bottom: 20px;
   right: 8px;
+  bottom: 20px;
   font-size: 24px;
-  transform: scale(0); /* 初始状态下隐藏 */
+  content: "🌻";
   transition: transform 0.3s ease-in-out; /* 添加过渡效果 */
+  transform: scale(0); /* 初始状态下隐藏 */
 }
 .selected {
   position: relative;
@@ -303,6 +304,7 @@ mittBus.on("handleThemeConfig", () => {
 .selected.selected::before {
   transform: scale(1); /* 选中状态下显示 */
 }
+
 /** 布局css */
 .layout-box {
   position: relative;

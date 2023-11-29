@@ -186,29 +186,29 @@ const handleDownLoad = (url: string) => {
 
 <style lang="scss" scoped>
 .el-upload-text {
-  width: 106px;
-  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px dashed var(--el-color-primary);
-  border-radius: 6px;
+  width: 106px;
+  height: 32px;
   color: var(--el-color-primary);
+
   /* 设置用户禁止选中 */
   user-select: none;
+  border: 2px dashed var(--el-color-primary);
+  border-radius: 6px;
   img {
     display: block;
     width: 14px;
     height: 14px;
   }
   span {
-    font-size: 14px;
     padding-left: 6px;
     font-family: "PingFangSC-Regular, PingFang SC";
+    font-size: 14px;
     font-weight: 500;
   }
 }
-
 .template-list {
   padding-bottom: 4px;
 }
@@ -220,19 +220,18 @@ const handleDownLoad = (url: string) => {
     line-height: 10px;
   }
   img {
-    margin-right: 8px;
     width: 16px;
     height: 16px;
+    margin-right: 8px;
   }
   .document-name {
     margin-right: 12px;
     font-size: 14px;
   }
 }
-
 .file-tips {
-  font-size: 12px;
   font-family: "PingFangSC-Regular, PingFang SC";
+  font-size: 12px;
   color: var(--el-color-primary);
 }
 </style>

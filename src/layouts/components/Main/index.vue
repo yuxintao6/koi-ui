@@ -82,11 +82,9 @@ onBeforeUnmount(() => {
   // 开始动画
   opacity: 0; // 透明度
 }
-
 .slide-fade-enter-active {
   transition: all 0.3s; // 动画时间
 }
-
 .slide-fade-enter-to {
   // 结束动画
   opacity: 1; // 透明度

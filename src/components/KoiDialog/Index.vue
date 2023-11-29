@@ -120,21 +120,23 @@ defineExpose({
 .el-dialog {
   border-top-left-radius: 8px !important;
   border-top-right-radius: 8px !important;
+
+  // 标题头部
   .el-dialog__header {
-    // 标题头部
-    padding: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px !important;
-    margin-right: 0px !important;
+    padding: 0;
+    margin-right: 0 !important;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
+
     // background: #1e71ee;
     @apply dark:bg-#141414;
     .el-dialog__title {
+      font-family: YouYuan;
       font-size: 18px;
-      font-family: "YouYuan";
       font-weight: 500;
     }
   }
@@ -145,17 +147,15 @@ defineExpose({
     padding: 10px;
   }
 }
-
 .el-dialog__body {
   // 内容区域内边距
   padding: 10px;
 }
-
 .el-dialog__headerbtn {
   padding-bottom: 10px !important;
   .el-dialog__close {
-    border-radius: 10px;
     border: 1px solid;
+    border-radius: 10px;
   }
 }
 </style>

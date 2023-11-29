@@ -68,15 +68,14 @@ const mobileDrawer = ref(false);
   height: 100vh;
   .layout-header {
     height: $aside-header-height;
-    background-color: var(--el-header-bg-color);
     overflow: hidden;
+    background-color: var(--el-header-bg-color);
   }
-
   .layout-main {
-    padding: 0px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
+    padding: 0;
     overflow-x: hidden;
     background-color: var(--el-bg-color);
   }

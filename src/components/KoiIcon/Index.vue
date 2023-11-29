@@ -57,7 +57,7 @@
             :key="index"
             @click="handleSelectIcon(item, index)"
           >
-            <el-icon style="height: 30px; width: 16px; margin-right: 5px">
+            <el-icon style="width: 16px; height: 30px; margin-right: 5px">
               <component :is="item" />
             </el-icon>
             <span class="icon-span">{{ item }}</span>
@@ -73,7 +73,7 @@
             :key="index"
             @click="handleSelectIcon(item, index)"
           >
-            <SvgIcon :name="item" style="height: 30px; width: 16px; margin-right: 5px" />
+            <SvgIcon :name="item" style="width: 16px; height: 30px; margin-right: 5px" />
             <span class="icon-span">{{ item }}</span>
           </div>
         </div>
@@ -222,26 +222,25 @@ defineExpose({
 <style lang="scss" scoped>
 .icon-select {
   width: 100%;
-  margin: 0px;
-  padding: 0px;
+  padding: 0;
+  margin: 0;
   .icon-select-list {
-    overflow-x: hidden;
-    overflow-y: scroll;
     height: 94%;
+    overflow: hidden scroll;
     .icon-div {
-      height: 20px;
-      line-height: 20px;
-      font-size: 14px;
-      margin-bottom: -5px;
-      cursor: pointer;
-      width: 28.5%;
       float: left;
-      margin: 2px;
+      width: 28.5%;
+      height: 20px;
       padding: 5px;
-      border-radius: 6px;
-      cursor: pointer;
+      margin: 2px;
+      margin-bottom: -5px;
+      font-size: 14px;
+      line-height: 20px;
       color: #505052;
+      cursor: pointer;
       border: 2px dashed #9c9c9d;
+      border-radius: 6px;
+
       @apply dark:border-#93b5cf;
       @apply dark:color-#93b5cf;
       &.is-active {
@@ -253,9 +252,9 @@ defineExpose({
     .is-active {
       color: var(--el-color-primary);
       border-color: var(--el-color-primary);
+
       @apply dark:border-[--el-color-primary];
     }
-
     .icon-span {
       overflow: hidden;
     }

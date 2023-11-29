@@ -33,29 +33,36 @@
   width: $webkit-scrollbar-width; // 纵向滚动条宽度
   height: $webkit-scrollbar-height; // 纵向滚动条高度
 }
+
 /* 为滚动条轨道设置背景颜色 */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 /* 为滚动条设置滑块颜色 */
 ::-webkit-scrollbar-thumb {
-  border-radius: $webkit-scrollbar-border-radius;
   background: $webkit-scrollbar-color;
+  border-radius: $webkit-scrollbar-border-radius;
 }
+
 /* 悬浮在滑块上时为滑块设置背景颜色 */
 ::-webkit-scrollbar-thumb:hover {
   background: $webkit-scrollbar-hover-color;
 }
+
 /* nprogress进度条颜色配置 */
 #nprogress .bar {
   background: var(--el-color-primary) !important;
 }
+
 /* el-table表头颜色配置 */
 .el-table .el-table__header-wrapper th {
-  color: #303133;
   font-weight: bold;
+  color: #303133;
+
   @apply dark:c-#ffffff;
 }
+
 /* 管理平台全局字体 */
 body {
   font-family:
@@ -69,13 +76,14 @@ body {
     "Segoe UI Emoji",
     "Segoe UI Symbol";
 }
+
 /* ElementPlus级联框单选选中文字也可以（三级会出现选中问题）  */
 .el-cascader-panel {
   .el-radio {
-    width: 100%;
-    height: 100%;
     position: absolute;
     right: -8px;
+    width: 100%;
+    height: 100%;
   }
 }
 

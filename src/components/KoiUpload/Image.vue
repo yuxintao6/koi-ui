@@ -221,6 +221,7 @@ const uploadError = () => {
       height: v-bind(height);
       overflow: hidden;
       border: 2px dashed var(--el-color-primary);
+
       // border: 2px dashed var(--el-border-color-darker);
       border-radius: v-bind(borderRadius);
       transition: var(--el-transition-duration-fast);
@@ -239,11 +240,13 @@ const uploadError = () => {
         padding: 0;
         overflow: hidden;
         background-color: transparent;
+
         // border: 2px dashed var(--el-border-color-darker);
         border: 2px dashed var(--el-color-primary);
         border-radius: v-bind(borderRadius);
         &:hover {
           border: 2px dashed var(--el-color-primary);
+
           // border: none;
         }
       }
@@ -305,10 +308,10 @@ const uploadError = () => {
     }
   }
   .upload-tip {
-    line-height: 26px;
-    text-align: left;
     font-size: 12px;
+    line-height: 26px;
     color: var(--el-color-primary);
+    text-align: left;
   }
 }
 </style>

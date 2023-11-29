@@ -55,8 +55,8 @@ const handleBreadcrumb = (item: any, index: number) => {
 .breadcrumb-box {
   display: flex;
   align-items: center;
-  overflow: hidden;
   margin-left: 20px;
+  overflow: hidden;
   user-select: none;
   .el-breadcrumb {
     white-space: nowrap;
@@ -67,37 +67,30 @@ const handleBreadcrumb = (item: any, index: number) => {
       .breadcrumb-title {
         font-weight: 600;
       }
-
       .item-no-icon {
         transform: translateY(-3px);
       }
-
       .el-breadcrumb__inner {
         display: inline-flex;
-
         &.is-link {
           color: var(--el-header-text-color);
           &:hover {
             color: var(--el-color-primary);
           }
         }
-
         .breadcrumb-icon {
           margin-top: 1px;
           margin-right: 6px;
           font-size: 16px;
         }
-
         .breadcrumb-title {
           margin-top: 2px;
         }
       }
-
       &:last-child .el-breadcrumb__inner,
       &:last-child .el-breadcrumb__inner:hover {
         color: var(--el-header-text-color-regular);
       }
-
       :deep(.el-breadcrumb__separator) {
         transform: translateY(-1px);
       }

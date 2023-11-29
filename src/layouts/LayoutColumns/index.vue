@@ -140,79 +140,71 @@ const handleSubMenu = (item: any) => {
   flex-direction: column;
   height: 100%;
   user-select: none;
-  box-shadow: $column-menu-box-shadow; // 双栏最左侧右边框阴影
   background-color: var(--el-menu-bg-color); // 用来做色弱模式
+  box-shadow: $column-menu-box-shadow; // 双栏最左侧右边框阴影
   .left-column {
     display: flex;
-    width: 70px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 70px;
     min-height: 60px;
     margin: $aside-menu-padding-left;
-    border: v-bind(menuBLSColor) solid 2px;
     cursor: pointer;
-
+    border: v-bind(menuBLSColor) solid 2px;
     &:hover {
       color: var(--el-color-primary);
+      background: var(--el-color-primary-light-9);
       border: 2px dashed var(--el-color-primary);
       border-radius: 4px;
-      background: var(--el-color-primary-light-9);
     }
-
     &.is-active {
       color: var(--el-color-primary);
+      background: var(--el-color-primary-light-8);
       border: 2px dashed var(--el-color-primary);
       border-radius: 4px;
-      background: var(--el-color-primary-light-8);
     }
-
     .el-icon {
       font-size: 18px;
     }
-
     .title {
       margin-top: 8px;
       font-size: 12px;
       font-weight: $aside-menu-font-weight;
-      letter-spacing: 2px;
-      text-align: center;
       line-height: 14px;
+      text-align: center;
+      letter-spacing: 2px;
     }
   }
 }
-
 .layout-container {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-
   .layout-aside {
-    border-right: none;
-    padding-left: $column-menu-padding-left; // 左侧布局左边距（用于悬浮和选中更明显）
-    padding-right: $column-menu-padding-right; // 左侧布局右边距（用于悬浮和选中更明显）
-    box-shadow: $aside-menu-box-shadow; // 双栏左侧布局菜单右边框阴影
     z-index: $layout-aside-z-index; // 左侧菜单层级
+    padding-right: $column-menu-padding-right; // 左侧布局右边距（用于悬浮和选中更明显）
+    padding-left: $column-menu-padding-left; // 左侧布局左边距（用于悬浮和选中更明显）
     background-color: var(--el-menu-bg-color);
+    border-right: none;
+    box-shadow: $aside-menu-box-shadow; // 双栏左侧布局菜单右边框阴影
   }
-
   .layout-header {
     height: $aside-header-height;
     background-color: var(--el-header-bg-color);
   }
-
   .layout-main {
-    padding: 0px;
     box-sizing: border-box;
+    padding: 0;
     overflow-x: hidden;
     background-color: var(--el-bg-color);
   }
 }
-
 .layout-scrollbar {
   width: 100%;
   height: calc(100vh - $aside-header-height);
 }
+
 // 去除菜单右侧边框
 .el-menu {
   border-right: none;

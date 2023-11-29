@@ -70,9 +70,9 @@ const handleCommand = (command: string | number) => {
 <style lang="scss" scoped>
 // dropdown字体颜色
 .koi-dropdown {
-  outline: none; // 去除伪元素
   color: var(--el-color-primary);
-  cursor: pointer;
   white-space: nowrap; /* 不换行 */
+  cursor: pointer;
+  outline: none; // 去除伪元素
 }
 </style>

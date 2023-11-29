@@ -1,14 +1,17 @@
-html, body , #app{
-    padding: 0px;
-    margin: 0px;
-    height : 100%;
+html,
+body,
+#app {
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
+
 /* 去除a链接下划线 #409EFF */
 a {
-    color: var(--el-color-primary);
-    outline: 0;
-    text-decoration: none;
+  color: var(--el-color-primary);
+  text-decoration: none;
+  outline: 0;
 }
 a:hover {
-    color: #0a16f1;
+  color: #0a16f1;
 }

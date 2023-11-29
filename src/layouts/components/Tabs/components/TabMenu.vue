@@ -138,33 +138,34 @@ defineExpose({
 <style lang="scss" scoped>
 /** 右键点击选项开始 */
 .tabs-card {
-  display: none;
   position: absolute;
   z-index: 10;
-  border-radius: var(--el-border-radius-base);
-  background-color: var(--el-header-bg-color);
+  display: none;
   cursor: pointer;
+  background-color: var(--el-header-bg-color);
+  border-radius: var(--el-border-radius-base);
 }
 .tab-menu-item {
-  font-weight: 700;
-  margin-top: 1px;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  border: 1px dashed var(--el-color-primary);
+  justify-content: center;
   width: auto;
   height: 10px;
-  white-space: nowrap;
+  padding: 8px 15px;
+  margin-top: 1px;
+  font-size: var(--el-font-size-base);
+  font-weight: 700;
   text-align: center;
+  white-space: nowrap;
   user-select: none;
   background-color: var(--el-bg-color);
-  padding: 8px 15px;
-  font-size: var(--el-font-size-base);
+  border: 1px dashed var(--el-color-primary);
   border-radius: var(--el-border-radius-base);
   &:hover {
-    background-color: var(--el-color-primary-light-9);
     color: var(--el-color-primary);
+    background-color: var(--el-color-primary-light-9);
   }
 }
+
 /** 右键点击选项结束 */
 </style>

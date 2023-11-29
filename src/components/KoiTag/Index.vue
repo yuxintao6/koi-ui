@@ -62,6 +62,6 @@ const props = withDefaults(defineProps<ITagProps>(), {
 
 <style lang="scss" scoped>
 .el-tag {
-  padding: 0px 10px;
+  padding: 0 10px;
 }
 </style>

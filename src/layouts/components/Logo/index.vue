@@ -75,11 +75,11 @@ watch(
 .koiLogo {
   display: flex;
   align-items: center;
+  width: v-bind(logoWidth);
   height: $aside-header-height;
   line-height: $aside-header-height;
   text-align: center;
   cursor: pointer;
-  width: v-bind(logoWidth);
 }
 .koiLogoImg {
   width: v-bind(logoSize);

@@ -24,8 +24,8 @@ const handleExitMaximize = () => {
   height: 66px;
   cursor: pointer;
   background-color: var(--el-color-primary-light-8);
-  border-radius: 50%;
   border: 2px dashed var(--el-color-primary);
+  border-radius: 50%;
   opacity: 0.9;
   &:hover {
     background-color: var(--el-color-primary-light-7);

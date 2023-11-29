@@ -80,23 +80,21 @@ const handleMenuIsLink = (value: any) => {
   width: 100vw;
   height: 100vh;
   .layout-header {
-    height: $aside-header-height;
-    background-color: var(--el-header-bg-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: $aside-header-height;
     overflow: hidden;
     background-color: var(--el-header-bg-color);
     .koi-menu {
       flex: 1;
     }
   }
-
   .layout-main {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 0px;
-    box-sizing: border-box;
+    padding: 0;
     overflow-x: hidden;
     background-color: var(--el-bg-color);
   }

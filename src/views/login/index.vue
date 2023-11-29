@@ -403,55 +403,64 @@ const koiSwitchRegister = () => {
 /** 备案号 */
 .beianhao {
   position: absolute;
+  bottom: 10px;
+  left: 45%;
   font-size: 12px;
   font-weight: bold;
-  left: 45%;
-  bottom: 10px;
 }
 
 /** 最外层大盒子 */
 .bigBox {
+  display: flex;
+
   /* 溢出隐藏 */
   height: 100vh;
   overflow-x: hidden;
-  display: flex;
+
   /* 渐变方向从左到右 */
-  background: linear-gradient(to right, rgb(247, 209, 215), rgb(191, 227, 241));
+  background: linear-gradient(to right, rgb(247 209 215), rgb(191 227 241));
 }
 
 /* 最外层的大盒子 */
 .box {
-  min-width: 720px;
-  min-height: 400px;
-  display: flex;
   /* 相对定位 */
   position: relative;
   z-index: 2;
+  display: flex;
+  min-width: 720px;
+  min-height: 400px;
   margin: auto;
+
+  /* 设置边框 */
+  border: 1px solid rgb(255 255 255 / 60%);
+
   /* 设置圆角 */
   border-radius: 8px;
-  /* 设置边框 */
-  border: 1px solid rgba(255, 255, 255, 0.6);
+
   /* 设置盒子阴影 */
-  box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 1px 19px rgb(0 0 0 / 10%);
 }
 
 /* 滑动的盒子 */
 .slide-box {
+  /* 绝对定位 */
+  position: absolute;
+
+  /* 距离大盒子顶部为0 */
+  top: 0;
+
+  /* 距离大盒子左侧为0 */
+  left: 0;
+  z-index: 10;
+
   /* 宽度为大盒子的一半 */
   width: 50%;
   height: 100%;
-  /* 绝对定位 */
-  position: absolute;
-  /* 距离大盒子左侧为0 */
-  left: 0;
-  /* 距离大盒子顶部为0 */
-  top: 0;
-  z-index: 10;
   font-size: 16px;
-  border-radius: 4px;
   background-color: #edd4dc;
-  box-shadow: 2px 1px 19px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 2px 1px 19px rgb(0 0 0 / 10%);
+
   /* 动画过渡，先加速再减速 */
   transition: 0.5s ease-in-out;
 }
@@ -459,32 +468,36 @@ const koiSwitchRegister = () => {
 /* 滑动盒子的标题 */
 .slide-box h1 {
   margin-top: 50px;
-  text-align: center;
   font-weight: bold;
+  text-align: center;
+
+  /* 文字阴影 */
+  text-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
+
   /* 文字间距 */
   letter-spacing: 2px;
+
   /* 禁止选中 */
   user-select: none;
-  /* 文字阴影 */
-  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* 滑动盒子的文字 */
 .slide-box p {
   height: 30px;
+  margin: 20px 0;
+  font-weight: bold;
   line-height: 30px;
   text-align: center;
-  margin: 20px 0;
+  text-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
+
   /* 禁止选中 */
   user-select: none;
-  font-weight: bold;
-  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* 滑动盒子的点击切换变化文字颜色 */
 .slide-title {
-  color: v-bind(switchBtnBgAndslideTitle);
   font-size: 20px;
+  color: v-bind(switchBtnBgAndslideTitle);
 }
 
 /* LOGO图片盒子 */
@@ -493,38 +506,41 @@ const koiSwitchRegister = () => {
   height: 80px;
   margin: auto;
   margin-top: 30px;
-  /* 设置为圆形 */
-  border-radius: 50%;
+  overflow: hidden;
+
   /* 设置用户禁止选中 */
   user-select: none;
-  overflow: hidden;
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+
+  /* 设置为圆形 */
+  border-radius: 50%;
+  box-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
 }
 
 /* LOGO图片 */
 .img-box img {
   width: 100%;
+
   /* 动画过渡，先加速再减速 */
   transition: 0.5s ease-in-out;
 }
 
-/* 没有账号去登录按钮*/
+/* 没有账号去登录按钮 */
 .slide-button {
+  width: 160px;
+  padding: 8px 16px;
   margin: auto;
   margin-top: 60px;
-  width: 160px;
   font-size: 14px;
   line-height: 14px;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid rgb(255, 255, 255);
+  color: #ffffff;
   cursor: pointer;
+
   /* 设置用户禁止选中 */
   user-select: none;
   background: v-bind(switchBtnBgAndslideTitle);
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
-
+  border: 1px solid rgb(255 255 255);
+  border-radius: 20px;
+  box-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
   &:hover {
     background: v-bind(switchBtnHoverBg);
   }
@@ -546,28 +562,29 @@ const koiSwitchRegister = () => {
 /* 登录标题 */
 .login-title h1 {
   font-size: 24px;
-  text-align: center;
-  color: #409eff;
   font-weight: bold;
+  color: #409eff;
+  text-align: center;
+  text-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
+  letter-spacing: 5px;
+
   /* 禁止选中 */
   user-select: none;
-  letter-spacing: 5px;
-  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* 输入框盒子 */
 .el-form {
   display: flex;
+
   /* 纵向布局 */
   flex-direction: column;
+
   /* 水平居中 */
   align-items: center;
 }
-
 .el-form-item {
   width: 60%;
 }
-
 .el-select {
   width: 100%;
 }
@@ -579,21 +596,21 @@ const koiSwitchRegister = () => {
 
 /* 登录按钮 */
 .login-btn {
+  height: 32px;
+  padding: 8px 16px;
   margin: auto;
   margin-top: 16px;
-  height: 32px;
   font-size: 14px;
   line-height: 14px;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid rgb(255, 255, 255);
+  color: #ffffff;
   cursor: pointer;
+
   /* 设置用户禁止选中 */
   user-select: none;
   background: #409eff;
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
-
+  border: 1px solid rgb(255 255 255);
+  border-radius: 20px;
+  box-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
   &:hover {
     background: #67aff7;
   }
@@ -601,21 +618,22 @@ const koiSwitchRegister = () => {
 
 /* 登录中按钮 */
 .login-disabled-btn {
+  height: 32px;
+  padding: 8px 16px;
   margin: auto;
   margin-top: 16px;
-  height: 32px;
   font-size: 14px;
   line-height: 14px;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid rgb(255, 255, 255);
+  color: #ffffff;
+  pointer-events: none;
   cursor: pointer;
+
   /* 设置用户禁止选中 */
   user-select: none;
   background: #67aff7;
-  pointer-events: none;
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(255 255 255);
+  border-radius: 20px;
+  box-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
 }
 
 /* 注册标题盒子 */
@@ -627,13 +645,14 @@ const koiSwitchRegister = () => {
 /* 注册标题 */
 .register-title h1 {
   font-size: 22px;
-  text-align: center;
-  color: #fe3e7c;
   font-weight: bold;
+  color: #fe3e7c;
+  text-align: center;
+  text-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
+  letter-spacing: 5px;
+
   /* 禁止选中 */
   user-select: none;
-  letter-spacing: 5px;
-  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* 注册按钮盒子 */
@@ -643,20 +662,20 @@ const koiSwitchRegister = () => {
 
 /* 注册按钮 */
 .register-btn {
-  margin: auto;
   height: 32px;
+  padding: 8px 16px;
+  margin: auto;
   font-size: 14px;
   line-height: 14px;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid rgb(255, 255, 255);
+  color: #ffffff;
   cursor: pointer;
+
   /* 设置用户禁止选中 */
   user-select: none;
   background: #fe3e7c;
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
-
+  border: 1px solid rgb(255 255 255);
+  border-radius: 20px;
+  box-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
   &:hover {
     background: #f9739e;
   }
@@ -664,20 +683,22 @@ const koiSwitchRegister = () => {
 
 /* 注册中按钮 */
 .register-disabled-btn {
-  margin: auto;
   height: 32px;
+  padding: 8px 16px;
+  margin: auto;
   font-size: 14px;
   line-height: 14px;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid rgb(255, 255, 255);
+  color: #ffffff;
   cursor: pointer;
+
   /* 设置用户禁止选中 */
   user-select: none;
   background: #f9739e;
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(255 255 255);
+  border-radius: 20px;
+  box-shadow: 4px 4px 3px rgb(0 0 0 / 10%);
 }
+
 /** 输入框变黑 */
 :deep(.el-input__wrapper) {
   @apply dark:bg-#1D1E1F;

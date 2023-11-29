@@ -25,34 +25,29 @@ const handleHomePage = () => {
 #box {
   overflow: hidden;
 }
-
 #banner {
+  margin-top: 60px;
   background: url("@/assets/images/error/403.png") no-repeat;
   background-size: 100%;
-  margin-top: 60px;
 }
-
 .koi-top {
   width: 600px;
   height: 500px;
   margin: 0 auto;
 }
-
 .koi-bottom {
-  text-align: center;
-  margin-top: 20px;
   height: 300px;
+  margin-top: 20px;
+  text-align: center;
 }
-
 .koi-text1 {
   font-size: 46px;
   font-weight: bold;
 }
-
 .koi-text2 {
   padding-top: 30px;
+  font-family: YouYuan;
   font-size: 24px;
-  font-family: "YouYuan";
   font-weight: 600;
 }
 </style>

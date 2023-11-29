@@ -60,9 +60,9 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .header {
-  height: $aside-header-height;
   display: flex;
   justify-content: space-between;
+  height: $aside-header-height;
   .header-left {
     display: flex;
     align-items: center;

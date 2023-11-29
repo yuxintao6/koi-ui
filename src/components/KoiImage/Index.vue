@@ -381,6 +381,7 @@ const handleChecked = (item?: any) => {
 <style lang="scss" scoped>
 .image-btn {
   border: 2px dashed var(--el-color-primary);
+
   @apply w-120px h-120px rounded flex justify-center items-center cursor-pointer;
   &:hover {
     background: var(--el-color-primary-light-9);
@@ -389,6 +390,7 @@ const handleChecked = (item?: any) => {
 .icon-color {
   color: var(--el-color-primary);
 }
+
 // 以下为图库css
 // .image-header {
 //   padding-left: 4px;
@@ -400,28 +402,27 @@ const handleChecked = (item?: any) => {
 .aside-top,
 .main-top {
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 50px;
+  inset: 0 0 50px;
   overflow-y: auto;
 }
 .aside-bottom,
 .main-bottom {
   @apply flex items-center justify-center;
+
   position: absolute;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   height: 50px;
 }
 .aside-list {
-  border-radius: 4px;
-  border: 2px dashed var(--el-color-primary-light-5);
   height: 40px;
-  cursor: pointer;
-  color: var(--el-color-primary-light-2);
   font-weight: 600;
+  color: var(--el-color-primary-light-2);
+  cursor: pointer;
+  border: 2px dashed var(--el-color-primary-light-5);
+  border-radius: 4px;
+
   @apply flex items-center p-4px m-4px text-13px;
   &:hover {
     background: var(--el-color-primary-light-9);
@@ -430,6 +431,7 @@ const handleChecked = (item?: any) => {
     background: var(--el-color-primary-light-9);
   }
 }
+
 // .image-name {
 //   position: absolute;
 //   top: 185px;
@@ -440,6 +442,7 @@ const handleChecked = (item?: any) => {
 // }
 .image-main {
   position: relative;
+
   // border: 2px dashed var(--el-color-primary-light-5);
   // border-radius: 4px;
 }
