@@ -5,7 +5,7 @@
     "vue.vscode-typescript-vue-plugin",
     "hollowtree.vue-snippets",
     "dbaeumer.vscode-eslint",
-    // "stylelint.vscode-stylelint",
+    "stylelint.vscode-stylelint",
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
     "streetsidesoftware.code-spell-checker",

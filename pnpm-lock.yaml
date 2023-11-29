@@ -103,6 +103,9 @@ devDependencies:
   eslint-plugin-vue:
     specifier: ^9.18.1
     version: 9.18.1(eslint@8.53.0)
+  husky:
+    specifier: ^8.0.0
+    version: 8.0.3
   lint-staged:
     specifier: ^15.0.2
     version: 15.0.2
@@ -130,6 +133,9 @@ devDependencies:
   stylelint:
     specifier: ^15.11.0
     version: 15.11.0(typescript@5.0.2)
+  stylelint-config-html:
+    specifier: ^1.1.0
+    version: 1.1.0(postcss-html@1.5.0)(stylelint@15.11.0)
   stylelint-config-prettier:
     specifier: ^9.0.5
     version: 9.0.5(stylelint@15.11.0)
@@ -139,6 +145,9 @@ devDependencies:
   stylelint-config-recommended-scss:
     specifier: ^13.1.0
     version: 13.1.0(postcss@8.4.31)(stylelint@15.11.0)
+  stylelint-config-recommended-vue:
+    specifier: ^1.5.0
+    version: 1.5.0(postcss-html@1.5.0)(stylelint@15.11.0)
   stylelint-config-standard:
     specifier: ^34.0.0
     version: 34.0.0(stylelint@15.11.0)
@@ -4024,6 +4033,12 @@ packages:
   /human-signals@5.0.0:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
+    dev: true
+
+  /husky@8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /ignore@5.2.4:

@@ -175,7 +175,7 @@ export const errorRouter = [
       isAffix: "1" // 是否缓存固定路由（0是，1否）
     }
   },
-  // Resolve refresh page, route warnings
+  // 找不到path将跳转404页面
   {
     path: "/:pathMatch(.*)*",
     component: () => import("@/views/error/404.vue")
