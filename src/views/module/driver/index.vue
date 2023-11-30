@@ -28,6 +28,7 @@
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 
+// 根据div的ID进行配置
 const driverObj = driver({
   allowClose: true,
   doneBtnText: "结束",

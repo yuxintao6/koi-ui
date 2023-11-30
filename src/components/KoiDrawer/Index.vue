@@ -103,7 +103,7 @@ const koiCancel = () => {
 // 当前组件获取父组件传递的事件方法，然后点击确认和提交是触发父组件传递过来的事件
 const emits = defineEmits(["koiConfirm", "koiCancel"]);
 
-// defineExpose是vue3新增的一个api，放在<scipt setup>下使用的，
+// defineExpose是vue3新增的一个api，放在<script setup>下使用的，
 // 目的是把属性和方法暴露出去，可以用于父子组件通信，子组件把属性暴露出去，
 // 父组件用ref获取子组件DOM，子组件暴露的方法或属性可以用dom获取。
 defineExpose({

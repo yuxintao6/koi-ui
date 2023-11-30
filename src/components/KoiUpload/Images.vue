@@ -1,7 +1,7 @@
 <template>
   <div class="upload-box">
     <el-upload
-      v-model:file-list="filesList"
+      v-model:file-list="_fileList"
       action="#"
       list-type="picture-card"
       :class="['upload', imageDisabled ? 'disabled' : '', drag ? 'no-border' : '']"
@@ -52,7 +52,7 @@ import type { UploadProps, UploadFile, UploadUserFile, UploadRequestOptions } fr
 import { formContextKey, formItemContextKey } from "element-plus";
 
 interface UploadFileProps {
-  imageList: UploadUserFile[]; // 图片回显
+  fileList: UploadUserFile[]; // 图片回显
   action?: any; // 上传图片的 action 方法，一般项目上传都是同一个 action 方法，在组件里直接引入即可 ==> 非必传
   drag?: boolean; // 是否支持拖拽上传 ==> 非必传（默认为 true）
   disabled?: boolean; // 是否禁用上传组件 ==> 非必传（默认为 false）
@@ -65,7 +65,7 @@ interface UploadFileProps {
 }
 
 const props = withDefaults(defineProps<UploadFileProps>(), {
-  imageList: () => [],
+  fileList: () => [],
   action: "/koi/file/uploadFile",
   drag: true,
   disabled: false,
@@ -86,13 +86,14 @@ const imageDisabled = computed(() => {
   return props.disabled || formContext?.disabled;
 });
 
-const filesList = ref<UploadUserFile[]>(props.imageList);
+const _fileList = ref<UploadUserFile[]>(props.fileList);
 
-// 监听 props.imageList 列表默认值改变
+// 监听 props.fileList 列表默认值改变
 watch(
-  () => props.imageList,
+  () => props.fileList,
   (n: UploadUserFile[]) => {
-    filesList.value = n;
+    console.log("props.fileList", props.fileList);
+    _fileList.value = n;
   }
 );
 
@@ -138,12 +139,12 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
  * @param uploadFile 上传的文件
  * */
 const emit = defineEmits<{
-  "update:imageList": [value: UploadUserFile[]];
+  "update:fileList": [value: UploadUserFile[]];
 }>();
 const uploadSuccess = (response: { fileUrl: string } | undefined, uploadFile: UploadFile) => {
   if (!response) return;
   uploadFile.url = response.fileUrl;
-  emit("update:imageList", filesList.value);
+  emit("update:fileList", _fileList.value);
   // 调用 el-form 内部的校验方法（可自动校验）
   formItemContext?.prop && formContext?.validateField([formItemContext.prop as string]);
   koiNoticeSuccess("图片上传成功🌻");
@@ -154,8 +155,8 @@ const uploadSuccess = (response: { fileUrl: string } | undefined, uploadFile: Up
  * @param file 删除的文件
  * */
 const handleRemove = (file: UploadFile) => {
-  filesList.value = filesList.value.filter(item => item.url !== file.url || item.name !== file.name);
-  emit("update:imageList", filesList.value);
+  _fileList.value = _fileList.value.filter(item => item.url !== file.url || item.name !== file.name);
+  emit("update:fileList", _fileList.value);
 };
 
 /**
@@ -305,7 +306,7 @@ const handlePictureCardPreview: UploadProps["onPreview"] = file => {
   }
   .el-upload-tip {
     font-size: 12px;
-    line-height: 26px;
+    line-height: 12px;
     color: var(--el-color-primary);
     text-align: left;
   }

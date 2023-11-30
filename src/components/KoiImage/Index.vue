@@ -1,6 +1,11 @@
 <template>
   <div class="image-btn" @click="handleChooseImage">
-    <el-icon :size="25" class="icon-color"><Plus /></el-icon>
+    <slot name="content">
+      <el-icon :size="25" class="icon-color"><Plus /></el-icon>
+    </slot>
+  </div>
+  <div class="el-upload-tip">
+    <slot name="tip"></slot>
   </div>
 
   <KoiDialog
@@ -390,6 +395,12 @@ const handleChecked = (item?: any) => {
 .icon-color {
   color: var(--el-color-primary);
 }
+.el-upload-tip {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--el-color-primary);
+  text-align: left;
+}
 
 // 以下为图库css
 // .image-header {
@@ -416,7 +427,7 @@ const handleChecked = (item?: any) => {
   height: 50px;
 }
 .aside-list {
-  height: 40px;
+  height: 26px;
   font-weight: 600;
   color: var(--el-color-primary-light-2);
   cursor: pointer;

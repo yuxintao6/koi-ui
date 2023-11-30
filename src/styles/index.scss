@@ -11,6 +11,9 @@
     cursor: pointer;
   }
 }
+.theme-color {
+  color: var(--el-color-primary);
+}
 
 /* 当前页面最大化CSS，选项卡也行要去掉可以加上.el-tabs, */
 .main-maximize {
