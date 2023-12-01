@@ -2,6 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 import { koiMsgError } from "@/utils/koi.ts";
 import { LOGIN_URL } from "@/config/index.ts";
+import useUserStore from "@/stores/modules/user.ts";
 import { getToken, koiSessionStorage } from "@/utils/storage.ts";
 import router from "@/routers/index.ts";
 // import errorStatus from "@/utils/errorStatus.ts"
@@ -61,12 +62,13 @@ class Yu {
           // console.log("200状态", status);
           return res.data;
         } else if (status == 401) {
-          console.log("401状态", status);
+          // console.log("401状态", status);
+          const userStore = useUserStore();
+          userStore.setToken(""); // 清空token必须使用这个，不能使用session清空，因为登录的时候js会获取一遍token还会存在。
           koiMsgError("登录身份过期，请重新登录🌻");
-          koiSessionStorage.remove("user");
           setTimeout(() => {
             router.replace(LOGIN_URL);
-          }, 1000); // 等待1秒后重定向，给用户时间看到提示信息
+          }, 2000); // 等待2秒后重定向，给用户时间看到提示信息
           return Promise.reject(res.data);
         } else {
           // console.log("后端返回数据：",res.data.msg)

@@ -52,7 +52,7 @@ import type { UploadProps, UploadFile, UploadUserFile, UploadRequestOptions } fr
 import { formContextKey, formItemContextKey } from "element-plus";
 
 interface UploadFileProps {
-  fileList: UploadUserFile[]; // 图片回显
+  fileList: UploadUserFile[]; // 图片回显，这个名称不能进行修改。
   action?: any; // 上传图片的 action 方法，一般项目上传都是同一个 action 方法，在组件里直接引入即可 ==> 非必传
   drag?: boolean; // 是否支持拖拽上传 ==> 非必传（默认为 true）
   disabled?: boolean; // 是否禁用上传组件 ==> 非必传（默认为 false）

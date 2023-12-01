@@ -68,8 +68,8 @@
       <!-- 数据表格 -->
       <el-table
         v-loading="loading"
-        border
         v-adaptive
+        border
         :data="tableList"
         empty-text="暂时没有数据哟🌻"
         @selection-change="handleSelectionChange"

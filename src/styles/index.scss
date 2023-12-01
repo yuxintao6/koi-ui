@@ -26,6 +26,13 @@
   }
 }
 
+/* css自适应表格[舍弃，使用指令] */
+.adaptive {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 /* ElementPlus 横向布局内置样式修改 */
 :root {
   --el-menu-horizontal-sub-item-height: 40px !important; // 横向菜单高度覆盖

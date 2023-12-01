@@ -54,6 +54,9 @@ watch(
     const app = document.getElementById("app") as HTMLElement;
     if (globalStore.maximize) app.classList.add("main-maximize");
     else app.classList.remove("main-maximize");
+    // 浏览器没有实际变化的情况下，触发一次浏览器尺寸变化的逻辑。保证全屏切换的时候，表格阔以进行自适应。
+    const event = new Event("resize");
+    window.dispatchEvent(event);
   },
   { deep: true, immediate: true }
 );

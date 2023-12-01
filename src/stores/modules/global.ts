@@ -13,6 +13,8 @@ const globalStore = defineStore("global", {
   // 存储数据state
   state: () => {
     return {
+      // 是否全屏
+      isFullScreen: false,
       // 是否折叠菜单
       isCollapse: false,
       // 菜单展开宽度[默认：220px]

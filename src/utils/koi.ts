@@ -1,4 +1,3 @@
-// @ts-nocheck
 // 工具类提示信息
 import { ElNotification, ElMessageBox, ElMessage } from "element-plus";
 
@@ -158,12 +157,11 @@ export function koiMsgBox(
 
 /** 封装确认信息，默认warning  */
 export function koiMsgBoxHtml(
-  // @ts-ignore
-  message?: string = `<p style="color: teal">您确定进行关闭么？</p>`,
-  title?: string = "温馨提示：",
-  confirmButtonText?: string = "确定",
-  cancelButtonText?: string = "取消",
-  type?: string = "warning"
+  message: string = `<p style="color: teal">您确定进行关闭么？</p>`,
+  title: string = "温馨提示：",
+  confirmButtonText: string = "确定",
+  cancelButtonText: string = "取消",
+  type: string = "warning"
 ): Promise<boolean> {
   return new Promise((resolve, reject) => {
     // @ts-ignore

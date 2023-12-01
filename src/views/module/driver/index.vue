@@ -24,7 +24,6 @@
 </template>
 
 <script setup lang="ts" name="driverPage">
-// @ts-ignore
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 
