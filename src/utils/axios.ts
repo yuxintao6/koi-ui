@@ -3,9 +3,9 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { koiMsgError } from "@/utils/koi.ts";
 import { LOGIN_URL } from "@/config/index.ts";
 import useUserStore from "@/stores/modules/user.ts";
-import { getToken, koiSessionStorage } from "@/utils/storage.ts";
+import { getToken } from "@/utils/storage.ts";
 import router from "@/routers/index.ts";
-// import errorStatus from "@/utils/errorStatus.ts"
+
 // axios配置
 const config = {
   // 接口请求的地址
@@ -57,8 +57,6 @@ class Yu {
         if (status == 200) {
           // 服务器连接状态，非后端返回的status 或者 code
           // 这里的后端可能是code OR status 和 msg OR message需要看后端传递的是什么？
-          // 获取错误信息
-          // const msg = errorStatus[res.data.status || 200] || res.data.msg + "🌻" || errorStatus['default']
           // console.log("200状态", status);
           return res.data;
         } else if (status == 401) {
@@ -66,9 +64,7 @@ class Yu {
           const userStore = useUserStore();
           userStore.setToken(""); // 清空token必须使用这个，不能使用session清空，因为登录的时候js会获取一遍token还会存在。
           koiMsgError("登录身份过期，请重新登录🌻");
-          setTimeout(() => {
-            router.replace(LOGIN_URL);
-          }, 2000); // 等待2秒后重定向，给用户时间看到提示信息
+          router.replace(LOGIN_URL);
           return Promise.reject(res.data);
         } else {
           // console.log("后端返回数据：",res.data.msg)

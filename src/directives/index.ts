@@ -11,7 +11,6 @@ import adaptiveTree from "./modules/adaptiveTree";
 import copy from "./modules/copy";
 
 const directivesList: any = {
-  // Custom directives
   auth,
   waterMarker,
   draggable,

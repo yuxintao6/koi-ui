@@ -1,3 +1,4 @@
+// @ts-nocheck
 // 工具类提示信息
 import { ElNotification, ElMessageBox, ElMessage } from "element-plus";
 
@@ -130,12 +131,11 @@ export function koiMsgInfo(message: any, duration = 2000, type = "info", parseHt
 
 /** 封装确认信息，默认warning */
 export function koiMsgBox(
-  // @ts-ignore
-  message?: any = "您确定进行关闭么？",
-  title?: string = "温馨提示：",
-  confirmButtonText?: string = "确定",
-  cancelButtonText?: string = "取消",
-  type?: string = "warning"
+  message: any = "您确定进行关闭么？",
+  title: string = "温馨提示：",
+  confirmButtonText: string = "确定",
+  cancelButtonText: string = "取消",
+  type: string = "warning"
 ): Promise<boolean> {
   return new Promise((resolve, reject) => {
     // @ts-ignore
@@ -184,13 +184,13 @@ export function koiMsgBoxHtml(
 /** Prompt 类型的消息框 */
 export function koiMsgBoxPrompt(
   // @ts-ignore
-  message?: any = "请输入需要修改的数据？",
-  title?: string = "温馨提示：",
-  confirmButtonText?: string = "确定",
-  cancelButtonText?: string = "取消",
-  type?: string = "info",
-  inputPattern?: string = "",
-  inputErrorMessage?: string = "无效输入"
+  message: any = "请输入需要修改的数据？",
+  title: string = "温馨提示：",
+  confirmButtonText: string = "确定",
+  cancelButtonText: string = "取消",
+  type: string = "info",
+  inputPattern: string = "",
+  inputErrorMessage: string = "无效输入"
 ): Promise<boolean> {
   return new Promise((resolve, reject) => {
     // @ts-ignore
@@ -215,10 +215,10 @@ export function koiMsgBoxPrompt(
 /** Alert 类型的消息框 */
 export function koiMsgBoxAlert(
   // @ts-ignore
-  message?: any = "请输入需要修改的数据？",
-  title?: string = "温馨提示：",
-  confirmButtonText?: string = "确定",
-  type?: string = "info"
+  message: any = "请输入需要修改的数据？",
+  title: string = "温馨提示：",
+  confirmButtonText: string = "确定",
+  type: string = "info"
 ): Promise<boolean> {
   return new Promise((resolve, reject) => {
     // @ts-ignore
