@@ -2,7 +2,7 @@
   <div class="p-6px">
     <div class="w-500px flex justify-between">
       <!-- 方形示例 -->
-      <KoiUploadImage v-model:image-url="avatar1">
+      <KoiUploadImage v-model:imageUrl="avatar1">
         <template #content>
           <el-icon><Avatar /></el-icon>
           <span>请上传头像</span>
@@ -10,7 +10,7 @@
         <template #tip>方形示例</template>
       </KoiUploadImage>
       <!-- 圆形示例 -->
-      <KoiUploadImage v-model:image-url="avatar2" border-radius="50%">
+      <KoiUploadImage v-model:imageUrl="avatar2" border-radius="50%">
         <template #content>
           <el-icon><Avatar /></el-icon>
           <span>请上传头像</span>
@@ -18,7 +18,7 @@
         <template #tip>圆形示例</template>
       </KoiUploadImage>
       <!-- 长方形示例 -->
-      <KoiUploadImage v-model:image-url="avatar3" width="220px">
+      <KoiUploadImage v-model:imageUrl="avatar3" width="220px">
         <template #tip>长方形示例</template>
       </KoiUploadImage>
     </div>

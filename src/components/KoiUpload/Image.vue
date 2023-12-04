@@ -110,7 +110,7 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
   });
   try {
     const res: any = await koi.post(props.action + "/" + props.fileSize, formData);
-    emit("update:imageUrl", res.data.filePath);
+    emit("update:imageUrl", import.meta.env.VITE_SERVER + res.data.fileUploadPath);
     loadingInstance.close();
     // 调用 el-form 内部的校验方法（可自动校验）
     formItemContext?.prop && formContext?.validateField([formItemContext.prop as string]);

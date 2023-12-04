@@ -125,7 +125,7 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
   });
   try {
     const res: any = await koi.post(props.action + "/" + props.fileSize, formData);
-    options.onSuccess(res.data);
+    options.onSuccess(import.meta.env.VITE_SERVER + res.data.fileUploadPath);
     loadingInstance.close();
   } catch (error) {
     loadingInstance.close();
@@ -141,9 +141,9 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
 const emit = defineEmits<{
   "update:fileList": [value: UploadUserFile[]];
 }>();
-const uploadSuccess = (response: { fileUrl: string } | undefined, uploadFile: UploadFile) => {
+const uploadSuccess = (response: string | undefined, uploadFile: UploadFile) => {
   if (!response) return;
-  uploadFile.url = response.fileUrl;
+  uploadFile.url = response;
   emit("update:fileList", _fileList.value);
   // 调用 el-form 内部的校验方法（可自动校验）
   formItemContext?.prop && formContext?.validateField([formItemContext.prop as string]);

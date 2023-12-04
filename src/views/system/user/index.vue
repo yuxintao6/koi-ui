@@ -148,7 +148,13 @@
         </el-table-column>
         <el-table-column label="创建时间" prop="createTime" width="180px" align="center"></el-table-column>
         <el-table-column label="备注" prop="remark" width="200px" align="center" :show-overflow-tooltip="true"></el-table-column>
-        <el-table-column label="操作" align="center" width="120" fixed="right">
+        <el-table-column
+          label="操作"
+          align="center"
+          width="120"
+          fixed="right"
+          v-auth="['system:role:update', 'system:role:delete']"
+        >
           <template #default="{ row }">
             <el-tooltip content="修改🌻" placement="top">
               <el-button

@@ -11,6 +11,8 @@ import KoiUploadImage from "./KoiUpload/Image.vue";
 import KoiUploadImages from "./KoiUpload/Images.vue";
 import MobileDrawer from "./MobileDrawer/Index.vue";
 import KoiExcel from "./KoiExcel/Index.vue";
+import KoiTagFilter from "./KoiTagFilter/Index.vue";
+
 import type { App, Component } from "vue";
 // 对外暴露插件对象，注册全局组件
 const components: { [name: string]: Component } = {
@@ -26,7 +28,8 @@ const components: { [name: string]: Component } = {
   KoiUploadImage,
   KoiUploadImages,
   MobileDrawer,
-  KoiExcel
+  KoiExcel,
+  KoiTagFilter
 };
 export default {
   // install方法， Object.keys()得到对象所有的key

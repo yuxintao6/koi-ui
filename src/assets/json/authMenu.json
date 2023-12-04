@@ -451,6 +451,22 @@
       "redirect": ""
     },
     {
+      "menuId": 89,
+      "menuName": "标签筛选",
+      "parentId": 8,
+      "menuType": "2",
+      "path": "/module/filter",
+      "name": "filterPage",
+      "component": "module/filter/index",
+      "icon": "Picture",
+      "isHide": "1",
+      "isLink": "",
+      "isKeepAlive": "0",
+      "isFull": "1",
+      "isAffix": "1",
+      "redirect": ""
+    },
+    {
       "menuId": 9,
       "menuName": "异常页面",
       "parentId": 0,
