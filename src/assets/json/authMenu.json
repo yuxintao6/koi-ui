@@ -458,7 +458,7 @@
       "path": "/module/filter",
       "name": "filterPage",
       "component": "module/filter/index",
-      "icon": "Picture",
+      "icon": "PriceTag",
       "isHide": "1",
       "isLink": "",
       "isKeepAlive": "0",
