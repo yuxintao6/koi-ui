@@ -40,7 +40,8 @@
     "pinia-plugin-persistedstate": "^3.2.0",
     "sortablejs": "^1.15.0",
     "vue": "^3.3.7",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue3-count-to": "^1.1.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",

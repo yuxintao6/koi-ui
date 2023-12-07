@@ -7,11 +7,11 @@
           <span class="text-sm">{{ item.title1 }}</span>
           <el-tag :type="index == 0 ? '' : index == 1 ? 'success' : index == 2 ? 'warning' : 'danger'">{{ item.unit }}</el-tag>
         </div>
-        <div class="text-2xl">{{ item.value1 }}</div>
+        <div class="text-2xl"><CountTo :startVal="0" :endVal="item.value1" :duration="2000"></CountTo></div>
         <el-divider direction="horizontal" content-position="left"></el-divider>
         <div class="flex justify-between">
           <span class="text-sm">{{ item.title2 }}</span>
-          <span>{{ item.value2 }}</span>
+          <span><CountTo :startVal="0" :endVal="item.value2" :duration="2000"></CountTo></span>
         </div>
       </el-card>
     </el-col>
@@ -19,6 +19,8 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
+import { CountTo } from "vue3-count-to";
 import { reactive } from "vue";
 
 const cardList = reactive([

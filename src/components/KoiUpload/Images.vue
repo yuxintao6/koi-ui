@@ -124,7 +124,7 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
     background: "rgba(0,0,0,.2)"
   });
   try {
-    const res: any = await koi.post(props.action + "/" + props.fileSize, formData);
+    const res: any = await koi.post(props.action + "/" + props.fileSize + "/" + "pictures", formData);
     options.onSuccess(import.meta.env.VITE_SERVER + res.data.fileUploadPath);
     loadingInstance.close();
   } catch (error) {

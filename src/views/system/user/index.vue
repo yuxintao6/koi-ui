@@ -233,12 +233,19 @@
               </el-col>
               <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
                 <el-form-item label="用户头像" prop="avatar">
-                  <el-input v-model="form.avatar" placeholder="请输入用户头像地址" clearable />
+                  <KoiUploadImage v-model:imageUrl="form.avatar">
+                    <template #content>
+                      <el-icon><Avatar /></el-icon>
+                      <span>请上传头像</span>
+                    </template>
+                    <template #tip>图片最大为 3M</template>
+                  </KoiUploadImage>
+                  <!-- <el-input v-model="form.avatar" placeholder="请输入用户头像地址" clearable /> -->
                 </el-form-item>
               </el-col>
               <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
-                <el-form-item label="排序" prop="sorted">
-                  <el-input-number v-model="form.sorted" :min="0" :step="1" placeholder="请输入数字"></el-input-number>
+                <el-form-item label="手机号" prop="phone">
+                  <el-input v-model="form.phone" placeholder="请输入手机号"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
@@ -693,7 +700,7 @@ let form = ref<any>({
   userType: "",
   userStatus: "",
   avatar: "",
-  sorted: 1,
+  phone: "",
   remark: ""
 });
 /** 清空表单数据 */
@@ -703,7 +710,7 @@ const resetForm = () => {
     userType: "",
     userStatus: "",
     avatar: "",
-    sorted: 1,
+    phone: "",
     remark: ""
   };
 };

@@ -117,7 +117,7 @@ const handleChange = async (file: any) => {
     // 上传到服务器上面
     const requestURL: string = props.action;
     koi
-      .post(requestURL + "/" + props.fileSize, formData)
+      .post(requestURL + "/" + props.fileSize + "/" + "files", formData)
       .then((res: any) => {
         loadingInstance.close();
         let fileMap = res.data;
