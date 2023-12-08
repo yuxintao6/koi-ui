@@ -230,7 +230,6 @@
 
             <el-row>
               <el-col :xs="{ span: 24 }" :sm="{ span: 24 }" v-if="form.menuType == '1' || form.menuType == '2'">
-                <!-- 菜单级联选择框 -->
                 <div class="flex items-center m-b-15px m-l-8px">
                   <el-form-item prop="icon"></el-form-item>
                   <div class="w-78px">菜单图标</div>

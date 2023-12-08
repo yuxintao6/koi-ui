@@ -8,29 +8,11 @@
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item command="password">修改密码</el-dropdown-item>
-        <el-dropdown-item command="koiUser">个人中心</el-dropdown-item>
+        <el-dropdown-item command="koiMine">个人中心</el-dropdown-item>
         <el-dropdown-item command="logout">退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
-
-  <!-- 修改密码 -->
-  <!-- <KoiDrawer ref="passwordDrawerRef" title="修改密码" @koiConfirm="koiConfirm" @koiCancel="koiCancel">
-    <template #content>
-      <el-form ref="passwordFormRef" :rules="rules" label-width="100px" :model="passwordForm" status-icon>
-        <el-form-item prop="oldPassword" label="旧密码：">
-          <el-input v-model="passwordForm.oldPassword" type="password" show-password />
-        </el-form-item>
-        <el-form-item prop="newPassword" label="新密码：">
-          <el-input v-model="passwordForm.newPassword" type="password" show-password />
-        </el-form-item>
-        <el-form-item prop="confirmPassword" label="确认密码：">
-          <el-input v-model="passwordForm.confirmPassword" type="password" show-password />
-        </el-form-item>
-      </el-form>
-    </template>
-  </KoiDrawer> -->
 </template>
 
 <script setup lang="ts">
@@ -38,6 +20,9 @@ import { ref } from "vue";
 import settings from "@/settings.ts";
 import { koiSessionStorage } from "@/utils/storage.ts";
 import { LOGIN_URL } from "@/config";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 // 退出登录
 const handleLayout = () => {
@@ -53,12 +38,8 @@ const avatar = ref(settings.logoUrl);
 // 下拉折叠
 const handleCommand = (command: string | number) => {
   switch (command) {
-    case "password":
-      // openKoiDrawer();
-      alert("修改密码");
-      break;
-    case "koiUser":
-      alert("个人中心");
+    case "koiMine":
+      router.push("/system/personage");
       break;
     case "logout":
       handleLayout();

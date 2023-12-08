@@ -4,7 +4,7 @@
       v-model="iconName"
       clearable
       style="width: 500px"
-      placeholder="请输入图标名称"
+      placeholder="请选择图标名称"
       @click="handleOpenDialog"
       @clear="filterIcons"
       @input="filterIcons"
@@ -173,13 +173,6 @@ const resetIcon = () => {
 const handleIconType = (value?: any) => {
   console.log("选择图标类型", value);
   resetDefaultIcon();
-  // if(value == '1'){
-  //   iconName.value = 'Aim';
-  //   iconType.value = '1'
-  // }else {
-  //   iconName.value = 'koi-home';
-  //   iconType.value = '2'
-  // }
 };
 
 // 回显数据
@@ -233,7 +226,6 @@ defineExpose({
       height: 20px;
       padding: 5px;
       margin: 2px;
-      margin-bottom: -5px;
       font-size: 14px;
       line-height: 20px;
       color: #505052;

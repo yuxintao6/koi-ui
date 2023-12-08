@@ -179,6 +179,22 @@
       "redirect": ""
     },
     {
+      "menuId": 21,
+      "menuName": "个人中心",
+      "parentId": 1,
+      "menuType": "2",
+      "path": "/system/personage",
+      "name": "personagePage",
+      "component": "system/personage/index",
+      "icon": "User",
+      "isHide": "1",
+      "isLink": "",
+      "isKeepAlive": "0",
+      "isFull": "1",
+      "isAffix": "1",
+      "redirect": ""
+    },
+    {
       "menuId": 6,
       "menuName": "多级菜单",
       "parentId": 0,
