@@ -211,8 +211,15 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-// @ts-ignore
-import { koiNoticeSuccess, koiNoticeError, koiMsgError, koiMsgWarning, koiMsgBox, koiMsgInfo } from "@/utils/koi.ts";
+import {
+  koiMsgSuccess,
+  koiNoticeSuccess,
+  koiNoticeError,
+  koiMsgError,
+  koiMsgWarning,
+  koiMsgBox,
+  koiMsgInfo
+} from "@/utils/koi.ts";
 // @ts-ignore
 import { listPage, getById, add, update, deleteById, batchDelete, updateStatus } from "@/api/system/notice/index.ts";
 // @ts-ignore
@@ -387,7 +394,7 @@ const handleAdd = () => {
   title.value = "公告添加";
   form.value.noticeStatus = "0";
   koiDrawerRef.value.koiOpen();
-  koiNoticeSuccess("添加🌻");
+  koiMsgSuccess("添加🌻");
 };
 
 /** 回显数据 */
@@ -421,7 +428,7 @@ const handleUpdate = async (row?: any) => {
   // 回显数据
   handleEcho(noticeId);
   koiDrawerRef.value.koiOpen();
-  koiNoticeSuccess("修改🌻");
+  koiMsgSuccess("修改🌻");
 };
 
 /** 添加 AND 修改抽屉 */

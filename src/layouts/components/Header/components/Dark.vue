@@ -34,25 +34,34 @@ const handleSwitchDark = async (event: MouseEvent) => {
   // 画圆
   const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
   // @ts-ignore
-  const transition = document.startViewTransition(() => {
+  if (document.startViewTransition == undefined) {
     /** 明亮和暗黑模式核心逻辑 */
     // 定义图标切换变量(true-月亮，false-太阳)
     globalStore.setGlobalState("isDark", !globalStore.isDark);
     switchDark();
     /** 明亮和暗黑模式核心逻辑 */
-  });
-  await transition.ready;
-  const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-  document.documentElement.animate(
-    {
-      clipPath: globalStore.isDark ? clipPath : [...clipPath].reverse()
-    },
-    {
-      duration: 300,
-      easing: "ease-in",
-      pseudoElement: globalStore.isDark ? "::view-transition-new(root)" : "::view-transition-old(root)"
-    }
-  );
+  } else {
+    // @ts-ignore
+    const transition = document.startViewTransition(() => {
+      /** 明亮和暗黑模式核心逻辑 */
+      // 定义图标切换变量(true-月亮，false-太阳)
+      globalStore.setGlobalState("isDark", !globalStore.isDark);
+      switchDark();
+      /** 明亮和暗黑模式核心逻辑 */
+    });
+    await transition.ready;
+    const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
+    document.documentElement.animate(
+      {
+        clipPath: globalStore.isDark ? clipPath : [...clipPath].reverse()
+      },
+      {
+        duration: 300,
+        easing: "ease-in",
+        pseudoElement: globalStore.isDark ? "::view-transition-new(root)" : "::view-transition-old(root)"
+      }
+    );
+  }
 };
 // 暗黑主题和明亮主题切换
 // const handleDark = () => {

@@ -86,16 +86,16 @@
             <KoiTag :tagOptions="tagOptions" :value="scope.row.menuType"></KoiTag>
           </template>
         </el-table-column>
-        <el-table-column label="展开/折叠" prop="spread" width="100px" align="center">
+        <el-table-column label="展开/折叠" prop="isSpread" width="100px" align="center">
           <template #default="scope">
             <el-switch
-              v-model="scope.row.spread"
+              v-model="scope.row.isSpread"
               active-text="展开"
               inactive-text="折叠"
               active-value="0"
               inactive-value="1"
               :inline-prompt="true"
-              @click="handleSpread(scope.row)"
+              @click="handleisSpread(scope.row)"
             >
             </el-switch>
           </template>
@@ -185,7 +185,7 @@
         @koiConfirm="handleConfirm"
         @koiCancel="handleCancel"
         :loading="confirmLoading"
-        :height="400"
+        :height="500"
       >
         <template #content>
           <el-form ref="formRef" :rules="rules" :model="form" label-width="auto" status-icon>
@@ -229,7 +229,7 @@
             </el-row>
 
             <el-row>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 24 }" v-if="form.menuType == '1' || form.menuType == '2'">
+              <el-col :xs="{ span: 24 }" :sm="{ span: 24 }" v-if="form.menuType < 3">
                 <div class="flex items-center m-b-15px m-l-8px">
                   <el-form-item prop="icon"></el-form-item>
                   <div class="w-78px">菜单图标</div>
@@ -238,20 +238,7 @@
               </el-col>
             </el-row>
 
-            <el-row v-if="form.menuType < 3">
-              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-                <el-form-item label="路由path" prop="path">
-                  <el-input v-model="form.path" placeholder="例如：user[唯一]" clearable />
-                </el-form-item>
-              </el-col>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px">
-                <el-form-item label="菜单名称" prop="menuName">
-                  <el-input v-model="form.menuName" placeholder="请输入菜单名称" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row v-if="form.menuType == '3'">
+            <el-row>
               <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
                 <el-form-item label="菜单名称" prop="menuName">
                   <el-input v-model="form.menuName" placeholder="请输入菜单名称" clearable />
@@ -259,63 +246,82 @@
               </el-col>
             </el-row>
 
-            <el-row v-if="form.menuType == '2'">
+            <el-row>
               <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-                <el-form-item label="是否外链" prop="isFrame">
-                  <el-radio-group v-model="form.isFrame">
+                <el-form-item label="是否隐藏" prop="isHide">
+                  <el-radio-group v-model="form.isHide">
                     <el-radio label="0">是</el-radio>
                     <el-radio label="1">否</el-radio>
                   </el-radio-group>
-                </el-form-item>
-              </el-col>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px">
-                <el-form-item label="是否展开" prop="spread">
-                  <el-radio-group v-model="form.spread">
-                    <el-radio label="0">是</el-radio>
-                    <el-radio label="1">否</el-radio>
-                  </el-radio-group>
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row v-if="form.menuType == '2'">
-              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-                <el-form-item label="路由地址" prop="component">
-                  <el-input v-model="form.component" placeholder="例如：system/user/Index" clearable />
                 </el-form-item>
               </el-col>
               <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px">
                 <el-form-item label="权限字符" prop="auth">
-                  <el-input v-model="form.auth" placeholder="例如：system:user:search" clearable />
+                  <el-input v-model="form.auth" placeholder="权限字符[system:user:list]" clearable />
                 </el-form-item>
               </el-col>
             </el-row>
 
-            <el-row v-if="form.menuType == '1' || form.menuType == '2'">
+            <el-row>
               <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-                <el-form-item label="显示排序" prop="sorted">
-                  <el-input-number v-model="form.sorted" style="width: 260px" clearable />
-                </el-form-item>
-              </el-col>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px">
-                <el-form-item label="是否隐藏" prop="hidden">
-                  <el-radio-group v-model="form.hidden">
+                <el-form-item label="是否外链" prop="isLink">
+                  <el-radio-group v-model="form.isLink">
                     <el-radio label="0">是</el-radio>
                     <el-radio label="1">否</el-radio>
                   </el-radio-group>
                 </el-form-item>
               </el-col>
+              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
+                <el-form-item label="显示排序" prop="sorted" class="p-l-10px">
+                  <el-input-number v-model="form.sorted" clearable />
+                </el-form-item>
+              </el-col>
             </el-row>
 
-            <el-row v-if="form.menuType == '3'">
+            <el-row>
+              <el-col :xs="{ span: 24 }" :sm="{ span: 24 }" v-if="form.isLink == '0'">
+                <el-form-item label="外链地址" prop="linkAddress">
+                  <el-input v-model="form.linkAddress" placeholder="请输入外链地址" clearable />
+                </el-form-item>
+              </el-col>
+            </el-row>
+
+            <el-row v-if="form.menuType == '2'">
+              <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
+                <el-form-item label="页面路径" prop="component">
+                  <el-input v-model="form.component" placeholder="请输入页面路径[system/user/index]" clearable />
+                </el-form-item>
+              </el-col>
+            </el-row>
+
+            <el-row v-if="form.menuType < 3">
               <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-                <el-form-item label="权限字符" prop="auth">
-                  <el-input v-model="form.auth" placeholder="例如：system:user:search" clearable />
+                <el-form-item label="路由名称" prop="name">
+                  <el-input v-model="form.name" placeholder="例如：user[唯一]" clearable />
                 </el-form-item>
               </el-col>
               <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px">
-                <el-form-item label="显示排序" prop="sorted">
-                  <el-input-number v-model="form.sorted" style="width: 260px" clearable />
+                <el-form-item label="路由Path" prop="path">
+                  <el-input v-model="form.path" placeholder="例如：/user[唯一]" clearable />
+                </el-form-item>
+              </el-col>
+            </el-row>
+
+            <el-row>
+              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" v-if="form.menuType < 3">
+                <el-form-item label="是否折叠" prop="isSpread">
+                  <el-radio-group v-model="form.isLink">
+                    <el-radio label="0">是</el-radio>
+                    <el-radio label="1">否</el-radio>
+                  </el-radio-group>
+                </el-form-item>
+              </el-col>
+              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px" v-if="form.menuType == '2'">
+                <el-form-item label="是否固钉" prop="isAffix">
+                  <el-radio-group v-model="form.isAffix">
+                    <el-radio label="0">是</el-radio>
+                    <el-radio label="1">否</el-radio>
+                  </el-radio-group>
                 </el-form-item>
               </el-col>
             </el-row>
@@ -359,7 +365,7 @@ const tableList = ref([
     icon: "Tools",
     auth: "system:menu:list",
     component: "system/menu/Index",
-    spread: "1",
+    isSpread: "1",
     menuStatus: "0",
     isHide: "1",
     path: "system",
@@ -372,7 +378,7 @@ const tableList = ref([
         icon: "UserFilled",
         auth: "system:menu:list",
         component: "system/menu/Index",
-        spread: "1",
+        isSpread: "1",
         menuStatus: "0",
         isHide: "1",
         path: "system",
@@ -385,7 +391,7 @@ const tableList = ref([
         icon: "CameraFilled",
         auth: "system:menu:list",
         component: "system/menu/Index",
-        spread: "1",
+        isSpread: "1",
         menuStatus: "0",
         isHide: "1",
         path: "system",
@@ -398,7 +404,7 @@ const tableList = ref([
         icon: "Menu",
         auth: "system:menu:list",
         component: "system/menu/Index",
-        spread: "1",
+        isSpread: "1",
         menuStatus: "0",
         isHide: "1",
         path: "system",
@@ -413,7 +419,7 @@ const tableList = ref([
     icon: "Search",
     auth: "system:menu:list",
     component: "system/menu/Index",
-    spread: "1",
+    isSpread: "1",
     menuStatus: "0",
     isHide: "1",
     path: "system",
@@ -426,7 +432,7 @@ const tableList = ref([
         icon: "CameraFilled",
         auth: "system:menu:list",
         component: "system/menu/Index",
-        spread: "1",
+        isSpread: "1",
         menuStatus: "0",
         isHide: "1",
         path: "system",
@@ -439,7 +445,7 @@ const tableList = ref([
         icon: "Menu",
         auth: "system:menu:list",
         component: "system/menu/Index",
-        spread: "1",
+        isSpread: "1",
         menuStatus: "0",
         isHide: "1",
         path: "system",
@@ -554,10 +560,10 @@ const handleExpandKey = (data: any) => {
     expandKey.value = [];
     const resultList: string[] = [];
     data.forEach((obj: any) => {
-      if (obj.parentId == "0" && obj.spread == "0") {
+      if (obj.parentId == "0" && obj.isSpread == "0") {
         resultList.push(obj.menuId);
       }
-      if (obj.parentId != "0" && obj.spread == "0") {
+      if (obj.parentId != "0" && obj.isSpread == "0") {
         resultList.push(obj.menuId);
         resultList.push(obj.parentId);
       }
@@ -638,6 +644,7 @@ const handleAdd = () => {
   handleCascader();
   form.value.menuStatus = "0";
   koiDialogRef.value.koiOpen();
+  form.value.icon = "";
   setTimeout(() => {
     koiIconRef.value.resetIcon();
   }, 0);
@@ -695,14 +702,19 @@ const resetForm = () => {
     parentId: "0",
     menuType: "2",
     icon: "",
-    spread: "1",
     menuName: "",
-    isFrame: "1",
+    name: "",
     path: "",
     component: "",
+    isHide: "1",
+    isLink: "1",
+    linkAddress: "",
+    isKeepAlive: "0",
+    isSpread: "1",
     auth: "",
-    sorted: 1,
-    hidden: "1"
+    isFull: "1",
+    isAffix: "1",
+    sorted: 1
   };
 };
 /** 表单规则 */
@@ -710,7 +722,9 @@ const rules = reactive({
   parentId: [{ required: true, message: "请选择上级菜单", trigger: "change" }],
   menuType: [{ required: true, message: "请选择菜单类型", trigger: "change" }],
   menuName: [{ required: true, message: "请输入菜单名称", trigger: "change" }],
-  isFrame: [{ required: true, message: "请选择是否外链", trigger: "change" }],
+  isHide: [{ required: true, message: "请选择是否隐藏", trigger: "change" }],
+  auth: [{ required: true, message: "请输入权限字符", trigger: "change" }],
+  isLink: [{ required: true, message: "请选择是否外链", trigger: "change" }],
   sorted: [{ required: true, message: "请输入排序号", trigger: "change" }]
 });
 
@@ -739,7 +753,7 @@ const handleConfirm = () => {
       } else {
         try {
           if (form.value.menuType == "3") {
-            form.value.hidden = "0"; // 按钮类型时，默认隐藏
+            form.value.isHide = "0"; // 按钮类型时，默认隐藏
           }
           await add(form.value);
           koiNoticeSuccess("添加成功🌻");
@@ -799,13 +813,13 @@ const handleSwitch = (row: any) => {
 };
 
 /** 是否展开 */
-const handleSpread = async (row: any) => {
-  if (!row.menuId || !row.spread) {
+const handleisSpread = async (row: any) => {
+  if (!row.menuId || !row.isSpread) {
     koiMsgWarning("请选择需要展开的数据🌻");
     return;
   }
   try {
-    await updateSpread(row.menuId, row.spread);
+    await updateSpread(row.menuId, row.isSpread);
     handleTableData();
     koiNoticeSuccess("操作成功🌻");
   } catch (error) {

@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv, ConfigEnv, UserConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 // keepAlive 组件name
 import vueSetupExtend from "vite-plugin-vue-setup-extend";
@@ -7,13 +7,13 @@ import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import Unocss from "unocss/vite";
 // 数据mock配置
 import { viteMockServe } from "vite-plugin-mock";
-// @ts-ignore gzip压缩
+// gzip压缩
 import viteCompression from "vite-plugin-compression";
 import path from "path";
 
 // https://vitejs.dev/config/
-// @ts-ignore 配置mock根据官网，这里写法将改成箭头函数
-export default defineConfig(({ command, mode }) => {
+// 配置mock根据官网，这里写法将改成箭头函数
+export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd()); // 获取配置文件别名配置
   return {
     plugins: [
@@ -67,14 +67,9 @@ export default defineConfig(({ command, mode }) => {
         }
       }
     },
-    build: {
-      minify: "terser",
-      terserOptions: {
-        compress: {
-          drop_console: env.VITE_DELETE_CONSOLE,
-          drop_debugger: env.VITE_DELETE_CONSOLE
-        }
-      }
+    esbuild: {
+      // 在生产环境全部去除日志和debugger
+      drop: ["console", "debugger"]
     }
   };
 });

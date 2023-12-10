@@ -47,7 +47,6 @@
             </el-select>
           </template>
         </el-input>
-
         <!-- ElementPlus图标库 -->
         <div class="icon-select-list" v-if="iconType == '1'">
           <div
@@ -84,6 +83,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+
 // 引入ElementPlus所有图标
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 const icons = [] as string[];
@@ -100,7 +100,6 @@ const elementPlusIconList = ref<any>([]);
 // 获取ElementPlus所有图标
 const getElementPlusIcon = () => {
   for (const name in ElementPlusIconsVue) {
-    // @ts-ignore
     elementPlusIconList.value.push(name);
   }
 };
@@ -158,6 +157,12 @@ const resetDefaultIcon = () => {
   iconName.value = "";
 };
 
+/**
+ * 重置数据如何使用？代码如下：
+   setTimeout(() => {
+    koiIconRef.value.resetIcon();
+   }, 0);
+ */
 // 重置默认选择数据（外部使用）
 const resetIcon = () => {
   // 重置IconFont数据
@@ -174,6 +179,13 @@ const handleIconType = (value?: any) => {
   console.log("选择图标类型", value);
   resetDefaultIcon();
 };
+
+/**
+ * 回显数据如何使用？代码如下：
+  setTimeout(() => {
+    koiIconRef.value.echoIcon("Apple");
+  }, 0);
+ */
 
 // 回显数据
 const echoIcon = (icon?: any) => {
@@ -217,6 +229,7 @@ defineExpose({
   width: 100%;
   padding: 0;
   margin: 0;
+  @apply select-none;
   .icon-select-list {
     height: 94%;
     overflow: hidden scroll;
