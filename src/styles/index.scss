@@ -1,5 +1,7 @@
 // 引入清除默认样式
 @import "./reset.scss";
+// 进度条配置
+@import "./nprogress.scss";
 
 // 工具图标颜色
 .koi-icon {
@@ -24,13 +26,6 @@
   .tabs-box {
     display: none !important;
   }
-}
-
-/* css自适应表格[舍弃，使用指令] */
-.adaptive {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
 }
 
 /* ElementPlus 横向布局内置样式修改 */
@@ -58,11 +53,6 @@
 /* 悬浮在滑块上时为滑块设置背景颜色 */
 ::-webkit-scrollbar-thumb:hover {
   background: $webkit-scrollbar-hover-color;
-}
-
-/* nprogress进度条颜色配置 */
-#nprogress .bar {
-  background: var(--el-color-primary) !important;
 }
 
 /* el-table表头颜色配置 */

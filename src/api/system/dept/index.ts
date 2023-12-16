@@ -14,7 +14,7 @@ enum API {
   UPDATE_SPREAD = "/koi/sysDept/updateSpread"
 }
 
-// 多条件进行查询
+// 多条件分页查询
 export const list = (params: any) => {
   return koi.get(API.LIST, params);
 };

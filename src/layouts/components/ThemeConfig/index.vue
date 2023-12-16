@@ -1,13 +1,13 @@
 <template>
   <!-- 主题配置 608 -->
-  <KoiDialog ref="koiDialogRef" title="主题配置" :footerHidden="true" :close-on-click-modal="true" top="6vh" :height="560">
+  <KoiDialog ref="koiDialogRef" title="主题配置" :footerHidden="true" :close-on-click-modal="true" top="6vh" :height="610">
     <template #content>
       <el-row>
         <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
           <div
             class="shadow-sm border-#93b5cf dark:border-#2992FF sm:hover:border-#2992FF transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#2992FF')"
-            :class="{ selected: globalStore.themeColor === '#2992FF' }"
+            :class="{ themeSelected: globalStore.themeColor === '#2992FF' }"
             :style="{ 'border-color': globalStore.themeColor === '#2992FF' ? '#2992FF' : '' }"
           >
             <div class="m-l-4px w-8px h-50px bg-#2992FF rounded-md"></div>
@@ -21,7 +21,7 @@
           <div
             class="shadow-sm border-#d1c2d3 dark:border-#d1c2d3 sm:hover:border-#6169FF transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#6169FF')"
-            :class="{ selected: globalStore.themeColor === '#6169FF' }"
+            :class="{ themeSelected: globalStore.themeColor === '#6169FF' }"
             :style="{ 'border-color': globalStore.themeColor === '#6169FF' ? '#6169FF' : '' }"
           >
             <div class="m-l-4px w-8px h-50px bg-#6169FF rounded-md"></div>
@@ -38,7 +38,7 @@
           <div
             class="shadow-sm border-#edc3ae dark:border-#edc3ae sm:hover:border-#fa7e23 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#fa7e23')"
-            :class="{ selected: globalStore.themeColor === '#fa7e23' }"
+            :class="{ themeSelected: globalStore.themeColor === '#fa7e23' }"
             :style="{ 'border-color': globalStore.themeColor === '#fa7e23' ? '#fa7e23' : '' }"
           >
             <div class="m-l-4px w-8px h-50px bg-#fa7e23 rounded-md"></div>
@@ -52,7 +52,7 @@
           <div
             class="shadow-sm border-#f8df72 dark:border-#F9A407 sm:hover:border-#F9A407 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#F9A407')"
-            :class="{ selected: globalStore.themeColor === '#F9A407' }"
+            :class="{ themeSelected: globalStore.themeColor === '#F9A407' }"
             :style="{ 'border-color': globalStore.themeColor === '#F9A407' ? '#F9A407' : '' }"
           >
             <div class="m-l-4px w-8px h-50px bg-#F9A407 rounded-md"></div>
@@ -69,7 +69,7 @@
           <div
             class="shadow-sm border-#83cbac dark:border-#83cbac sm:hover:border-#20a162 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#20a162')"
-            :class="{ selected: globalStore.themeColor === '#20a162' }"
+            :class="{ themeSelected: globalStore.themeColor === '#20a162' }"
             :style="{ 'border-color': globalStore.themeColor === '#20a162' ? '#20a162' : '' }"
           >
             <div class="m-l-4px w-8px h-50px bg-#20a162 rounded-md"></div>
@@ -83,7 +83,7 @@
           <div
             class="shadow-sm border-#efafad dark:border-#efafad sm:hover:border-#ee4866 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#ee4866')"
-            :class="{ selected: globalStore.themeColor === '#ee4866' }"
+            :class="{ themeSelected: globalStore.themeColor === '#ee4866' }"
             :style="{ 'border-color': globalStore.themeColor === '#ee4866' ? '#ee4866' : '' }"
           >
             <div class="m-l-4px w-8px h-50px bg-#ee4866 rounded-md"></div>
@@ -100,7 +100,7 @@
           <div
             class="shadow-sm border-#f19790 dark:border-#f19790 sm:hover:border-#FF0000 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#FF0000')"
-            :class="{ selected: globalStore.themeColor === '#FF0000' }"
+            :class="{ themeSelected: globalStore.themeColor === '#FF0000' }"
             :style="{ 'border-color': globalStore.themeColor === '#FF0000' ? '#FF0000' : '' }"
           >
             <div class="m-l-4px w-8px h-50px bg-#FF0000 rounded-md"></div>
@@ -114,7 +114,7 @@
           <div
             class="shadow-sm border-#93b5cf dark:border-#93b5cf sm:hover:border-#1E71EE transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#1E71EE')"
-            :class="{ selected: globalStore.themeColor === '#1E71EE' }"
+            :class="{ themeSelected: globalStore.themeColor === '#1E71EE' }"
             :style="{ 'border-color': globalStore.themeColor === '#1E71EE' ? '#1E71EE' : '' }"
           >
             <div class="m-l-4px w-8px h-50px bg-#1E71EE rounded-md"></div>
@@ -189,6 +189,42 @@
           <el-col :xs="{ span: 24 }" :sm="{ span: 13 }">
             <el-form-item>
               <div class="flex items-center">
+                <span class="m-r-2px">路由动画</span>
+                <el-tooltip placement="bottom" content="路由加载动画模式">
+                  <el-icon class="m-r-10px"><QuestionFilled /></el-icon>
+                </el-tooltip>
+              </div>
+              <el-select placeholder="请选择路由动画" v-model="transition" clearable style="width: 200px">
+                <el-option label="默认" value="fade-default" />
+                <el-option label="渐变" value="fade" />
+                <el-option label="滑动" value="fade-slide" />
+                <el-option label="抽屉" value="zoom-fade" />
+                <el-option label="底部滑出" value="fade-bottom" />
+                <el-option label="缩放消退" value="fade-scale" />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :xs="{ span: 24 }" :sm="{ span: 11 }">
+            <el-form-item label="折叠菜单">
+              <el-form-item>
+                <el-switch
+                  v-model="isCollapse"
+                  active-text="展开"
+                  inactive-text="折叠"
+                  :active-value="true"
+                  :inactive-value="false"
+                  :inline-prompt="true"
+                >
+                </el-switch>
+              </el-form-item>
+            </el-form-item>
+          </el-col>
+        </el-row>
+
+        <el-row>
+          <el-col :xs="{ span: 24 }" :sm="{ span: 13 }">
+            <el-form-item>
+              <div class="flex items-center">
                 <span class="m-r-2px">菜单手风琴</span>
                 <el-tooltip placement="bottom" content="左侧菜单是否展开单个子菜单[启用-单个/关闭-多个]">
                   <el-icon class="m-r-10px"><QuestionFilled /></el-icon>
@@ -258,7 +294,7 @@ import useGlobalStore from "@/stores/modules/global.ts";
 const globalStore = useGlobalStore();
 
 const { changeThemeColor, changeGreyOrWeak, setAsideTheme } = useTheme();
-const { layout, uniqueOpened, menuWidth, isGrey, isWeak } = storeToRefs(globalStore);
+const { layout, isCollapse, transition, uniqueOpened, menuWidth, isGrey, isWeak } = storeToRefs(globalStore);
 
 /** 主题设置弹出框 */
 const koiDialogRef = ref();
@@ -289,19 +325,18 @@ mittBus.on("handleThemeConfig", () => {
 }
 
 /* 选中打钩效果 */
-.selected::before {
+.themeSelected::before {
   position: absolute;
   right: 8px;
-  bottom: 20px;
+  bottom: 22px;
   font-size: 24px;
   content: "🌻";
-  transition: transform 0.3s ease-in-out; /* 添加过渡效果 */
   transform: scale(0); /* 初始状态下隐藏 */
 }
-.selected {
+.themeSelected {
   position: relative;
 }
-.selected.selected::before {
+.themeSelected::before {
   transform: scale(1); /* 选中状态下显示 */
 }
 

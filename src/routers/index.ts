@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import { layoutRouter, staticRouter, errorRouter } from "@/routers/modules/staticRouter";
-import { showNprogress, hiddenNprogress } from "@/utils/index.ts";
+import nprogress from "@/utils/nprogress";
 import { RouteLocationNormalized, NavigationGuardNext } from "vue-router";
 import useUserStore from "@/stores/modules/user.ts";
 import useAuthStore from "@/stores/modules/auth.ts";
@@ -33,14 +33,14 @@ const router = createRouter({
 });
 
 /**
- * @description 路由拦截 beforeEach
+ * @description 前置路由
  * */
 router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
   const userStore = useUserStore();
   const authStore = useAuthStore();
 
   // 1、NProgress 开始
-  showNprogress();
+  nprogress.start();
 
   // 2、标题切换，没有防止后置路由，是因为页面路径不存在，title会变成undefined
   const title = import.meta.env.VITE_WEB_TITLE;
@@ -95,7 +95,7 @@ export const resetRouter = () => {
  */
 router.onError(error => {
   // 结束全屏动画
-  hiddenNprogress();
+  nprogress.done();
   console.warn("路由错误", error.message);
 });
 
@@ -108,7 +108,7 @@ router.afterEach((to: RouteLocationNormalized, from: RouteLocationNormalized) =>
   // const title = import.meta.env.VITE_WEB_TITLE;
   // document.title = to.meta.title + "🌻" || title;
   // 结束全屏动画
-  hiddenNprogress();
+  nprogress.done();
 });
 
 export default router;

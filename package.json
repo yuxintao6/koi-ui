@@ -47,6 +47,7 @@
     "@babel/eslint-parser": "^7.23.3",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
+    "@types/nprogress": "^0.2.3",
     "@types/sortablejs": "^1.15.7",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",

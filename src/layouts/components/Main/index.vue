@@ -2,7 +2,7 @@
   <Maximize v-show="globalStore.maximize" />
   <Tabs v-if="showTabs"></Tabs>
   <router-view v-slot="{ Component, route }">
-    <transition name="slide-fade">
+    <transition :name="transition" mode="out-in" appear>
       <keep-alive :max="16" :include="keepAliveName" v-if="flag">
         <component :is="Component" :key="route.fullPath" v-if="isRouterShow" class="bg-#F6F9FE dark:bg-black" />
       </keep-alive>
@@ -22,6 +22,8 @@ import useGlobalStore from "@/stores/modules/global.ts";
 
 const refreshStore = useRefreshStore();
 const globalStore = useGlobalStore();
+// 路由动画
+const { transition } = storeToRefs(globalStore);
 
 const keepAliveStore = useKeepAliveStore();
 const { keepAliveName } = storeToRefs(keepAliveStore);
@@ -81,15 +83,5 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
-.slide-fade-enter-from {
-  // 开始动画
-  opacity: 0; // 透明度
-}
-.slide-fade-enter-active {
-  transition: all 0.3s; // 动画时间
-}
-.slide-fade-enter-to {
-  // 结束动画
-  opacity: 1; // 透明度
-}
+@import "../../../styles/transition.scss";
 </style>

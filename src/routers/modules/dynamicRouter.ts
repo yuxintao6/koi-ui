@@ -43,5 +43,9 @@ export const initDynamicRouter = async () => {
     });
   } catch (error) {
     console.log(error);
+    // 当菜单请求出错时，重定向到登陆页
+    userStore.setToken("");
+    router.replace(LOGIN_URL);
+    return Promise.reject(error);
   }
 };

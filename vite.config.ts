@@ -68,8 +68,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       }
     },
     esbuild: {
-      // 在生产环境全部去除日志和debugger
-      drop: ["console", "debugger"]
+      // 在生产环境全部去除console 和 debugger
+      drop: env.VITE_DROP_CONSOLE.length < 5 ? ["console", "debugger"] : []
     }
   };
 });

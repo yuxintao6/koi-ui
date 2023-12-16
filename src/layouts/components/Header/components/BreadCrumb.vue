@@ -8,8 +8,6 @@
             :class="{ 'item-no-icon': !item.meta.icon }"
             @click="handleBreadcrumb(item, index)"
           >
-            <!-- globalStore.breadcrumbIcon 面包屑图标是否展示 -->
-            <!-- <el-icon v-if="item.meta.icon && globalStore.breadcrumbIcon" class="breadcrumb-icon"> -->
             <el-icon v-if="item.meta.icon" class="breadcrumb-icon">
               <component :is="item.meta.icon"></component>
             </el-icon>
@@ -23,7 +21,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { HOME_URL } from "@/config";
+import { HOME_URL } from "@/config/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import { ArrowRight } from "@element-plus/icons-vue";
 import useAuthStore from "@/stores/modules/auth.ts";
@@ -33,11 +31,7 @@ const router = useRouter();
 const authStore = useAuthStore();
 
 const breadcrumbList = computed(() => {
-  // console.log(authStore.getBreadcrumbList);
-  // console.log(route);
-
   let breadcrumbData = authStore.getBreadcrumbList[route.matched[route.matched.length - 1].path] ?? [];
-  // console.log("breadcrumbData", breadcrumbData);
   // 不需要首页面包屑可删除以下判断
   if (breadcrumbData[0].path !== HOME_URL) {
     breadcrumbData = [{ path: HOME_URL, meta: { icon: "HomeFilled", title: "首页" } }, ...breadcrumbData];
@@ -52,6 +46,16 @@ const handleBreadcrumb = (item: any, index: number) => {
 </script>
 
 <style scoped lang="scss">
+/* breadcrumb-transform 面包屑动画 */
+.breadcrumb-enter-active {
+  transition: all 0.2s;
+}
+.breadcrumb-enter-from,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
 .breadcrumb-box {
   display: flex;
   align-items: center;
@@ -97,7 +101,6 @@ const handleBreadcrumb = (item: any, index: number) => {
     }
   }
 }
-
 /* 右侧向左侧移动，面包屑模糊 */
 .mask-image {
   padding-right: 50px;
