@@ -612,7 +612,7 @@ const handleDict1 = async () => {
         dictColor: ""
       }
     ];
-    // const res: any = await listDataByType("sys-user-type");
+    // const res: any = await listDataByType("sys_user_type");
     // console.log("字典数据", res.data);
     // userTypeOptions.value = res.data;
   } catch (error) {
@@ -631,7 +631,7 @@ const handleDict2 = async () => {
       { dictLabel: "女", dictValue: "2", dictTag: "danger", dictColor: "" },
       { dictLabel: "未知", dictValue: "3", dictTag: "info", dictColor: "" }
     ];
-    // const res: any = await listDataByType("sys-user-sex");
+    // const res: any = await listDataByType("sys_user_sex");
     // console.log("字典数据", res.data);
     // userSexOptions.value = res.data;
   } catch (error) {

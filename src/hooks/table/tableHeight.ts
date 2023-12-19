@@ -68,7 +68,7 @@ export function useTableHeight() {
 
 // ElementPlus表格高度自适应
 // <el-form v-show="showSearch" id="searchFormId">
-// import { useTableHeight } from '@/composables/table/tableHeight';
+// import { useTableHeight } from '@/hooks/table/tableHeight';
 // const { tableHeight, showSearch } = useTableHeight();
 
 /** ElementPlus表格高度自适应 */

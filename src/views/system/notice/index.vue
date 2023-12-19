@@ -367,7 +367,7 @@ const handleDict = async () => {
         dictColor: ""
       }
     ];
-    // const res: any = await listDataByType("sys-notice-type");
+    // const res: any = await listDataByType("sys_notice_type");
     // console.log("字典数据", res.data);
     // noticeOptions.value = res.data;
   } catch (error) {

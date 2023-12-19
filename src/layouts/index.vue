@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts" name="layout">
-import { useScreenStore } from "@/composables/screen/index.ts";
+import { useScreenStore } from "@/hooks/screen/index.ts";
 import { computed, type Component } from "vue";
 // 全局主题配置
 import useGlobalStore from "@/stores/modules/global.ts";

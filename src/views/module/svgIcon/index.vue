@@ -13,12 +13,22 @@
     <br />
     <el-button type="primary" plain @click="handleEchoIcon">回显图标</el-button>
     <el-button type="danger" plain @click="handleResetIcon">重置图标</el-button>
+    <br />
+    <br />
+    <KoiTag :tagOptions="koiDicts.sys_notice_type" :value="tagValue"></KoiTag>
   </div>
 </template>
 
 <script setup lang="ts" name="svgIconPage">
 import { ref } from "vue";
 import { koiMsgSuccess, koiMsgWarning, koiMsgError } from "@/utils/koi";
+
+/** 第二种字典获取数据开始 */
+import { useKoiDict } from "@/hooks/dicts/index.ts";
+// 每次进入页面一次获取所需要的数据源
+let { koiDicts } = useKoiDict(["sys_notice_type", "sys_user_sex"]);
+const tagValue = ref("1");
+/** 第二种字典获取数据结束 */
 
 /** 复制指令开始 */
 import { useClipboard } from "@vueuse/core";

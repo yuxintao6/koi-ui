@@ -542,7 +542,7 @@ const handleDict = async () => {
         dictColor: ""
       }
     ];
-    // const res: any = await listDataByType("sys-menu-type");
+    // const res: any = await listDataByType("sys_menu_type");
     // console.log("字典数据", res.data);
     // tagOptions.value = res.data;
   } catch (error) {

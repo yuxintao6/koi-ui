@@ -347,7 +347,7 @@ const tagOptions = ref();
 const handleFormDict = async () => {
   try {
     tagOptions.value = [];
-    const res: any = await listDataByType("sys-tag-type");
+    const res: any = await listDataByType("sys_tag_type");
     console.log("字典数据", res.data);
     tagOptions.value = res.data;
   } catch (error) {

@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { usePageHeight } from "@/composables/table/tableHeight.ts";
+import { usePageHeight } from "@/hooks/table/tableHeight.ts";
 const { pageHeight } = usePageHeight();
 </script>
 

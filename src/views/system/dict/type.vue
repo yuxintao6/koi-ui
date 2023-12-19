@@ -212,7 +212,7 @@ const tableList = ref<any>([
   {
     dictId: 1,
     dictName: "系统开关🌻",
-    dictType: "sys-common-status",
+    dictType: "sys_common_status",
     dictStatus: "0",
     remark: "系统开关列表",
     createTime: "2023-08-08 23:00:00",
@@ -222,7 +222,7 @@ const tableList = ref<any>([
   {
     dictId: 2,
     dictName: "用户性别🌻",
-    dictType: "sys-user-sex",
+    dictType: "sys_user_sex",
     dictStatus: "0",
     remark: "用户性别列表",
     createTime: "2023-08-08 23:00:00",
