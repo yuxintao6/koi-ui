@@ -13,9 +13,13 @@
     <br />
     <el-button type="primary" plain @click="handleEchoIcon">回显图标</el-button>
     <el-button type="danger" plain @click="handleResetIcon">重置图标</el-button>
-    <br />
+    <!-- <br />
     <br />
     <KoiTag :tagOptions="koiDicts.sys_notice_type" :value="tagValue"></KoiTag>
+    <br />
+    <el-select placeholder="请选择公告类型" v-model="noticeType" style="width: 240px" clearable>
+      <el-option v-for="item in koiDicts.sys_notice_type" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue" />
+    </el-select> -->
   </div>
 </template>
 
@@ -23,11 +27,11 @@
 import { ref } from "vue";
 import { koiMsgSuccess, koiMsgWarning, koiMsgError } from "@/utils/koi";
 
-/** 第二种字典获取数据开始 */
-import { useKoiDict } from "@/hooks/dicts/index.ts";
-// 每次进入页面一次获取所需要的数据源
-let { koiDicts } = useKoiDict(["sys_notice_type", "sys_user_sex"]);
-const tagValue = ref("1");
+/** 第二种字典获取数据开始[每次进入页面一次获取所需要的数据源] */
+// import { useKoiDict } from "@/hooks/dicts/index.ts";
+// const { koiDicts } = useKoiDict(["sys_notice_type", "sys_user_sex"]);
+// const tagValue = ref("1");
+// const noticeType = ref();
 /** 第二种字典获取数据结束 */
 
 /** 复制指令开始 */
