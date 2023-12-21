@@ -5,7 +5,7 @@
       <el-row>
         <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
           <div
-            class="shadow-sm border-#93b5cf dark:border-#2992FF sm:hover:border-#2992FF transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
+            class="shadow-sm border-#9AC9F9 dark:border-#9AC9F9 sm:hover:border-#2992FF transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#2992FF')"
             :class="{ themeSelected: globalStore.themeColor === '#2992FF' }"
             :style="{ 'border-color': globalStore.themeColor === '#2992FF' ? '#2992FF' : '' }"
@@ -19,7 +19,7 @@
         </el-col>
         <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-5px">
           <div
-            class="shadow-sm border-#d1c2d3 dark:border-#d1c2d3 sm:hover:border-#6169FF transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
+            class="shadow-sm border-#A6ABF9 dark:border-#A6ABF9 sm:hover:border-#6169FF transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#6169FF')"
             :class="{ themeSelected: globalStore.themeColor === '#6169FF' }"
             :style="{ 'border-color': globalStore.themeColor === '#6169FF' ? '#6169FF' : '' }"
@@ -50,7 +50,7 @@
         </el-col>
         <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-5px">
           <div
-            class="shadow-sm border-#f8df72 dark:border-#F9A407 sm:hover:border-#F9A407 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
+            class="shadow-sm border-#f8df72 dark:border-#f8df72 sm:hover:border-#F9A407 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#F9A407')"
             :class="{ themeSelected: globalStore.themeColor === '#F9A407' }"
             :style="{ 'border-color': globalStore.themeColor === '#F9A407' ? '#F9A407' : '' }"
@@ -81,7 +81,7 @@
         </el-col>
         <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-5px">
           <div
-            class="shadow-sm border-#efafad dark:border-#efafad sm:hover:border-#ee4866 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
+            class="shadow-sm border-#FC98AA dark:border-#FC98AA sm:hover:border-#ee4866 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#ee4866')"
             :class="{ themeSelected: globalStore.themeColor === '#ee4866' }"
             :style="{ 'border-color': globalStore.themeColor === '#ee4866' ? '#ee4866' : '' }"
@@ -98,7 +98,7 @@
       <el-row class="p-t-10px">
         <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
           <div
-            class="shadow-sm border-#f19790 dark:border-#f19790 sm:hover:border-#FF0000 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
+            class="shadow-sm border-#FB8F8F dark:border-#FB8F8F sm:hover:border-#FF0000 transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#FF0000')"
             :class="{ themeSelected: globalStore.themeColor === '#FF0000' }"
             :style="{ 'border-color': globalStore.themeColor === '#FF0000' ? '#FF0000' : '' }"
@@ -112,7 +112,7 @@
         </el-col>
         <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-5px">
           <div
-            class="shadow-sm border-#93b5cf dark:border-#93b5cf sm:hover:border-#1E71EE transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
+            class="shadow-sm border-#90BBFB dark:border-#90BBFB sm:hover:border-#1E71EE transition-all duration-300 border-dashed border-2 rounded-lg cursor-pointer text-sm w-301px h-62px flex flex-items-center dark:bg-black"
             @click="changeThemeColor('#1E71EE')"
             :class="{ themeSelected: globalStore.themeColor === '#1E71EE' }"
             :style="{ 'border-color': globalStore.themeColor === '#1E71EE' ? '#1E71EE' : '' }"
