@@ -235,35 +235,33 @@ const updateChart = () => {
       {
         data: valueArr,
         itemStyle: {
+          label: {
+            show: true,
+            position: "top"
+          },
           // 颜色样式部分
-          normal: {
-            label: {
-              show: true, // 开启数字显示
-              position: "top" // 在上方显示数字
-            },
-            // 柱状图颜色渐变
-            color: (arg: any) => {
-              let targetColorArr: any = "lightpink";
-              if (arg.value > 300) {
-                targetColorArr = colorArr[0];
-              } else if (arg.value > 200) {
-                targetColorArr = colorArr[1];
-              } else if (arg.value > 100) {
-                targetColorArr = colorArr[2];
-              } else {
-                targetColorArr = colorArr[3];
-              }
-              return new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {
-                  offset: 0,
-                  color: targetColorArr[0]
-                },
-                {
-                  offset: 1,
-                  color: targetColorArr[1]
-                }
-              ]);
+          // 柱状图颜色渐变
+          color: (arg: any) => {
+            let targetColorArr: any = "lightpink";
+            if (arg.value > 300) {
+              targetColorArr = colorArr[0];
+            } else if (arg.value > 200) {
+              targetColorArr = colorArr[1];
+            } else if (arg.value > 100) {
+              targetColorArr = colorArr[2];
+            } else {
+              targetColorArr = colorArr[3];
             }
+            return new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              {
+                offset: 0,
+                color: targetColorArr[0]
+              },
+              {
+                offset: 1,
+                color: targetColorArr[1]
+              }
+            ]);
           }
         }
       }
@@ -281,7 +279,7 @@ const updateChart = () => {
 
 // 图表自适应
 const screenAdapter = () => {
-  const titleFontSize = ref(Math.round(refChart.value.offsetWidth / 50));
+  const titleFontSize = ref(Math.round(refChart.value?.offsetWidth / 50));
   const adapterOption = {
     title: {
       textStyle: {
@@ -294,11 +292,9 @@ const screenAdapter = () => {
         barWidth: Math.round(titleFontSize.value * 2),
         itemStyle: {
           //颜色样式部分
-          normal: {
-            label: {
-              textStyle: {
-                fontSize: Math.round(titleFontSize.value * 0.8) //字体大小
-              }
+          label: {
+            textStyle: {
+              fontSize: Math.round(titleFontSize.value * 0.8) //字体大小
             }
           }
         }
@@ -307,17 +303,13 @@ const screenAdapter = () => {
     xAxis: {
       //  改变x轴字体颜色和大小
       axisLabel: {
-        textStyle: {
-          fontSize: Math.round(titleFontSize.value * 0.8)
-        }
+        fontSize: Math.round(titleFontSize.value * 0.8)
       }
     },
     yAxis: {
       //  改变y轴字体颜色和大小
       axisLabel: {
-        textStyle: {
-          fontSize: Math.round(titleFontSize.value * 0.8)
-        }
+        fontSize: Math.round(titleFontSize.value * 0.8)
       }
     }
   };
