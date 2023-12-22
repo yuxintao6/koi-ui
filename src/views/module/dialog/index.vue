@@ -21,21 +21,6 @@
         {{ form }}
       </template>
     </KoiDialog>
-
-    <br />
-    <br />
-    <div class="p-l-20px bg-#fff">
-      分段器：
-      <KoiSection v-model="activeName" @tab-click="handleClick">
-        <template #content>
-          <el-tab-pane label="KOI-UI" name="first">KOI-UI</el-tab-pane>
-          <el-tab-pane label="ElementPlus" name="second">ElementPlus</el-tab-pane>
-          <el-tab-pane label="Pinia" name="third">Pinia</el-tab-pane>
-          <el-tab-pane label="Vue3" name="fourth">Vue3</el-tab-pane>
-          <el-tab-pane label="Uncoss" name="fourth">Uncoss</el-tab-pane>
-        </template>
-      </KoiSection>
-    </div>
   </div>
 </template>
 
@@ -141,14 +126,6 @@ const handleConfirm = () => {
 const handleCancel = () => {
   koiDialogRef.value.koiClose();
 };
-
-/** 分段器开始 */
-import type { TabsPaneContext } from "element-plus";
-const activeName = ref("first");
-const handleClick = (tab: TabsPaneContext) => {
-  alert("name：" + tab.props.name);
-};
-/** 分段器结束 */
 </script>
 
 <style scoped></style>
