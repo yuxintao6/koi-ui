@@ -596,6 +596,7 @@ const handleSelectionChange = (selection: any) => {
 
 // 菜单图标
 const handleSelectIcon = (value?: string) => {
+  alert(value);
   form.value.icon = value;
 };
 // 级联下拉框

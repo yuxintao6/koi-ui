@@ -111,7 +111,7 @@ const iconType = ref("1");
 // 搜索iconName名字
 const iconName = ref("Aim");
 
-const emit = defineEmits(["update:selected"]);
+const emit = defineEmits(["selected"]);
 
 // 模糊搜索过滤数据
 const filterIcons = () => {
@@ -136,7 +136,7 @@ const selectedIndex = ref<string | number>(1);
 
 // 被选中图标数据
 const handleSelectIcon = (name?: any, index?: any) => {
-  emit("update:selected", name);
+  emit("selected", name);
   selectedIndex.value = index;
   iconName.value = name;
   document.body.click();
