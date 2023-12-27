@@ -91,7 +91,7 @@
       "name": "dictDataPage",
       "component": "system/dict/data",
       "icon": "Flag",
-      "isHide": "0",
+      "isHide": "1",
       "isLink": "",
       "isKeepAlive": "0",
       "isFull": "1",

@@ -114,14 +114,26 @@ export function selectDictLabel(datas: any, value: any) {
 }
 
 /**
- * @description 使用递归过滤出需要渲染在左侧菜单的列表 (需剔除 isHide == 0 隐藏的菜单)
+ * @description 使用递归过滤出需要渲染在左侧菜单动态数据的列表 (需剔除 isHide == 0 隐藏的菜单)
  * @param {Array} menuList 菜单列表
  * @returns {Array}
  * */
-export function getShowMenuList(menuList: any) {
+export function getShowDynamicMenuList(menuList: any) {
   let newMenuList: any = JSON.parse(JSON.stringify(menuList));
   return newMenuList.filter((item: any) => {
     return item.isHide == "1" || item.meta?.isHide == "1";
+  });
+}
+
+/**
+ * @description 使用递归过滤出需要渲染在左侧菜单静态的列表 (isHide == 0 隐藏的菜单无需剔除)，解决字典详情isHide == 0 隐藏菜单没法访问该页面问题，最后递归菜单组件再将 isHide == 0 的去除不进行显示。
+ * @param {Array} menuList 菜单列表
+ * @returns {Array}
+ * */
+export function getShowStaticMenuList(menuList: any) {
+  let newMenuList: any = JSON.parse(JSON.stringify(menuList));
+  return newMenuList.filter((item: any) => {
+    return item.isHide == "1" || item.meta?.isHide == "1" || item.isHide == "0" || item.meta?.isHide == "0";
   });
 }
 

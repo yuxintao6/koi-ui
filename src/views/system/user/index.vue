@@ -3,9 +3,9 @@
     <el-card class="rounded-md" shadow="never">
       <!-- 搜索条件 -->
       <el-form v-show="showSearch" :inline="true" id="searchFormId">
-        <el-form-item label="登录名称" prop="loginName">
+        <el-form-item label="登录账号" prop="loginName">
           <el-input
-            placeholder="请输入登录名称"
+            placeholder="请输入登录账号"
             v-model="searchParams.loginName"
             clearable
             style="width: 200px"
@@ -30,7 +30,7 @@
             @keyup.enter.native="handleListPage"
           ></el-input>
         </el-form-item>
-        <el-form-item label="访问时间" prop="loginTime">
+        <el-form-item label="登录时间" prop="loginTime">
           <el-date-picker
             v-model="dateRange"
             type="datetimerange"
@@ -83,7 +83,7 @@
         <el-table-column type="selection" width="55" align="center" />
         <el-table-column label="序号" prop="userId" width="80px" align="center" type="index"></el-table-column>
         <el-table-column
-          label="登录名称"
+          label="登录账号"
           prop="loginName"
           width="120px"
           align="center"

@@ -571,7 +571,8 @@ const handleExpandKey = (data: any) => {
     // 过滤数据
     const uniqueArray = [...new Set(resultList)];
     console.log("展开节点", uniqueArray);
-    expandKey.value = uniqueArray;
+    // 数组必须转为String类型的才生效
+    expandKey.value = uniqueArray.map(String);
   } else {
     expandKey.value = [];
   }

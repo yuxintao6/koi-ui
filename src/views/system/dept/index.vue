@@ -431,7 +431,8 @@ const handleExpandKey = (data: any) => {
     // 过滤数据
     const uniqueArray = [...new Set(resultList)];
     console.log("展开节点", uniqueArray);
-    expandKey.value = uniqueArray;
+    // 数组必须转为String类型的才生效
+    expandKey.value = uniqueArray.map(String);
   } else {
     expandKey.value = [];
   }
@@ -454,14 +455,13 @@ const handleSelectionChange = (selection: any) => {
 };
 
 // 级联下拉框
-let cascaderOptions = ref([]);
+let cascaderOptions = ref<any>([]);
 /** 部门级联数据 */
 const handleCascader = async () => {
   try {
     cascaderOptions.value = [];
     const res: any = await cascaderList();
     cascaderOptions.value = handleTree(res.data, "value");
-    // @ts-ignore
     cascaderOptions.value.unshift({
       label: "最顶级部门",
       value: "0",

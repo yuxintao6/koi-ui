@@ -5,7 +5,7 @@ import { staticRouter } from "@/routers/modules/staticRouter";
 import authMenu from "@/assets/json/authMenu.json";
 import authUser from "@/assets/json/authUser.json";
 import { generateRoutes, generateFlattenRoutes } from "@/utils/filterRoute.ts";
-import { getShowMenuList, getAllBreadcrumbList } from "@/utils/index.ts";
+import { getShowStaticMenuList, getShowDynamicMenuList, getAllBreadcrumbList } from "@/utils/index.ts";
 
 // 权限数据，不进行持久化。否则刷新浏览器无法获取新的数据。
 const authStore = defineStore("auth", {
@@ -36,7 +36,9 @@ const authStore = defineStore("auth", {
       // res.data是后端接口原始数据，进行扁平化路由数据。
       this.menuList = generateFlattenRoutes(authMenu.data);
       // 持久化递归菜单数据， 左侧菜单栏渲染，这里的菜单将后端数据进行递归，需要将动态路由 isHide == 0 的剔除, 将静态路由 isHide == 0 的剔除
-      this.recursiveMenuList = getShowMenuList(staticRouter).concat(generateRoutes(getShowMenuList(authMenu.data), 0));
+      this.recursiveMenuList = getShowStaticMenuList(staticRouter).concat(
+        generateRoutes(getShowDynamicMenuList(authMenu.data), 0)
+      );
     },
     // 获取角色数据 AND 按钮数据 AND 用户信息
     async getLoginUserInfo() {

@@ -172,7 +172,7 @@
         @current-change="handleListPage"
       />
 
-      <KoiDialog ref="koiDialogRef" :title="title" top="6vh" height="660" width="800" :footerHidden="true">
+      <KoiDialog ref="koiDialogRef" :title="title" top="6vh" :height="660" :width="800" :footerHidden="true">
         <template #content>
           <!-- 描述列表 -->
           <el-descriptions direction="vertical" :column="3" border>

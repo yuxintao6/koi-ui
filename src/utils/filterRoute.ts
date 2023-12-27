@@ -18,7 +18,7 @@ export function generateRoutes(data: any[], parentId: any) {
         const route: any = {
           path: `${data[i].path}`,
           name: `${data[i].name}`,
-          // 这里modules[`/src/views/${componentTemplate}.vue`] 一定要会用绝对定位
+          // 这里modules[`/src/views/${componentTemplate}.vue`] 一定要用绝对定位
           component: data[i]?.component ? modules[`/src/views/${componentTemplate}.vue`] : Layout,
           meta: {
             title: data[i].menuName,
@@ -60,7 +60,7 @@ export function generateFlattenRoutes(data: any[]) {
     const route: any = {
       path: `${data[i].path}`,
       name: `${data[i].name}`,
-      // 这里modules[`/src/views/${componentTemplate}.vue`] 一定要会用绝对定位
+      // 这里modules[`/src/views/${componentTemplate}.vue`] 一定要用绝对定位
       component: data[i]?.component ? modules[`/src/views/${componentTemplate}.vue`] : Layout,
       meta: {
         parentId: data[i].parentId,

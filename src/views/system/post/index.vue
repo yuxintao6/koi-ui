@@ -78,7 +78,7 @@
         <el-table-column
           label="岗位编码"
           prop="postCode"
-          width="120px"
+          width="130px"
           align="center"
           :show-overflow-tooltip="true"
         ></el-table-column>
