@@ -83,7 +83,7 @@
         ></el-table-column>
         <el-table-column label="菜单类型" prop="menuType" width="100px" align="center">
           <template #default="scope">
-            <KoiTag :tagOptions="tagOptions" :value="scope.row.menuType"></KoiTag>
+            <KoiTag :tagOptions="koiDicts.sys_menu_type" :value="scope.row.menuType"></KoiTag>
           </template>
         </el-table-column>
         <el-table-column label="展开/折叠" prop="isSpread" width="100px" align="center">
@@ -95,7 +95,7 @@
               active-value="0"
               inactive-value="1"
               :inline-prompt="true"
-              @click="handleisSpread(scope.row)"
+              @click="handleIsSpread(scope.row)"
             >
             </el-switch>
           </template>
@@ -150,7 +150,7 @@
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="路由path" prop="path" width="120px" align="center" :show-overflow-tooltip="true">
+        <el-table-column label="路由path" prop="path" width="180px" align="center" :show-overflow-tooltip="true">
         </el-table-column>
         <el-table-column label="显示顺序" prop="sorted" width="90px" align="center"></el-table-column>
         <el-table-column label="操作" align="center" width="120" fixed="right">
@@ -220,9 +220,13 @@
                 <!-- 菜单级联选择框 -->
                 <el-form-item label="菜单类型" prop="menuType">
                   <el-radio-group v-model="form.menuType">
-                    <el-radio v-for="(item, index) in tagOptions" :key="item.dictValue + index" :label="item.dictValue" border>{{
-                      item.dictLabel
-                    }}</el-radio>
+                    <el-radio
+                      v-for="(item, index) in koiDicts.sys_menu_type"
+                      :key="item.dictValue + index"
+                      :label="item.dictValue"
+                      border
+                      >{{ item.dictLabel }}</el-radio
+                    >
                   </el-radio-group>
                 </el-form-item>
               </el-col>
@@ -239,9 +243,14 @@
             </el-row>
 
             <el-row>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
+              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
                 <el-form-item label="菜单名称" prop="menuName">
                   <el-input v-model="form.menuName" placeholder="请输入菜单名称" clearable />
+                </el-form-item>
+              </el-col>
+              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
+                <el-form-item label="显示排序" prop="sorted" class="p-l-10px">
+                  <el-input-number v-model="form.sorted" clearable />
                 </el-form-item>
               </el-col>
             </el-row>
@@ -258,30 +267,6 @@
               <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px">
                 <el-form-item label="权限字符" prop="auth">
                   <el-input v-model="form.auth" placeholder="权限字符[system:user:list]" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-                <el-form-item label="是否外链" prop="isLink">
-                  <el-radio-group v-model="form.isLink">
-                    <el-radio label="0">是</el-radio>
-                    <el-radio label="1">否</el-radio>
-                  </el-radio-group>
-                </el-form-item>
-              </el-col>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }">
-                <el-form-item label="显示排序" prop="sorted" class="p-l-10px">
-                  <el-input-number v-model="form.sorted" clearable />
-                </el-form-item>
-              </el-col>
-            </el-row>
-
-            <el-row>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 24 }" v-if="form.isLink == '0'">
-                <el-form-item label="外链地址" prop="linkAddress">
-                  <el-input v-model="form.linkAddress" placeholder="请输入外链地址" clearable />
                 </el-form-item>
               </el-col>
             </el-row>
@@ -310,18 +295,26 @@
             <el-row>
               <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" v-if="form.menuType < 3">
                 <el-form-item label="是否折叠" prop="isSpread">
-                  <el-radio-group v-model="form.isLink">
+                  <el-radio-group v-model="form.isSpread">
                     <el-radio label="0">是</el-radio>
                     <el-radio label="1">否</el-radio>
                   </el-radio-group>
                 </el-form-item>
               </el-col>
-              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px" v-if="form.menuType == '2'">
+              <el-col :xs="{ span: 24 }" :sm="{ span: 12 }" class="p-l-10px" v-if="form.menuType < 3">
                 <el-form-item label="是否固钉" prop="isAffix">
                   <el-radio-group v-model="form.isAffix">
                     <el-radio label="0">是</el-radio>
                     <el-radio label="1">否</el-radio>
                   </el-radio-group>
+                </el-form-item>
+              </el-col>
+            </el-row>
+
+            <el-row>
+              <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
+                <el-form-item label="外链地址" prop="isLink">
+                  <el-input v-model="form.isLink" placeholder="请输入外链地址[输入值则判断为外链地址]" clearable />
                 </el-form-item>
               </el-col>
             </el-row>
@@ -335,10 +328,8 @@
 
 <script setup lang="ts" name="menuPage">
 import { nextTick, ref, reactive, onMounted } from "vue";
-// @ts-ignore
 import { koiNoticeSuccess, koiNoticeError, koiMsgError, koiMsgWarning, koiMsgBox, koiMsgInfo } from "@/utils/koi.ts";
 import { handleTree } from "@/utils/index.ts";
-// @ts-ignore
 import {
   list,
   cascaderList,
@@ -350,8 +341,8 @@ import {
   updateStatus,
   updateSpread
 } from "@/api/system/menu/index.ts";
-// @ts-ignore
-import { listDataByType } from "@/api/system/dict/data/index.ts";
+import { useKoiDict } from "@/hooks/dicts/index.ts";
+const { koiDicts } = useKoiDict(["sys_menu_type"]);
 // 数据表格加载页面动画
 const loading = ref(false);
 /** 是否显示搜索表单 */
@@ -517,40 +508,6 @@ const handleStaticPage = () => {
   handleExpandKey([]);
 };
 
-// 翻译数据
-const tagOptions = ref();
-/** 字典翻译tag */
-const handleDict = async () => {
-  try {
-    tagOptions.value = [
-      {
-        dictLabel: "目录",
-        dictValue: "1",
-        dictTag: "",
-        dictColor: ""
-      },
-      {
-        dictLabel: "菜单",
-        dictValue: "2",
-        dictTag: "warning",
-        dictColor: ""
-      },
-      {
-        dictLabel: "按钮",
-        dictValue: "3",
-        dictTag: "success",
-        dictColor: ""
-      }
-    ];
-    // const res: any = await listDataByType("sys_menu_type");
-    // console.log("字典数据", res.data);
-    // tagOptions.value = res.data;
-  } catch (error) {
-    console.log(error);
-    koiMsgError("数据字典查询失败，请刷新重试🌻");
-  }
-};
-
 // 展开数据
 const expandKey = ref();
 /** 展开节点 */
@@ -581,7 +538,6 @@ const handleExpandKey = (data: any) => {
 // 获取数据表格数据
 onMounted(() => {
   handleTreeList();
-  handleDict();
 });
 
 const ids = ref([]); // 选中数组
@@ -708,8 +664,7 @@ const resetForm = () => {
     path: "",
     component: "",
     isHide: "1",
-    isLink: "1",
-    linkAddress: "",
+    isLink: "",
     isKeepAlive: "0",
     isSpread: "1",
     auth: "",
@@ -725,7 +680,6 @@ const rules = reactive({
   menuName: [{ required: true, message: "请输入菜单名称", trigger: "change" }],
   isHide: [{ required: true, message: "请选择是否隐藏", trigger: "change" }],
   auth: [{ required: true, message: "请输入权限字符", trigger: "change" }],
-  isLink: [{ required: true, message: "请选择是否外链", trigger: "change" }],
   sorted: [{ required: true, message: "请输入排序号", trigger: "change" }]
 });
 
@@ -753,9 +707,6 @@ const handleConfirm = () => {
         }
       } else {
         try {
-          if (form.value.menuType == "3") {
-            form.value.isHide = "0"; // 按钮类型时，默认隐藏
-          }
           await add(form.value);
           koiNoticeSuccess("添加成功🌻");
           confirmLoading.value = false;
@@ -768,16 +719,6 @@ const handleConfirm = () => {
           koiNoticeError("添加失败，请刷新重试🌻");
         }
       }
-      // let loadingTime = 1;
-      // setInterval(() => {
-      //   loadingTime--;
-      //   if (loadingTime === 0) {
-      //     koiNoticeSuccess("朕让你提交了么？信不信锤你🌻");
-      //     confirmLoading.value = false;
-      //     resetForm();
-      //     koiDialogRef.value.koiQuickClose();
-      //   }
-      // }, 1000);
     } else {
       koiMsgError("验证失败，请检查填写内容🌻");
       confirmLoading.value = false;
@@ -814,7 +755,7 @@ const handleSwitch = (row: any) => {
 };
 
 /** 是否展开 */
-const handleisSpread = async (row: any) => {
+const handleIsSpread = async (row: any) => {
   if (!row.menuId || !row.isSpread) {
     koiMsgWarning("请选择需要展开的数据🌻");
     return;

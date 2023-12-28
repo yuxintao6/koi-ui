@@ -10,10 +10,10 @@
       @input="filterIcons"
     >
       <template #prepend>
-        <el-icon :size="18" v-if="iconType == '1'">
+        <el-icon :size="18" v-if="iconName && iconType == '1'">
           <component :is="iconName" />
         </el-icon>
-        <SvgIcon v-if="iconType == '2'" :name="iconName" />
+        <SvgIcon v-if="iconName && iconType == '2'" :name="iconName" />
       </template>
 
       <template #append>
@@ -34,10 +34,10 @@
           @input="filterIcons"
         >
           <template #prepend>
-            <el-icon :size="18" v-if="iconType == '1'">
+            <el-icon :size="18" v-if="iconName && iconType == '1'">
               <component :is="iconName" />
             </el-icon>
-            <SvgIcon v-if="iconType == '2'" :name="iconName" />
+            <SvgIcon v-if="iconName && iconType == '2'" :name="iconName" />
           </template>
 
           <template #append>
@@ -103,8 +103,14 @@ const getElementPlusIcon = () => {
     elementPlusIconList.value.push(name);
   }
 };
+// 原始数据备份
+const originalElementPlusIconList = ref<any[]>([]);
+const originalIconFontList = ref<string[]>([]);
 onMounted(() => {
   getElementPlusIcon();
+  // 备份原始数据
+  originalElementPlusIconList.value = [...elementPlusIconList.value];
+  originalIconFontList.value = [...iconFontList.value];
 });
 // 图标选择类型
 const iconType = ref("1");
@@ -115,19 +121,17 @@ const emit = defineEmits(["selected"]);
 
 // 模糊搜索过滤数据
 const filterIcons = () => {
-  if (iconType.value == "1") {
-    if (iconName.value) {
-      elementPlusIconList.value = elementPlusIconList.value.filter((item: any) => item.indexOf(iconName.value) !== -1);
-    } else {
-      resetDefaultIcon();
-    }
-  } else if (iconType.value == "2") {
-    iconFontList.value = icons;
-    if (iconName.value) {
-      iconFontList.value = icons.filter(item => item.indexOf(iconName.value) !== -1);
-    } else {
-      resetDefaultIcon();
-    }
+  // 重置数据时恢复原始数据
+  if (!iconName.value) {
+    resetDefaultIcon();
+    return;
+  }
+
+  // 根据备份数据进行过滤
+  if (iconType.value === "1") {
+    elementPlusIconList.value = originalElementPlusIconList.value.filter((item: string) => item.includes(iconName.value));
+  } else if (iconType.value === "2") {
+    iconFontList.value = originalIconFontList.value.filter((item: string) => item.includes(iconName.value));
   }
 };
 
