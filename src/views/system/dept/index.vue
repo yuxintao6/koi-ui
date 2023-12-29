@@ -81,10 +81,10 @@
           align="left"
           :show-overflow-tooltip="true"
         ></el-table-column>
-        <el-table-column label="展开/折叠" prop="spread" width="100px" align="center">
+        <el-table-column label="展开/折叠" prop="isSpread" width="100px" align="center">
           <template #default="scope">
             <el-switch
-              v-model="scope.row.spread"
+              v-model="scope.row.isSpread"
               active-text="展开"
               inactive-text="折叠"
               active-value="0"
@@ -273,7 +273,7 @@ const tableList = ref<any>([
     phone: "18588888888",
     email: "xxxxxx@163.com",
     deptStatus: "0",
-    spread: "1",
+    isSpread: "1",
     sorted: 1,
     remark: "我是天才🌻",
     createTime: "2023-08-08 23:00:00",
@@ -286,7 +286,7 @@ const tableList = ref<any>([
         phone: "18588888888",
         email: "xxxxxx@163.com",
         deptStatus: "0",
-        spread: "1",
+        isSpread: "1",
         sorted: 1,
         remark: "我是天才🌻",
         createTime: "2023-08-08 23:00:00"
@@ -299,7 +299,7 @@ const tableList = ref<any>([
         phone: "18566666666",
         email: "666666@163.com",
         deptStatus: "0",
-        spread: "1",
+        isSpread: "1",
         sorted: 1,
         remark: "我是天才🌻",
         createTime: "2023-08-08 23:00:00"
@@ -314,7 +314,7 @@ const tableList = ref<any>([
     phone: "18577777777",
     email: "xxxxxx@163.com",
     deptStatus: "0",
-    spread: "1",
+    isSpread: "1",
     sorted: 1,
     remark: "我是天才🌻",
     createTime: "2023-08-08 23:00:00",
@@ -327,7 +327,7 @@ const tableList = ref<any>([
         phone: "18577777777",
         email: "xxxxxx@163.com",
         deptStatus: "0",
-        spread: "1",
+        isSpread: "1",
         sorted: 1,
         remark: "我是天才🌻",
         createTime: "2023-08-08 23:00:00"
@@ -340,7 +340,7 @@ const tableList = ref<any>([
         phone: "18577777777",
         email: "666666@163.com",
         deptStatus: "0",
-        spread: "1",
+        isSpread: "1",
         sorted: 1,
         remark: "我是天才🌻",
         createTime: "2023-08-08 23:00:00"
@@ -420,10 +420,10 @@ const handleExpandKey = (data: any) => {
     expandKey.value = [];
     const resultList: string[] = [];
     data.forEach((obj: any) => {
-      if (obj.parentId == "0" && obj.spread == "0") {
+      if (obj.parentId == "0" && obj.isSpread == "0") {
         resultList.push(obj.deptId);
       }
-      if (obj.parentId != "0" && obj.spread == "0") {
+      if (obj.parentId != "0" && obj.isSpread == "0") {
         resultList.push(obj.deptId);
         resultList.push(obj.parentId);
       }
@@ -659,12 +659,12 @@ const handleSwitch = (row: any) => {
 
 /** 是否展开 */
 const handleSpread = async (row: any) => {
-  if (!row.id || !row.spread) {
+  if (!row.id || !row.isSpread) {
     koiMsgWarning("请选择需要展开的数据🌻");
     return;
   }
   try {
-    await updateSpread(row.id, row.spread);
+    await updateSpread(row.id, row.isSpread);
     handleTableData();
     koiNoticeSuccess("操作成功🌻");
   } catch (error) {
