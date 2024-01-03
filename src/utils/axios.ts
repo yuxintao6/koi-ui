@@ -9,7 +9,7 @@ import router from "@/routers/index.ts";
 // axios配置
 const config = {
   // 接口请求的地址
-  baseURL: import.meta.env.VITE_SERVER,
+  baseURL: import.meta.env.VITE_WEB_BASE_API,
   timeout: 10000
 };
 // 返回值类型
