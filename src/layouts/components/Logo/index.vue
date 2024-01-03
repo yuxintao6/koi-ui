@@ -31,6 +31,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import settings from "@/settings";
+import { getAssets } from "@/utils/index.ts";
 import useGlobalStore from "@/stores/modules/global.ts";
 
 const globalStore = useGlobalStore();
@@ -49,7 +50,7 @@ const props = defineProps({
 
 const title = ref(settings.logoTitle);
 const titleSize = ref(`${settings.loginTitleSize}px`);
-const logoUrl = ref(settings.logoUrl);
+const logoUrl = ref(`${getAssets(settings.logoUrl)}`);
 const hidden = ref(settings.logoHidden);
 const logoSize = ref(settings.logoSize);
 const titleAnimate = ref(settings.logoTitleAnimate);
