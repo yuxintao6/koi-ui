@@ -4,8 +4,8 @@
     <div class="box" ref="box" v-if="!isMobile">
       <!-- 滑动盒子 -->
       <div class="slide-box" ref="slideRef">
-        <h1 class="slide-title" v-if="switchLock">欢迎登录-YU-ADMIN🌻</h1>
-        <h1 class="slide-title" v-if="!switchLock">欢迎注册-YU-ADMIN🌻</h1>
+        <h1 class="slide-title" v-if="switchLock">欢迎登录-KOI-ADMIN🌻</h1>
+        <h1 class="slide-title" v-if="!switchLock">欢迎注册-KOI-ADMIN🌻</h1>
         <p class="slide-title">JOIN US</p>
         <div class="img-box">
           <img class="select-none" :src="switchLogo" alt="LOGO" />

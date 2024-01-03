@@ -1,11 +1,11 @@
 <template>
   <div class="p-6px">
     <el-card class="rounded-md dark:bg-black" shadow="hover">
-      <div class="flex flex-items-center" v-waterMarker="{ text: 'YU-ADMIN', textColor: '#D9D9D9' }">
+      <div class="flex flex-items-center" v-waterMarker="{ text: 'KOI-ADMIN', textColor: '#D9D9D9' }">
         <img class="w-60px h-60px rounded-full select-none" :src="settings.logoUrl" alt="avatar" />
         <div class="p-l-20px">
           <div class="font-bold p-b-8px whitespace-nowrap">
-            <span>YU-ADMIN🌻</span><span class="c-#409EFF" @click="handleGitee">[Gitee]</span><span>/</span
+            <span>KOI-ADMIN🌻</span><span class="c-#409EFF" @click="handleGitee">[Gitee]</span><span>/</span
             ><span class="c-orange" @click="handleGitHub">[GitHub]</span>
           </div>
           <div class="font-bold whitespace-nowrap">燕雀安知鸿鹄之志~🌻</div>
