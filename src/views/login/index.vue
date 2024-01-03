@@ -123,6 +123,7 @@
 <script lang="ts" setup>
 import { User, Lock, Open } from "@element-plus/icons-vue";
 import { ref, reactive, onMounted } from "vue";
+import { getAssets } from "@/utils/index.ts";
 
 /** 适配移动端开始 */
 import { useScreenStore } from "@/hooks/screen/index.ts";
@@ -371,7 +372,7 @@ const handleRegister = () => {
 // 切换开关
 const switchLock = ref(true);
 // 切换Logo
-const switchLogo = ref("https://koi-fish.oss-cn-beijing.aliyuncs.com/koi/screen/images/waoku.jpg");
+const switchLogo = ref(`${getAssets("images/login/waoku.jpg")}`);
 // 根据ref设置css
 const slideRef = ref();
 // 切换按钮背景颜色
@@ -381,7 +382,7 @@ const switchBtnHoverBg = ref("#F9739E");
 /** 切换登录 */
 const koiSwitchLogin = () => {
   switchLock.value = true;
-  switchLogo.value = "https://koi-fish.oss-cn-beijing.aliyuncs.com/koi/screen/images/waoku.jpg";
+  switchLogo.value = `${getAssets("images/login/waoku.jpg")}`;
   slideRef.value.style.background = "#edd4dc";
   slideRef.value.style.transform = "translateX(0%)"; // 设置元素的 transform 属性来触发过渡
   switchBtnBgAndslideTitle.value = "#FE3E7C";
@@ -391,7 +392,7 @@ const koiSwitchLogin = () => {
 /** 切换注册 */
 const koiSwitchRegister = () => {
   switchLock.value = false;
-  switchLogo.value = "https://koi-fish.oss-cn-beijing.aliyuncs.com/koi/screen/images/wuwu.jpg";
+  switchLogo.value = `${getAssets("images/login/wuwu.jpg")}`;
   slideRef.value.style.background = "#c9e0ed";
   slideRef.value.style.transform = "translateX(100%)"; // 设置元素的 transform 属性来触发过渡
   switchBtnBgAndslideTitle.value = "#409EFF";
