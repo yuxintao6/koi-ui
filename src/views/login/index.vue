@@ -73,6 +73,10 @@
               @keydown.enter="handleKoiLogin"
             ></el-input>
           </el-form-item>
+          <el-form-item>
+            <img class="w-100px h-30px" :src="loginForm.captchaPicture" @click="handleCaptcha" />
+            <div class="text-gray-400 text-12px m-l-10px select-none" @click="handleCaptcha">看不清，换一张</div>
+          </el-form-item>
         </el-form>
         <!-- 登录按钮盒子 -->
         <div class="login-btn-box">
@@ -109,6 +113,12 @@
             v-model="loginForm.securityCode"
             @keydown.enter="handleKoiLogin"
           ></el-input>
+          <el-form-item>
+            <div class="flex flex-items-center m-t-10px">
+              <img class="w-100px h-30px" :src="loginForm.captchaPicture" @click="handleCaptcha" />
+              <div class="text-gray-400 w-100px text-12px m-l-10px select-none" @click="handleCaptcha">看不清，换一张</div>
+            </div>
+          </el-form-item>
         </el-form-item>
       </el-form>
       <!-- 按钮盒子 -->
@@ -155,12 +165,16 @@ interface ILoginUser {
   loginName: string;
   password: string | number;
   securityCode: string | number;
+  codeKey: string | number;
+  captchaPicture: any;
 }
 
 const loginForm = reactive<ILoginUser>({
   loginName: "koi",
   password: "123456",
-  securityCode: "1234"
+  securityCode: "1234",
+  codeKey: "",
+  captchaPicture: "https://img2.baidu.com/it/u=3634763958,804148936&fm=253&fmt=auto&app=138&f=JPEG?w=942&h=298"
 });
 
 const loginRules = reactive<FormRules<ILoginUser>>({
@@ -168,6 +182,17 @@ const loginRules = reactive<FormRules<ILoginUser>>({
   password: [{ required: true, message: "密码不能为空", trigger: "blur" }],
   securityCode: [{ required: true, message: "验证码不能为空", trigger: "blur" }]
 });
+/** 获取验证码 */
+const handleCaptcha = async () => {
+  // try {
+  //   const res: any = await getCaptcha();
+  //   loginForm.codeKey = res.data.codeKey;
+  //   loginForm.captchaPicture = res.data.captchaPicture;
+  // } catch (error) {
+  //   console.log(error);
+  //   koiMsgError("验证码获取失败🌻");
+  // }
+};
 
 /** 登录 */
 const handleKoiLogin = () => {
@@ -229,8 +254,8 @@ const handleKoiLogin = () => {
         }, 1000);
       }
     } else {
-      koiNoticeSuccess("校验失败，信息填写有误🌻");
       console.log("登录校验失败", fields);
+      koiMsgError("校验失败，信息填写有误🌻");
     }
   });
 
@@ -314,6 +339,9 @@ const adminOptions = ref([
 
 // 进入页面加载管理员信息
 onMounted(() => {
+  // 获取验证码
+  handleCaptcha();
+  // 加载注册管理员信息
   listAdminInfo();
 });
 
@@ -556,8 +584,8 @@ const koiSwitchRegister = () => {
 
 /* 登录标题盒子 */
 .login-title {
-  height: 102px;
-  line-height: 102px;
+  height: 90px;
+  line-height: 90px;
 }
 
 /* 登录标题 */
@@ -600,7 +628,6 @@ const koiSwitchRegister = () => {
   height: 32px;
   padding: 8px 16px;
   margin: auto;
-  margin-top: 16px;
   font-size: 14px;
   line-height: 14px;
   color: #ffffff;
@@ -622,7 +649,6 @@ const koiSwitchRegister = () => {
   height: 32px;
   padding: 8px 16px;
   margin: auto;
-  margin-top: 16px;
   font-size: 14px;
   line-height: 14px;
   color: #ffffff;
