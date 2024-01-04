@@ -1,7 +1,7 @@
 <template>
   <el-tabs v-model="activeTab" type="card" class="koi-tabs" @tab-remove="removeTab" @tab-click="clickToggleTab">
     <!-- :closable="true" 显示关闭图标 -->
-    <el-tab-pane v-for="item in tabList" :key="item.path" :label="item.title" :name="item.path" :closable="item.close">
+    <el-tab-pane v-for="item in tabList" :key="item.path" :label="item.title" :name="item.path" :closable="item.closeIcon">
       <!-- 加载图标 -->
       <template #label>
         <el-icon class="m-r-2px" v-show="item.icon" @contextmenu.prevent="handleTabsMenuParent(item.path, $event)">
@@ -72,7 +72,7 @@ const initTabs = () => {
         title: item.meta.title,
         path: item.path,
         name: item.name,
-        close: false,
+        closeIcon: false,
         isKeepAlive: item.meta.isKeepAlive
       };
       tabsStore.addTab(tabsParams);
@@ -102,12 +102,12 @@ const addTab = () => {
     title: meta.title as string,
     path: fullPath,
     name: route.name as string,
-    close: route.meta.isAffix == "1", // true则显示关闭图标
+    closeIcon: route.meta.isAffix == "1", // true则显示关闭图标
     isKeepAlive: route.meta.isKeepAlive
   };
   if (fullPath == HOME_URL) {
     // 如果是首页的话，就固定不可关闭。
-    tab.close = false;
+    tab.closeIcon = false;
   }
   // 添加到选项卡仓库里面
   tabsStore.addTab(tab);
