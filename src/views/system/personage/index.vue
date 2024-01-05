@@ -109,17 +109,17 @@
                 <el-row>
                   <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
                     <el-form-item label="密码" prop="password">
-                      <el-input v-model="pwdForm.password" placeholder="请输入旧密码" clearable />
+                      <el-input v-model="pwdForm.password" placeholder="请输入旧密码" show-password clearable />
                     </el-form-item>
                   </el-col>
                   <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
                     <el-form-item label="新密码" prop="newPassword">
-                      <el-input v-model="pwdForm.newPassword" placeholder="请输入新密码" clearable />
+                      <el-input v-model="pwdForm.newPassword" placeholder="请输入新密码" show-password clearable />
                     </el-form-item>
                   </el-col>
                   <el-col :xs="{ span: 24 }" :sm="{ span: 24 }">
                     <el-form-item label="确认密码" prop="confirmPassword">
-                      <el-input v-model="pwdForm.confirmPassword" placeholder="请输入确认密码" clearable />
+                      <el-input v-model="pwdForm.confirmPassword" placeholder="请输入确认密码" show-password clearable />
                     </el-form-item>
                   </el-col>
                   <el-col :xs="{ span: 24 }" :sm="{ span: 24 }" class="mt-6px">
