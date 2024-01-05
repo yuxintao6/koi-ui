@@ -1,5 +1,5 @@
 <template>
-  <el-config-provider :size="dimension">
+  <el-config-provider :locale="locale" :size="dimension">
     <router-view></router-view>
   </el-config-provider>
 </template>
@@ -9,6 +9,9 @@ import { onMounted, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { getBrowserLang } from "@/utils/index.ts";
 import { useTheme } from "@/utils/theme.ts";
+import en from "element-plus/es/locale/lang/en";
+import zhCn from "element-plus/es/locale/lang/zh-cn";
+
 import useGlobalStore from "@/stores/modules/global.ts";
 const globalStore = useGlobalStore();
 
@@ -21,6 +24,13 @@ onMounted(() => {
   const language = globalStore.language ?? getBrowserLang();
   i18n.locale.value = language;
   globalStore.setGlobalState("language", language);
+});
+
+// 语言配置
+const locale = computed(() => {
+  if (globalStore.language == "zh") return zhCn;
+  if (globalStore.language == "en") return en;
+  return getBrowserLang() == "zh" ? zhCn : en;
 });
 
 // 初始化主题配置
