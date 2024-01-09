@@ -15,6 +15,7 @@
       :on-error="uploadError"
       :drag="drag"
       :accept="fileType.join(',')"
+      :folderName="folderName"
     >
       <div class="upload-content">
         <slot name="content">
@@ -62,6 +63,7 @@ interface UploadFileProps {
   height?: string; // 组件高度 ==> 非必传（默认为 120px）
   width?: string; // 组件宽度 ==> 非必传（默认为 120px）
   borderRadius?: string; // 组件边框圆角 ==> 非必传（默认为 6px）
+  folderName?: string;
 }
 
 const props = withDefaults(defineProps<UploadFileProps>(), {
@@ -74,7 +76,8 @@ const props = withDefaults(defineProps<UploadFileProps>(), {
   fileType: ["image/webp", "image/jpg", "image/jpeg", "image/png", "image/gif"],
   height: "120px",
   width: "120px",
-  borderRadius: "6px"
+  borderRadius: "6px",
+  folderName: "pictures"
 });
 
 // 获取 el-form 组件上下文
@@ -124,7 +127,7 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
     background: "rgba(0,0,0,.2)"
   });
   try {
-    const res: any = await koi.post(props.action + "/" + props.fileSize + "/" + "pictures", formData);
+    const res: any = await koi.post(props.action + "/" + props.fileSize + "/" + props.folderName, formData);
     options.onSuccess(import.meta.env.VITE_SERVER + res.data.fileUploadPath);
     loadingInstance.close();
   } catch (error) {

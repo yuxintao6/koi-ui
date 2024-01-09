@@ -13,6 +13,7 @@
       :on-error="uploadError"
       :drag="drag"
       :accept="fileType.join(',')"
+      :folderName="folderName"
     >
       <template v-if="imageUrl">
         <img :src="imageUrl" class="upload-image" />
@@ -65,6 +66,7 @@ interface UploadFileProps {
   height?: string; // 组件高度 ==> 非必传（默认为 120px）
   width?: string; // 组件宽度 ==> 非必传（默认为 120px）
   borderRadius?: string; // 组件边框圆角 ==> 非必传（默认为 6px）
+  folderName?: string; // 后端文件夹名称
 }
 
 // 接收父组件参数
@@ -77,7 +79,8 @@ const props = withDefaults(defineProps<UploadFileProps>(), {
   fileType: () => ["image/webp", "image/jpg", "image/jpeg", "image/png", "image/gif"],
   height: "120px",
   width: "120px",
-  borderRadius: "6px"
+  borderRadius: "6px",
+  folderName: "pictures"
 });
 
 // 生成组件唯一id
@@ -109,7 +112,7 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
     background: "rgba(0,0,0,.2)"
   });
   try {
-    const res: any = await koi.post(props.action + "/" + props.fileSize + "/" + "pictures", formData);
+    const res: any = await koi.post(props.action + "/" + props.fileSize + "/" + props.folderName, formData);
     emit("update:imageUrl", import.meta.env.VITE_SERVER + res.data.fileUploadPath);
     loadingInstance.close();
     // 调用 el-form 内部的校验方法（可自动校验）

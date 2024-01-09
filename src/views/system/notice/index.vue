@@ -209,7 +209,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="noticePage">
 import { ref, reactive, onMounted } from "vue";
 import {
   koiMsgSuccess,
@@ -459,7 +459,7 @@ const resetForm = () => {
 };
 /** 表单规则 */
 const rules = reactive({
-  noticeTitle: [{ required: true, message: "请输入公告名字", trigger: "change" }],
+  noticeTitle: [{ required: true, message: "请输入公告名称", trigger: "change" }],
   noticeType: [{ required: true, message: "请输入公告类型", trigger: "change" }],
   noticeStatus: [{ required: true, message: "请输入选择公告状态", trigger: "change" }]
 });
