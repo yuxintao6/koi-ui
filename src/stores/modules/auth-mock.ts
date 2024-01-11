@@ -36,7 +36,7 @@ const authStore = defineStore("auth", {
       console.log("用户路由菜单数据", res.data);
       // res.data是后端接口原始数据，进行扁平化路由数据。
       this.menuList = generateFlattenRoutes(res.data);
-      // 持久化递归菜单数据， 左侧菜单栏渲染，这里的菜单将后端数据进行递归，需要将动态路由 isHide == 0 的剔除, 将静态路由 isHide == 0 的剔除
+      // 持久化递归菜单数据，左侧菜单栏渲染，这里的菜单将后端数据进行递归，需要将动态路由 isHide == 0 的剔除，将静态路由 isHide == 0 的剔除
       this.recursiveMenuList = getShowStaticMenuList(staticRouter).concat(generateRoutes(getShowDynamicMenuList(res.data), 0));
     },
     // 获取角色数据 AND 按钮数据 AND 用户信息

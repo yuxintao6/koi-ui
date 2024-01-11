@@ -11,10 +11,10 @@ const auth: Directive = {
     const userStore = useAuthStore();
     const adminButtons = ["*"];
     if (
-      (Array.isArray(value) && value.every((permission: string) => userStore.buttonList.includes(permission))) ||
+      (Array.isArray(value) && value.some((permission: string) => userStore.buttonList.includes(permission))) ||
       JSON.stringify(userStore.buttonList) === JSON.stringify(adminButtons)
     ) {
-      // 如果用户拥有数组中所有权限，则不做任何操作，元素会显示出来
+      // 如果用户拥有指定权限中的任何一个或者是管理员，则显示元素
     } else {
       el.parentNode?.removeChild(el); // 如果用户不拥有所有权限，则移除元素
     }
