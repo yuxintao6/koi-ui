@@ -75,7 +75,7 @@ const tabsStore = defineStore("tabs", {
       if (currentIndex !== -1) {
         const range = type === "left" ? [0, currentIndex] : [currentIndex + 1, this.tabList.length];
         this.tabList = this.tabList.filter((item, index) => {
-          return index < range[0] || index >= range[1] || !item.close;
+          return index < range[0] || index >= range[1] || !item.closeIcon;
         });
       }
       // 重新设置路由缓存，将新的tabList的name覆盖keepAliveList
@@ -95,7 +95,7 @@ const tabsStore = defineStore("tabs", {
     // 关闭多个选项卡，若tabValue传递有值并且选项卡数组中存在，则关闭除自己和固定选项卡之外的所有选项卡[关闭其他选项卡]，若tabValue不传值，则关闭除固定选项卡之外的所有选项卡[关闭所有选项卡]。
     async closeManyTabs(tabValue?: string) {
       this.tabList = this.tabList.filter(item => {
-        return item.path === tabValue || !item.close;
+        return item.path === tabValue || !item.closeIcon;
       });
       // 重新设置路由缓存，将新的tabList的name覆盖keepAliveList
       const keepAliveList = this.tabList.filter(item => item.isKeepAlive);
