@@ -21,7 +21,7 @@ const authStore = defineStore("auth", {
       // 按钮权限列表
       buttonList: [],
       // 用户信息
-      userObject: {
+      loginUser: {
         userId: "",
         loginName: "",
         sex: "",
@@ -45,7 +45,7 @@ const authStore = defineStore("auth", {
       console.log("用户信息数据", authUser.data);
       this.roleList = authUser.data.roles;
       this.buttonList = authUser.data.buttons;
-      this.userObject = authUser.data.user;
+      this.loginUser = authUser.data.loginUser;
     }
   },
   // 计算属性，和vuex是使用一样，getters里面不是方法，是计算返回的结果值

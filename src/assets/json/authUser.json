@@ -2,7 +2,7 @@
   "status": 200,
   "msg": "SUCCESS",
   "data": {
-    "user": {
+    "loginUser": {
       "userId": 1,
       "loginName": "YU-ADMIN",
       "sex": "1",

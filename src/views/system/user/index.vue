@@ -586,8 +586,8 @@ const handleTableData = async () => {
   }
 };
 
-// 获取数据表格数据
 onMounted(() => {
+  // 获取数据表格数据
   handleListPage();
   handleDict1();
   handleDict2();

@@ -331,10 +331,11 @@ const handleTableData = async () => {
 import { useRoute } from "vue-router";
 const route = useRoute();
 let routeParam = ref();
-// 获取数据表格数据
+
 onMounted(() => {
   routeParam.value = route.params.dictType || ""; // 有值
   searchParams.value.dictType = routeParam.value;
+  // 获取数据表格数据
   handleListPage();
   handleDictType();
   handleFormDict();

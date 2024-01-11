@@ -9,6 +9,7 @@
       :show-file-list="false"
       :disabled="props.fileDisabled"
       :on-change="handleChange"
+      :folderName="folderName"
     >
       <div class="el-upload-text">
         <el-icon size="16"><Upload /></el-icon>
@@ -52,6 +53,7 @@ interface Props {
   action?: string;
   fileList?: any; // 回显的文件
   isDownLoad?: boolean; // 是否可以下载
+  folderName?: string; // 后端文件夹名称
 }
 // 接收父组件传递过来的参数
 const props = withDefaults(defineProps<Props>(), {
@@ -63,7 +65,8 @@ const props = withDefaults(defineProps<Props>(), {
   fileSize: 20,
   action: "/koi/file/uploadFile",
   fileList: [],
-  isDownLoad: false
+  isDownLoad: false,
+  folderName: "files"
 });
 let koiFileList = ref<any>([]);
 // 父组件传递回显数据
@@ -117,7 +120,7 @@ const handleChange = async (file: any) => {
     // 上传到服务器上面
     const requestURL: string = props.action;
     koi
-      .post(requestURL + "/" + props.fileSize + "/" + "files", formData)
+      .post(requestURL + "/" + props.fileSize + "/" + props.folderName, formData)
       .then((res: any) => {
         loadingInstance.close();
         let fileMap = res.data;

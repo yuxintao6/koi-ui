@@ -349,8 +349,8 @@ const handleTableData = async () => {
   }
 };
 
-// 获取数据表格数据
 onMounted(() => {
+  // 获取数据表格数据
   handleListPage();
 });
 const ids = ref([]); // 选中数组

@@ -342,8 +342,8 @@ const handleStaticPage = () => {
   listPage(searchParams.value);
 };
 
-// 获取数据表格数据
 onMounted(() => {
+  // 获取数据表格数据
   handleListPage();
 });
 
