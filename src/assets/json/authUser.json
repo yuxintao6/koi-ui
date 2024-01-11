@@ -17,7 +17,6 @@
       "system:role:update",
       "system:role:import",
       "system:role:export"
-    ],
-    "permissions": "*"
+    ]
   }
 }
