@@ -87,7 +87,7 @@ const handleHttpUpload = async (param: any) => {
   let fileFormData = new FormData();
   fileFormData.append("file", param.file, param.file.name);
   const res: any = await koi.post(koiParams.value.importApi, fileFormData);
-  if (res?.status != 200 || res?.code != 200) {
+  if (res?.status != 200 && res?.code != 200) {
     ElNotification({
       title: "温馨提示",
       message: "上传失败，请重试！",
