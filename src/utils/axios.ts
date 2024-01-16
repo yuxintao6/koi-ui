@@ -162,5 +162,16 @@ class Yu {
       }
     });
   }
+  // 导出Excel
+  exportExcel<T = Result>(url: string, params?: object): Promise<T> {
+    return axios.get(import.meta.env.VITE_SERVER + url, {
+      params,
+      headers: {
+        Accept: "application/vnd.ms-excel",
+        Authorization: "Bearer " + getToken()
+      },
+      responseType: 'blob'
+    });
+  }
 }
 export default new Yu(config);

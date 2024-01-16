@@ -74,7 +74,8 @@ const globalStore = useGlobalStore();
 console.log("双栏布局左侧动态路由", authStore.showMenuList);
 // 动态绑定左侧菜单animate动画
 const menuAnimate = ref(settings.menuAnimate);
-const menuList = computed(() => authStore.showMenuList);
+// 隐藏静态路由中isHide == '1'的数据
+const menuList = computed(() => authStore.showMenuList.filter((item: any) => item.meta.isHide == '1'));
 
 const menuHoverCollapse = ref(settings.columnMenuHoverCollapse);
 
