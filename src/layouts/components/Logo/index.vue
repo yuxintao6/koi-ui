@@ -13,7 +13,7 @@
       v-if="props.layout === 'classic'"
     />
     <img
-      class="m-l-10px m-r-12px koiLogoImg rounded-full select-none"
+      class="m-l-6px m-r-12px koiLogoImg rounded-full select-none"
       :src="logoUrl"
       alt="avatar"
       v-if="props.layout === 'columns'"
