@@ -17,13 +17,12 @@
       </template>
 
       <template #append>
-        <el-select v-model="iconType" placeholder="选择图标类型">
+        <el-select v-model="iconType" placeholder="选择图标类型" style="width: 136px">
           <el-option label="ElementPlus" value="1" @click="handleIconType('1')" />
           <el-option label="IconFont" value="2" @click="handleIconType('2')" />
         </el-select>
       </template>
     </el-input>
-
     <KoiDrawer ref="koiDrawerRef" title="添加图标" :footerHidden="true" :closeOnClickModel="true">
       <template #content>
         <el-input
@@ -41,7 +40,7 @@
           </template>
 
           <template #append>
-            <el-select v-model="iconType" placeholder="选择图标类型">
+            <el-select v-model="iconType" placeholder="选择图标类型" style="width: 136px">
               <el-option label="ElementPlus" value="1" @click="handleIconType('1')" />
               <el-option label="IconFont" value="2" @click="handleIconType('2')" />
             </el-select>
