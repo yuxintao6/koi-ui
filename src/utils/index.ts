@@ -153,6 +153,7 @@ export const getAllBreadcrumbList = (menuList: any, parent = [], result: { [key:
   return result;
 };
 
+const mode = import.meta.env.VITE_ROUTER_MODE;
 /**
  * @description 获取不同路由模式所对应的 url + params
  * @returns {String}

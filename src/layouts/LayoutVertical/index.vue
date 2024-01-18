@@ -8,7 +8,7 @@
       <el-scrollbar class="layout-scrollbar">
         <!-- :unique-opened="true" 子菜单不能同时展开 -->
         <el-menu
-          :default-active="route.path"
+          :default-active="activeMenu"
           :collapse="globalStore.isCollapse"
           :collapse-transition="false"
           :uniqueOpened="globalStore.uniqueOpened"
@@ -48,7 +48,7 @@ console.log("纵向布局左侧动态路由", authStore.showMenuList);
 // 动态绑定左侧菜单animate动画
 const menuAnimate = ref(settings.menuAnimate);
 const menuList = computed(() => authStore.showMenuList);
-
+const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string);
 const menuHoverCollapse = ref(settings.asideMenuHoverCollapse);
 </script>
 

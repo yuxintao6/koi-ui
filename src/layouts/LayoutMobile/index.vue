@@ -23,7 +23,7 @@
       <el-scrollbar class="layout-scrollbar">
         <!-- :unique-opened="true" 子菜单不能同时展开 -->
         <el-menu
-          :default-active="route.path"
+          :default-active="activeMenu"
           :collapse-transition="false"
           :uniqueOpened="globalStore.uniqueOpened"
           :router="false"
@@ -54,7 +54,7 @@ const globalStore = useGlobalStore();
 // 动态绑定左侧菜单animate动画
 const menuAnimate = ref(settings.menuAnimate);
 const menuList = computed(() => authStore.showMenuList);
-
+const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string);
 const mobileDrawer = ref(false);
 </script>
 

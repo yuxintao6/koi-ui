@@ -32,7 +32,7 @@
       <el-scrollbar class="layout-scrollbar">
         <!-- :unique-opened="true" 子菜单不能同时展开 -->
         <el-menu
-          :default-active="route.path"
+          :default-active="activeMenu"
           :collapse="globalStore.isCollapse"
           :collapse-transition="false"
           :uniqueOpened="globalStore.uniqueOpened"
@@ -75,7 +75,7 @@ console.log("双栏布局左侧动态路由", authStore.showMenuList);
 // 动态绑定左侧菜单animate动画
 const menuAnimate = ref(settings.menuAnimate);
 // 隐藏静态路由中isHide == '1'的数据
-const menuList = computed(() => authStore.showMenuList.filter((item: any) => item.meta.isHide == '1'));
+const menuList = computed(() => authStore.showMenuList.filter((item: any) => item.meta.isHide == "1"));
 
 const menuHoverCollapse = ref(settings.columnMenuHoverCollapse);
 
@@ -132,6 +132,7 @@ const handleSubMenu = (item: any) => {
   subMenuList.value = [];
   router.push(item.path);
 };
+const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string);
 </script>
 
 <style lang="scss" scoped>

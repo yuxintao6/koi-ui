@@ -68,8 +68,8 @@ export const staticRouter: RouteRecordRaw[] = [
     }
   },
   {
-    path: "/system/dictData", // 路由访问路径（唯一）
-    name: "systemDictDataPage", // 命名路由（唯一）
+    path: "/system/static", // 路由访问路径（唯一）
+    name: "staticPage", // 命名路由（唯一）
     component: Layout, // 一级路由，可以将子路由放置Main模块中
     meta: {
       title: "静态路由", // 标题
@@ -81,6 +81,23 @@ export const staticRouter: RouteRecordRaw[] = [
       isAffix: "1" // 是否缓存固定路由（0是，1否）
     },
     children: [
+      // 字典详情json
+      // {
+      //   "menuId": 15,
+      //   "menuName": "字典详情",
+      //   "parentId": 1,
+      //   "menuType": "2",
+      //   "path": "/system/dict/data/:dictType",
+      //   "name": "dictDataPage",
+      //   "component": "system/dict/data",
+      //   "icon": "Flag",
+      //   "isHide": "1",
+      //   "isLink": "",
+      //   "isKeepAlive": "0",
+      //   "isFull": "1",
+      //   "isAffix": "1",
+      //   "redirect": ""
+      // },
       {
         path: "/system/dict/data/:dictType", // 路由访问路径（唯一）
         name: "dictDataPage", // 命名路由（唯一）
@@ -92,7 +109,8 @@ export const staticRouter: RouteRecordRaw[] = [
           isLink: "", // 是否外链（有值则是外链）
           isKeepAlive: "0", // 是否缓存路由数据（0是，1否）
           isFull: "1", // 是否缓存全屏（0是，1否）
-          isAffix: "1" // 是否缓存固定路由（0是，1否）
+          isAffix: "1", // 是否缓存固定路由（0是，1否）
+          activeMenu: "/system/dict/type" // 默认选中哪个路由
         }
       }
     ]

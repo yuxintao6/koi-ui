@@ -4,7 +4,7 @@
       <Logo :layout="globalStore.layout"></Logo>
       <div class="koi-menu">
         <!-- 不能直接使用 HorizontalSubMenu 组件，因为菜单数据过多无法触发 el-menu 隐藏省略功能 -->
-        <el-menu mode="horizontal" :default-active="route.path" :router="false" :class="menuAnimate">
+        <el-menu mode="horizontal" :default-active="activeMenu" :router="false" :class="menuAnimate">
           <!-- 有下级，用el-sub-menu，无下级用el-menu-item -->
           <template v-for="item in menuList" :key="item.path">
             <!-- 非叶子节点 v-show：true(显示)false(隐藏)，v-if反之。 -->
@@ -73,6 +73,7 @@ const handleMenuIsLink = (value: any) => {
   if (value.meta?.isLink) return window.open(value.meta.isLink, "_blank");
   router.push(value.path);
 };
+const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string);
 </script>
 
 <style lang="scss" scoped>
