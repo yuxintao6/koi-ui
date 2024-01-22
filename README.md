@@ -100,6 +100,6 @@ pnpm build:prod
 <table>
     <tr>
         <td><img src="https://i.miji.bid/2023/11/26/db0ea158bd0e90586b3a6636e71417ae.jpeg"/></td>
-        <td><img src="https://i.postimg.cc/KGt39bDQ/weChat.jpg"/></td>
+        <td><img src="https://i.miji.bid/2024/01/22/66e26e5284cd3371f770a06edec5b88d.jpeg"/></td>
     </tr>
 </table>
