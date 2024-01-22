@@ -1,13 +1,7 @@
 import { defineStore } from "pinia";
-// import { PINIA_PREFIX } from "@/config";
+
 // defineStore方法执行会返回一个函数，函数的作用就是让组件可以获取到仓库数据
 const userStore = defineStore("keepAlive", {
-  // 开启数据持久化
-  // persist: {
-  //   // enabled: true, // true 表示开启持久化保存，默认localStorage
-  //   key: PINIA_PREFIX + "keepAlive", // 默认会以 store 的 id 作为 key
-  //   storage: sessionStorage
-  // },
   // 存储数据state
   state: (): any => {
     return {

@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { koiSessionStorage } from "@/utils/storage.ts";
+import { koiSessionStorage, koiLocalStorage } from "@/utils/storage.ts";
 import { LOGIN_URL } from "@/config";
 import { useRouter } from "vue-router";
 
@@ -25,10 +25,8 @@ const router = useRouter();
 
 // 退出登录
 const handleLayout = () => {
-  koiSessionStorage.remove("user");
-  koiSessionStorage.remove("tabs");
-  koiSessionStorage.remove("global");
-  koiSessionStorage.remove("auth");
+  koiSessionStorage.clear();
+  koiLocalStorage.clear();
   // 必须使用这个把页面缓存刷掉
   window.location.replace(LOGIN_URL);
 };

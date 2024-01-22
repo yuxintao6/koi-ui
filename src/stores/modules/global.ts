@@ -1,4 +1,4 @@
-// 定义是否折叠小仓库（选择式Api写法）
+// 定义全局主题配置小仓库（选择式Api写法）
 import { defineStore } from "pinia";
 import { PINIA_PREFIX, DEFAULT_THEME } from "@/config/index.ts";
 

@@ -6,7 +6,7 @@ import cookies from "js-cookie";
  * 封装获取用户信息的方法
  */
 export const getToken = () => {
-  const koiUser = window.sessionStorage.getItem(PINIA_PREFIX + "user");
+  const koiUser = window.localStorage.getItem(PINIA_PREFIX + "user");
   if (koiUser != null && koiUser != "" && koiUser != undefined) {
     const parseKoiUser = JSON.parse(koiUser);
     // console.log("parseKoiUser",parseKoiUser)

@@ -14,7 +14,7 @@ const tabsStore = defineStore("tabs", {
   persist: {
     // enabled: true, // true 表示开启持久化保存
     key: PINIA_PREFIX + "tabs", // 默认会以 store 的 id 作为 key
-    storage: sessionStorage
+    storage: localStorage
   },
   // 存储数据state
   state: () => {

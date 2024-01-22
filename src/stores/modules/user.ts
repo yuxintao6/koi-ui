@@ -7,7 +7,7 @@ const userStore = defineStore("user", {
   persist: {
     // enabled: true, // true 表示开启持久化保存，默认localStorage
     key: PINIA_PREFIX + "user", // 默认会以 store 的 id 作为 key
-    storage: sessionStorage
+    storage: localStorage
   },
   // 可以通过为属性指定选项来配置持久化方式persist
   // persist: {

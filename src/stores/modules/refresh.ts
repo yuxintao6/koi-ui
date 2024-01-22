@@ -1,4 +1,4 @@
-// 定义是否折叠小仓库（选择式Api写法）
+// 定义是否刷新小仓库（选择式Api写法）
 import { defineStore } from "pinia";
 
 const refreshStore = defineStore("refresh", {

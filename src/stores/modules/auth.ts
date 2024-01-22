@@ -1,6 +1,5 @@
-// 定义是否折叠小仓库（选择式Api写法）
+// 定义权限小仓库（选择式Api写法）
 import { defineStore } from "pinia";
-
 import { staticRouter } from "@/routers/modules/staticRouter";
 import authMenu from "@/assets/json/authMenu.json";
 import authUser from "@/assets/json/authUser.json";
