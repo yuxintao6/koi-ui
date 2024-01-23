@@ -28,7 +28,7 @@ const globalStore = defineStore("global", {
       // 当前页面是否全屏
       maximize: false,
       // 当前系统语言[默认中文]
-      language: "zhCn",
+      language: "zh",
       // 选择主题[默认兔子坦克形态]
       themeColor: DEFAULT_THEME,
       // 布局模式 (纵向：vertical | 经典：classic | 横向：crosswise | 分栏：column)
