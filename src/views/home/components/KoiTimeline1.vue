@@ -9,7 +9,7 @@
 <script setup lang="ts">
 const activities = [
   {
-    content: "YU-ADMIN🌻 开启了崭新的人生！",
+    content: "KOI-ADMIN🌻 开启了崭新的人生！",
     timestamp: "2023-11-23 18:00:00",
     type: "primary"
   },
