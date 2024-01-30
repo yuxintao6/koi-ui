@@ -21,7 +21,7 @@ export const initDynamicRouter = async () => {
     console.log("authStore.menuList", authStore.menuList);
     // Proxy对象转换为正常的JSON数据
     // const menuRouters = JSON.parse(JSON.stringify(authStore.menuList));
-    if (!authStore.menuList) {
+    if (authStore.menuList == null || authStore.menuList.length == 0) {
       koiNoticeWarning("当前账号无任何菜单权限，请联系系统管理员");
       userStore.setToken("");
       router.replace(LOGIN_URL);
