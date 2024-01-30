@@ -301,10 +301,10 @@ import {
 } from "@/utils/koi.ts";
 // @ts-ignore
 import { listPage, getById, add, update, deleteById, batchDelete, updateStatus } from "@/api/system/user/index.ts";
-
 import { listNormalRole, assignUserRole } from "@/api/system/role/index.ts";
 // @ts-ignore
 import { listDataByType } from "@/api/system/dict/data/index.ts";
+import { koiDatePicker } from "@/utils/index.ts";
 
 // 数据表格加载页面动画
 const loading = ref(false);
@@ -517,7 +517,9 @@ const searchParams = ref({
   userName: "",
   phone: ""
 });
+
 const total = ref<number>(0);
+
 // 重置搜索参数
 const resetSearchParams = () => {
   searchParams.value = {
@@ -529,12 +531,14 @@ const resetSearchParams = () => {
   };
   dateRange.value = [];
 };
+
 /** 搜索 */
 const handleSearch = () => {
   console.log("搜索");
   searchParams.value.pageNo = 1;
   handleListPage();
 };
+
 /** 重置 */
 const resetSearch = () => {
   console.log("重置搜索");
@@ -542,7 +546,6 @@ const resetSearch = () => {
   handleListPage();
 };
 
-import { koiDatePicker } from "@/utils/index.ts";
 // 时间
 const dateRange = ref();
 /** @current-change：点击分页组件页码发生变化：例如：切换第2、3页 OR 上一页 AND 下一页 OR 跳转某一页 */
@@ -702,31 +705,34 @@ const koiDrawerRef = ref();
 const title = ref("用户类型管理");
 // form表单Ref
 const formRef = ref<any>();
+
 // form表单
 let form = ref<any>({
-  userTitle: "",
-  userType: "",
-  userStatus: "",
-  avatar: "",
-  phone: "",
-  remark: ""
+  userTitle: null,
+  userType: null,
+  userStatus: null,
+  avatar: null,
+  phone: null,
+  remark: null
 });
+
 /** 清空表单数据 */
 const resetForm = () => {
   form.value = {
-    userTitle: "",
-    userType: "",
-    userStatus: "",
-    avatar: "",
-    phone: "",
-    remark: ""
+    userTitle: null,
+    userType: null,
+    userStatus: null,
+    avatar: null,
+    phone: null,
+    remark: null
   };
 };
+
 /** 表单规则 */
 const rules = reactive({
-  userTitle: [{ required: true, message: "请输入用户名字", trigger: "change" }],
-  userType: [{ required: true, message: "请输入用户类型", trigger: "change" }],
-  userStatus: [{ required: true, message: "请输入选择用户状态", trigger: "change" }]
+  userTitle: [{ required: true, message: "请输入用户名字", trigger: "blur" }],
+  userType: [{ required: true, message: "请输入用户类型", trigger: "blur" }],
+  userStatus: [{ required: true, message: "请输入选择用户状态", trigger: "blur" }]
 });
 
 // 确定按钮是否显示loading

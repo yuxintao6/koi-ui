@@ -243,9 +243,11 @@ const searchParams = ref({
   ipAddress: "",
   loginStatus: ""
 });
+
 const total = ref<number>(0);
 // 时间
 const dateRange = ref();
+
 // 重置搜索参数
 const resetSearchParams = () => {
   dateRange.value = [];
@@ -257,12 +259,14 @@ const resetSearchParams = () => {
     loginStatus: ""
   };
 };
+
 /** 搜索 */
 const handleSearch = () => {
   console.log("搜索");
   searchParams.value.pageNo = 1;
   handleListPage();
 };
+
 /** 重置 */
 const resetSearch = () => {
   console.log("重置搜索");

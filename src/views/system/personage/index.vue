@@ -159,29 +159,28 @@ const mine = ref({
 const activeName = ref("first");
 
 /** 基本资料开始  */
-
 // form表单Ref
 const mineFormRef = ref<any>();
 // form表单
 let mineForm = ref<any>({
-  loginName: "",
-  phone: "",
-  email: "",
+  loginName: null,
+  phone: null,
+  email: null,
   sex: "3"
 });
 /** 清空表单数据 */
 const resetMineForm = () => {
   mineForm.value = {
-    loginName: "",
-    phone: "",
-    email: "",
+    loginName: null,
+    phone: null,
+    email: null,
     sex: "3"
   };
 };
 /** 表单规则 */
 const mineRules = reactive({
-  loginName: [{ required: true, message: "请输入登录名称", trigger: "change" }],
-  phone: [{ required: true, message: "请输入手机号码", trigger: "change" }]
+  loginName: [{ required: true, message: "请输入登录名称", trigger: "blur" }],
+  phone: [{ required: true, message: "请输入手机号码", trigger: "blur" }]
 });
 
 /** 保存 */
@@ -195,7 +194,6 @@ const handleMineSave = () => {
     }
   });
 };
-
 /** 基本资料结束  */
 
 /** 修改密码开始  */
@@ -207,6 +205,7 @@ let pwdForm = ref<any>({
   newPassword: "",
   confirmPassword: ""
 });
+
 /** 清空表单数据 */
 const resetPwdForm = () => {
   pwdForm.value = {
@@ -215,6 +214,7 @@ const resetPwdForm = () => {
     confirmPassword: ""
   };
 };
+
 /** 表单规则 */
 const pwdRules = reactive({
   password: [{ required: true, message: "请输入旧密码", trigger: "change" }],

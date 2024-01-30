@@ -224,10 +224,12 @@ import {
 import { listPage, getById, add, update, deleteById, batchDelete, updateStatus } from "@/api/system/notice/index.ts";
 // @ts-ignore
 import { listDataByType } from "@/api/system/dict/data/index.ts";
+
 // 数据表格加载页面动画
 const loading = ref(false);
 /** 是否显示搜索表单 */
 const showSearch = ref<boolean>(true); // 默认显示搜索条件
+
 // 数据表格数据
 const tableList = ref<any>([
   {
@@ -279,7 +281,9 @@ const searchParams = ref({
   noticeStatus: "",
   noticeType: ""
 });
+
 const total = ref<number>(0);
+
 // 重置搜索参数
 const resetSearchParams = () => {
   searchParams.value = {
@@ -290,12 +294,14 @@ const resetSearchParams = () => {
     noticeType: ""
   };
 };
+
 /** 搜索 */
 const handleSearch = () => {
   console.log("搜索");
   searchParams.value.pageNo = 1;
   handleTableData();
 };
+
 /** 重置 */
 const resetSearch = () => {
   console.log("重置搜索");
@@ -348,6 +354,7 @@ onMounted(() => {
   handleListPage();
   handleDict();
 });
+
 // 翻译数据
 const noticeOptions = ref();
 /** 字典翻译tag */
@@ -437,31 +444,34 @@ const koiDrawerRef = ref();
 const title = ref("公告类型管理");
 // form表单Ref
 const formRef = ref<any>();
+
 // form表单
 let form = ref<any>({
-  noticeTitle: "",
-  noticeType: "",
-  noticeStatus: "",
-  noticeContent: "",
+  noticeTitle: null,
+  noticeType: null,
+  noticeStatus: null,
+  noticeContent: null,
   sorted: 1,
-  remark: ""
+  remark: null
 });
+
 /** 清空表单数据 */
 const resetForm = () => {
   form.value = {
-    noticeTitle: "",
-    noticeType: "",
-    noticeStatus: "",
-    noticeContent: "",
+    noticeTitle: null,
+    noticeType: null,
+    noticeStatus: null,
+    noticeContent: null,
     sorted: 1,
-    remark: ""
+    remark: null
   };
 };
+
 /** 表单规则 */
 const rules = reactive({
-  noticeTitle: [{ required: true, message: "请输入公告名称", trigger: "change" }],
-  noticeType: [{ required: true, message: "请输入公告类型", trigger: "change" }],
-  noticeStatus: [{ required: true, message: "请输入选择公告状态", trigger: "change" }]
+  noticeTitle: [{ required: true, message: "请输入公告名称", trigger: "blur" }],
+  noticeType: [{ required: true, message: "请输入公告类型", trigger: "blur" }],
+  noticeStatus: [{ required: true, message: "请输入选择公告状态", trigger: "blur" }]
 });
 
 // 确定按钮是否显示loading

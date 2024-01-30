@@ -249,7 +249,9 @@ const searchParams = ref({
   dictStatus: "",
   dictType: ""
 });
+
 const total = ref<number>(0);
+
 // 重置搜索参数
 const resetSearchParams = () => {
   searchParams.value = {
@@ -260,12 +262,14 @@ const resetSearchParams = () => {
     dictType: ""
   };
 };
+
 /** 搜索 */
 const handleSearch = () => {
   console.log("搜索");
   searchParams.value.pageNo = 1;
   handleListPage();
 };
+
 /** 重置 */
 const resetSearch = () => {
   console.log("重置搜索");
@@ -381,27 +385,29 @@ const title = ref("字典类型管理");
 const formRef = ref<any>();
 // form表单
 let form = ref<any>({
-  dictId: "",
-  dictType: "",
-  dictName: "",
-  dictStatus: "",
-  remark: ""
+  dictId: null,
+  dictType: null,
+  dictName: null,
+  dictStatus: null,
+  remark: null
 });
+
 /** 清空表单数据 */
 const resetForm = () => {
   form.value = {
-    dictId: "",
-    dictType: "",
-    dictName: "",
-    dictStatus: "",
-    remark: ""
+    dictId: null,
+    dictType: null,
+    dictName: null,
+    dictStatus: null,
+    remark: null
   };
 };
+
 /** 表单规则 */
 const rules = reactive({
-  dictName: [{ required: true, message: "请输入字典名字", trigger: "change" }],
-  dictType: [{ required: true, message: "请输入字典类型", trigger: "change" }],
-  dictStatus: [{ required: true, message: "请输入选择字典状态", trigger: "change" }]
+  dictName: [{ required: true, message: "请输入字典名字", trigger: "blur" }],
+  dictType: [{ required: true, message: "请输入字典类型", trigger: "blur" }],
+  dictStatus: [{ required: true, message: "请输入选择字典状态", trigger: "blur" }]
 });
 
 // 确定按钮是否显示loading

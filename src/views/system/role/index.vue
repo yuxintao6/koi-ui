@@ -249,6 +249,7 @@ import { koiNoticeSuccess, koiNoticeError, koiMsgError, koiMsgWarning, koiMsgBox
 import { listPage, getById, add, update, deleteById, batchDelete, updateStatus } from "@/api/system/role/index.ts";
 import { listMenuNormal, listMenuIdsByRoleId, saveRoleMenu } from "@/api/system/menu/index.ts";
 import { handleTree } from "@/utils/index.ts";
+
 // 数据表格加载页面动画
 const loading = ref(false);
 /** 是否显示搜索表单 */
@@ -292,7 +293,9 @@ const searchParams = ref({
   roleStatus: "",
   roleCode: ""
 });
+
 const total = ref<number>(0);
+
 // 重置搜索参数
 const resetSearchParams = () => {
   searchParams.value = {
@@ -303,12 +306,14 @@ const resetSearchParams = () => {
     roleCode: ""
   };
 };
+
 /** 搜索 */
 const handleSearch = () => {
   console.log("搜索");
   searchParams.value.pageNo = 1;
   handleListPage();
 };
+
 /** 重置 */
 const resetSearch = () => {
   console.log("重置搜索");
@@ -414,32 +419,35 @@ const koiDialogRef = ref();
 const title = ref("角色管理");
 // form表单Ref
 const formRef = ref<any>();
+
 // form表单
 let form = ref<any>({
-  roleId: "",
-  roleName: "",
-  roleCode: "",
-  roleStatus: "",
+  roleId: null,
+  roleName: null,
+  roleCode: null,
+  roleStatus: null,
   sorted: 1,
-  remark: ""
+  remark: null
 });
+
 /** 清空表单数据 */
 const resetForm = () => {
   form.value = {
-    roleId: "",
-    roleName: "",
-    roleCode: "",
-    roleStatus: "",
+    roleId: null,
+    roleName: null,
+    roleCode: null,
+    roleStatus: null,
     sorted: 1,
-    remark: ""
+    remark: null
   };
 };
+
 /** 表单规则 */
 const rules = reactive({
-  roleName: [{ required: true, message: "请输入角色名字", trigger: "change" }],
-  roleCode: [{ required: true, message: "请输入角色编号", trigger: "change" }],
-  roleStatus: [{ required: true, message: "请输入选择角色状态", trigger: "change" }],
-  sorted: [{ required: true, message: "请输入排序号", trigger: "change" }]
+  roleName: [{ required: true, message: "请输入角色名字", trigger: "null" }],
+  roleCode: [{ required: true, message: "请输入角色编号", trigger: "null" }],
+  roleStatus: [{ required: true, message: "请输入选择角色状态", trigger: "null" }],
+  sorted: [{ required: true, message: "请输入排序号", trigger: "null" }]
 });
 
 // 确定按钮是否显示loading

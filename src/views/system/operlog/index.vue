@@ -430,6 +430,7 @@ const handleView = async (row: any) => {
 const koiDialogRef = ref();
 /** 打开Dialog操作 */
 const title = ref("描述列表");
+
 // form表单
 let form = ref<any>({
   methodName: "",
@@ -439,6 +440,7 @@ let form = ref<any>({
   errorMsg: "",
   costTime: ""
 });
+
 /** 清空表单数据 */
 const resetForm = () => {
   form.value = {

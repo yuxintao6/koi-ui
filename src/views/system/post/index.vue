@@ -295,7 +295,9 @@ const searchParams = ref({
   postCode: "",
   postStatus: ""
 });
+
 const total = ref<number>(0);
+
 // 重置搜索参数
 const resetSearchParams = () => {
   searchParams.value = {
@@ -426,29 +428,32 @@ const koiDrawerRef = ref();
 const title = ref("岗位类型管理");
 // form表单Ref
 const formRef = ref<any>();
+
 // form表单
 let form = ref<any>({
-  postName: "",
-  postCode: "",
-  postStatus: "",
+  postName: null,
+  postCode: null,
+  postStatus: null,
   sorted: 1,
-  remark: ""
+  remark: null
 });
+
 /** 清空表单数据 */
 const resetForm = () => {
   form.value = {
-    postName: "",
-    postCode: "",
-    postStatus: "",
+    postName: null,
+    postCode: null,
+    postStatus: null,
     sorted: 1,
-    remark: ""
+    remark: null
   };
 };
+
 /** 表单规则 */
 const rules = reactive({
-  postName: [{ required: true, message: "请输入岗位名字", trigger: "change" }],
-  postCode: [{ required: true, message: "请输入岗位编码", trigger: "change" }],
-  postStatus: [{ required: true, message: "请输入选择岗位状态", trigger: "change" }]
+  postName: [{ required: true, message: "请输入岗位名字", trigger: "blur" }],
+  postCode: [{ required: true, message: "请输入岗位编码", trigger: "blur" }],
+  postStatus: [{ required: true, message: "请输入选择岗位状态", trigger: "blur" }]
 });
 
 // 确定按钮是否显示loading

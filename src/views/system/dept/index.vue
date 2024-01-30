@@ -355,6 +355,7 @@ const searchParams = ref({
   phone: "",
   deptStatus: ""
 });
+
 // 重置搜索参数
 const resetSearchParams = () => {
   searchParams.value = {
@@ -363,11 +364,13 @@ const resetSearchParams = () => {
     deptStatus: ""
   };
 };
+
 /** 搜索 */
 const handleSearch = () => {
   console.log("搜索");
   handleTreeList();
 };
+
 /** 重置 */
 const resetSearch = () => {
   console.log("重置搜索");
@@ -485,6 +488,7 @@ const toggleExpandAll = () => {
     refreshTreeTable.value = true;
   });
 };
+
 /** 添加 */
 const handleAdd = () => {
   // 重置表单
@@ -538,41 +542,44 @@ const koiDialogRef = ref();
 const title = ref("部门管理");
 // form表单Ref
 const formRef = ref<any>();
+
 // form表单
 let form = ref<any>({
-  id: "",
-  deptId: "",
-  deptName: "",
-  parentId: "",
+  id: null,
+  deptId: null,
+  deptName: null,
+  parentId: null,
   deptStatus: "0",
-  leader: "",
-  phone: "",
-  email: "",
+  leader: null,
+  phone: null,
+  email: null,
   sorted: 1
 });
+
 /** 清空表单数据 */
 const resetForm = () => {
   form.value = {
-    id: "",
-    deptId: "",
-    deptName: "",
-    parentId: "",
-    deptStatus: "",
-    leader: "",
-    phone: "",
-    email: "",
+    id: null,
+    deptId: null,
+    deptName: null,
+    parentId: null,
+    deptStatus: null,
+    leader: null,
+    phone: null,
+    email: null,
     sorted: 1
   };
 };
+
 /** 表单规则 */
 const rules = reactive({
-  deptId: [{ required: true, message: "请输入部门编号", trigger: "change" }],
-  deptName: [{ required: true, message: "请输入部门名字", trigger: "change" }],
-  parentId: [{ required: true, message: "请选择上级部门", trigger: "change" }],
-  deptStatus: [{ required: true, message: "请输入选择部门状态", trigger: "change" }],
-  leader: [{ required: true, message: "请输入负责人名字", trigger: "change" }],
-  phone: [{ required: true, message: "请输入手机号码", trigger: "change" }],
-  sorted: [{ required: true, message: "请输入排序号", trigger: "change" }]
+  deptId: [{ required: true, message: "请输入部门编号", trigger: "blur" }],
+  deptName: [{ required: true, message: "请输入部门名字", trigger: "blur" }],
+  parentId: [{ required: true, message: "请选择上级部门", trigger: "blur" }],
+  deptStatus: [{ required: true, message: "请输入选择部门状态", trigger: "blur" }],
+  leader: [{ required: true, message: "请输入负责人名字", trigger: "blur" }],
+  phone: [{ required: true, message: "请输入手机号码", trigger: "blur" }],
+  sorted: [{ required: true, message: "请输入排序号", trigger: "blur" }]
 });
 
 // 确定按钮是否显示loading

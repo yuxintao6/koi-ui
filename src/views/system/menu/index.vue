@@ -342,11 +342,13 @@ import {
   updateSpread
 } from "@/api/system/menu/index.ts";
 import { useKoiDict } from "@/hooks/dicts/index.ts";
+
 const { koiDicts } = useKoiDict(["sys_menu_type"]);
 // 数据表格加载页面动画
 const loading = ref(false);
 /** 是否显示搜索表单 */
 const showSearch = ref<boolean>(true); // 默认显示搜索条件
+
 // 数据表格数据
 const tableList = ref([
   {
@@ -452,6 +454,7 @@ const searchParams = ref({
   auth: "",
   menuStatus: ""
 });
+
 // 重置搜索参数
 const resetSearchParams = () => {
   searchParams.value = {
@@ -460,11 +463,13 @@ const resetSearchParams = () => {
     menuStatus: ""
   };
 };
+
 /** 搜索 */
 const handleSearch = () => {
   console.log("搜索");
   handleTableData();
 };
+
 /** 重置 */
 const resetSearch = () => {
   console.log("重置搜索");
@@ -653,34 +658,36 @@ const title = ref("菜单管理");
 const formRef = ref();
 // form表单
 let form = ref();
+
 /** 清空表单数据 */
 const resetForm = () => {
   form.value = {
     parentId: "0",
     menuType: "2",
-    icon: "",
-    menuName: "",
-    name: "",
-    path: "",
-    component: "",
+    icon: null,
+    menuName: null,
+    name: null,
+    path: null,
+    component: null,
     isHide: "1",
-    isLink: "",
+    isLink: null,
     isKeepAlive: "0",
     isSpread: "1",
-    auth: "",
+    auth: null,
     isFull: "1",
     isAffix: "1",
     sorted: 1
   };
 };
+
 /** 表单规则 */
 const rules = reactive({
-  parentId: [{ required: true, message: "请选择上级菜单", trigger: "change" }],
-  menuType: [{ required: true, message: "请选择菜单类型", trigger: "change" }],
-  menuName: [{ required: true, message: "请输入菜单名称", trigger: "change" }],
-  isHide: [{ required: true, message: "请选择是否隐藏", trigger: "change" }],
-  auth: [{ required: true, message: "请输入权限字符", trigger: "change" }],
-  sorted: [{ required: true, message: "请输入排序号", trigger: "change" }]
+  parentId: [{ required: true, message: "请选择上级菜单", trigger: "blur" }],
+  menuType: [{ required: true, message: "请选择菜单类型", trigger: "blur" }],
+  menuName: [{ required: true, message: "请输入菜单名称", trigger: "blur" }],
+  isHide: [{ required: true, message: "请选择是否隐藏", trigger: "blur" }],
+  auth: [{ required: true, message: "请输入权限字符", trigger: "blur" }],
+  sorted: [{ required: true, message: "请输入排序号", trigger: "blur" }]
 });
 
 // 确定按钮是否显示loading
