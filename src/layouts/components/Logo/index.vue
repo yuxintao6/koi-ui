@@ -81,6 +81,12 @@ watch(
   line-height: $aside-header-height;
   text-align: center;
   cursor: pointer;
+  font-family:
+    Avenir,
+    Helvetica Neue,
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 .koiLogoImg {
   width: v-bind(logoSize);
