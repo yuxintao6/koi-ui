@@ -13,9 +13,6 @@
     cursor: pointer;
   }
 }
-.theme-color {
-  color: var(--el-color-primary);
-}
 
 /* 当前页面最大化CSS，选项卡也行要去掉可以加上.el-tabs, */
 .main-maximize {
@@ -59,22 +56,26 @@
 .el-table .el-table__header-wrapper th {
   font-weight: bold;
   color: #303133;
-
   @apply dark:c-#ffffff;
 }
 
 /* 管理平台全局字体 */
 body {
   font-family:
-    v-sans,
+    ui-sans-serif,
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
     sans-serif,
     "Apple Color Emoji",
     "Segoe UI Emoji",
-    "Segoe UI Symbol";
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
 }
 
 /* ElementPlus级联框单选选中文字也可以（三级会出现选中问题）  */

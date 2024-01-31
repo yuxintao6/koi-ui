@@ -43,7 +43,7 @@
     <!-- 上传图库 -->
     <KoiImage>
       <template #content>
-        <div class="theme-color flex flex-col items-center">
+        <div class="c-[--el-color-primary] flex flex-col items-center">
           <el-icon :size="30"><Avatar /></el-icon>
           <span class="text-12px m-t-4px">请上传头像</span>
         </div>
