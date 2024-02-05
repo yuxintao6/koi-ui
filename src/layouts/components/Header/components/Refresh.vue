@@ -9,13 +9,16 @@
 
 <script setup lang="ts">
 import { koiMsgSuccess } from "@/utils/koi.ts";
-import useRefreshStore from "@/stores/modules/refresh.ts";
+import { LOGIN_URL } from "@/config";
+import { koiSessionStorage, koiLocalStorage } from "@/utils/storage.ts";
 
-const refreshStore = useRefreshStore();
-// 刷新路由
+// 刷新本地缓存
 const handleRefresh = () => {
-  refreshStore.refresh = !refreshStore.refresh;
-  koiMsgSuccess("刷新所有路由页面缓存成功🌻");
+  koiSessionStorage.clear();
+  koiLocalStorage.clear();
+  koiMsgSuccess("刷新本地缓存成功🌻");
+  // 必须使用这个把页面缓存刷掉
+  window.location.replace(LOGIN_URL);
 };
 </script>
 

@@ -120,6 +120,7 @@ defineExpose({
 .el-dialog {
   border-top-left-radius: 8px !important;
   border-top-right-radius: 8px !important;
+  padding-top: 0px;
 
   // 标题头部
   .el-dialog__header {
@@ -127,10 +128,7 @@ defineExpose({
     align-items: center;
     justify-content: center;
     height: 50px !important;
-    padding: 0;
-    margin-right: 0 !important;
-    border-top-left-radius: 8px !important;
-    border-top-right-radius: 8px !important;
+    padding: 0 0 6px 0;
 
     // background: #1e71ee;
     @apply dark:bg-#141414;
@@ -141,7 +139,7 @@ defineExpose({
     }
   }
   .el-dialog__body {
-    padding: 15px;
+    padding: 0px;
   }
   .el-dialog__footer {
     padding: 10px;

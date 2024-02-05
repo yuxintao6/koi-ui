@@ -30,6 +30,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       viteMockServe({
         // 解析根目录下的mock文件夹
         mockPath: "mock",
+        // @ts-ignore
         localEnabled: command === "serve", // 保证开发阶段可以使用mock接口
         supportTs: true, // 打开后，可以读取 ts 文件模块。 请注意，打开后将无法监视.js 文件。
         watchFiles: true // 监视文件更改 更改mock的时候，不需要重新启动编译
@@ -52,7 +53,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       }
     },
     server: {
-      host: "0.0.0.0", // 配置localhost、本机IP地址
+      host: "localhost", // 配置localhost、本机IP地址
       port: 5730, // 端口号
       hmr: true, // 热更新
       open: true, // 自动打开

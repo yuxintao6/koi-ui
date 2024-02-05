@@ -364,7 +364,7 @@ const handleDict = async () => {
       {
         dictLabel: "通知",
         dictValue: "1",
-        dictTag: "",
+        dictTag: "primary",
         dictColor: ""
       },
       {

@@ -95,7 +95,6 @@
           align="center"
           :show-overflow-tooltip="true"
         ></el-table-column>
-
         <el-table-column
           label="操作人员[登录名/用户名]"
           prop="operMan"
@@ -195,7 +194,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="loginlogPage">
+<script setup lang="ts" name="operlogPage">
 import { ref, onMounted } from "vue";
 // @ts-ignore
 import { koiNoticeSuccess, koiNoticeError, koiMsgWarning, koiMsgBox, koiMsgInfo, koiMsgError } from "@/utils/koi.ts";

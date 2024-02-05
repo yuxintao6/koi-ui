@@ -93,7 +93,7 @@
         ></el-table-column>
         <el-table-column label="登录状态" prop="loginStatus" width="100px" align="center" :show-overflow-tooltip="true">
           <template #default="scope">
-            <el-tag :type="scope.row.loginStatus == '0' ? '' : scope.row.loginStatus == '1' ? 'danger' : 'warning'">
+            <el-tag :type="scope.row.loginStatus == '0' ? 'primary' : scope.row.loginStatus == '1' ? 'danger' : 'warning'">
               <!-- :type是用来判断块状的颜色 -->
               <!-- 里面填写内容 -->
               {{ scope.row.loginStatus == "0" ? "登录成功" : scope.row.loginStatus == "1" ? "登录失败" : "未知状态" }}
