@@ -143,7 +143,7 @@
           </template>
         </el-table-column> -->
         <el-table-column label="登录时间" prop="loginTime" width="180px" align="center"></el-table-column>
-        <el-table-column label="操作" align="center" width="80" fixed="right">
+        <el-table-column label="操作" align="center" width="120" fixed="right">
           <template #default="{ row }">
             <el-tooltip content="删除🌻" placement="top">
               <el-button

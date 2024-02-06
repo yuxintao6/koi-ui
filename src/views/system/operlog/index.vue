@@ -105,7 +105,7 @@
         <el-table-column
           label="请求URL"
           prop="operUrl"
-          width="150px"
+          width="200px"
           align="center"
           :show-overflow-tooltip="true"
         ></el-table-column>
@@ -119,7 +119,7 @@
         <el-table-column
           label="操作地点"
           prop="operLocation"
-          width="150px"
+          width="180px"
           align="center"
           :show-overflow-tooltip="true"
         ></el-table-column>

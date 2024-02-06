@@ -151,7 +151,7 @@
         <el-table-column
           label="操作"
           align="center"
-          width="120"
+          width="150"
           fixed="right"
           v-auth="['system:role:update', 'system:role:delete']"
         >
