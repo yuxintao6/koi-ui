@@ -5,7 +5,9 @@
       <el-card class="rounded-md dark:bg-black" shadow="hover">
         <div class="flex justify-between">
           <span class="text-sm">{{ item.title1 }}</span>
-          <el-tag :type="index == 0 ? '' : index == 1 ? 'success' : index == 2 ? 'warning' : 'danger'">{{ item.unit }}</el-tag>
+          <el-tag :type="index == 0 ? 'primary' : index == 1 ? 'success' : index == 2 ? 'warning' : 'danger'">{{
+            item.unit
+          }}</el-tag>
         </div>
         <div class="text-2xl"><CountTo :startVal="0" :endVal="item.value1" :duration="2000"></CountTo></div>
         <el-divider direction="horizontal" content-position="left"></el-divider>
