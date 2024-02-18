@@ -8,8 +8,12 @@
             :class="{ 'item-no-icon': !item.meta.icon }"
             @click="handleBreadcrumb(item, index)"
           >
-            <el-icon v-if="item.meta.icon" class="breadcrumb-icon">
+            <el-icon v-if="item.meta.icon && item.meta.icon.indexOf(SVG_PREFIX) == -1" class="breadcrumb-icon">
               <component :is="item.meta.icon"></component>
+            </el-icon>
+            <!-- 本地SVG -->
+            <el-icon v-if="item.meta.icon && item.meta.icon.indexOf(SVG_PREFIX) == 0" class="breadcrumb-icon">
+              <component is="SvgIcon" :name="item.meta.icon"></component>
             </el-icon>
             <span class="breadcrumb-title">{{ item.meta.title }}</span>
           </div>
@@ -24,6 +28,7 @@ import { computed } from "vue";
 import { HOME_URL } from "@/config/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import { ArrowRight } from "@element-plus/icons-vue";
+import { SVG_PREFIX } from "@/config/index.ts";
 import useAuthStore from "@/stores/modules/auth.ts";
 
 const route = useRoute();
