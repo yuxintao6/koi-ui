@@ -35,7 +35,55 @@ KOI-ADMIN🌻 是一款开源企业级别的中后台管理平台模板，基于
 - 👻 集成 `mock` 接口服务。
 - 🏡 集成 `iconify` 图标，支持自定义 svg 图标, 优雅使用icon。
 
-## 3、预览
+## 3、无需递归路由
+
+众所周知，在实现左侧无限递归路由的时候，后端需要进行树形递归，前端再二次进行递归处理，这样增加了前后端开发难度，如何解决如下？
+
+此项目，前端使用扁平化路由，实现三级及以上页面依旧存在路由缓存效果。
+
+后端提供接口菜单不需要再进行递归，直接根据提供的json格式，进行提供接口[数据如下]，简化后端难度，实现无限递归路由。
+
+```properties
+{
+  "status": 200,
+  "msg": "SUCCESS",
+  "data": [
+    {
+      "menuId": 1,
+      "menuName": "系统管理",
+      "parentId": 0,
+      "menuType": "1",
+      "path": "/system",
+      "name": "systemPage",
+      "component": "",
+      "icon": "Tools",
+      "isHide": "1",
+      "isLink": "",
+      "isKeepAlive": "0",
+      "isFull": "1",
+      "isAffix": "1",
+      "redirect": "/system/user"
+    },
+    {
+      "menuId": 11,
+      "menuName": "用户管理",
+      "parentId": 1,
+      "menuType": "2",
+      "path": "/system/user",
+      "name": "userPage",
+      "component": "system/user/index",
+      "icon": "UserFilled",
+      "isHide": "1",
+      "isLink": "",
+      "isKeepAlive": "0",
+      "isFull": "1",
+      "isAffix": "1",
+      "redirect": ""
+    },
+}  
+```
+
+## 4、预览
 
 > 预览截图
 
@@ -58,18 +106,18 @@ KOI-ADMIN🌻 是一款开源企业级别的中后台管理平台模板，基于
   </tr>
 </table>
 
-## 4、支持
+## 5、支持
 
 如果觉得 KOI-ADMIN🌻这个框架不错，或者已经在使用了，希望你可以在 **Github** 或者 **Gitee(码云)** 帮我点个 ⭐ ，这将对我是极大的鼓励。
 
-## 5、快速开始
+## 6、快速开始
 
 ```properties
 # 启动
 pnpm run dev
 ```
 
-## 6、打包发布
+## 7、打包发布
 
 ```properties
 # 构建环境
@@ -78,7 +126,7 @@ pnpm build
 pnpm build:prod
 ```
 
-## 7、源码
+## 8、源码
 
 <p align="left">
   <span>&nbsp;[&nbsp;</span>
@@ -93,7 +141,7 @@ pnpm build:prod
   <span>&nbsp;]&nbsp;</span>
 <p>
 
-## 8、入群交流
+## 9、入群交流
 
 > 注意：加微信方式时记得添加备注：KOI-UI，支持知识付费。
 
