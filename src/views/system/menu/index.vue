@@ -782,6 +782,7 @@ const handleDelete = (row: any) => {
   const id = row.menuId;
   if (id == null || id == "") {
     koiMsgWarning("请选中需要删除的数据🌻");
+    return;
   }
   koiMsgBox("您确认需要删除菜单名称[" + row.menuName + "]么？")
     .then(async () => {

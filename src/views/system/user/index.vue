@@ -880,6 +880,7 @@ const handleDelete = (row: any) => {
   const id = row.userId;
   if (id == null || id == "") {
     koiMsgWarning("请选中需要删除的数据🌻");
+    return;
   }
   koiMsgBox("您确认需要删除用户名称[" + row.userTitle + "]么？")
     .then(async () => {

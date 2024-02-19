@@ -686,6 +686,7 @@ const handleDelete = (row: any) => {
   const id = row.id;
   if (id == null || id == "") {
     koiMsgWarning("请选中需要删除的数据🌻");
+    return;
   }
   koiMsgBox("您确认需要删除部门名称[" + row.deptName + "]么？")
     .then(async () => {

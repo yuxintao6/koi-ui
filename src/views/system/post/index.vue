@@ -545,6 +545,7 @@ const handleDelete = (row: any) => {
   const id = row.postId;
   if (id == null || id == "") {
     koiMsgWarning("请选中需要删除的数据🌻");
+    return;
   }
   koiMsgBox("您确认需要删除岗位名称[" + row.postName + "]么？")
     .then(async () => {
